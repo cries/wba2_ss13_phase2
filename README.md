@@ -1,7 +1,7 @@
 Smart Buildings
 =================
 
-Entwicklung eines Systems zur Überwachung von Bürogebäude-spezifischen Daten mit mobilen Endgeräten. 
+Entwicklung eines Systems zur Überwachung von Gebäude-spezifischen Daten mit mobilen Endgeräten. 
 
 Über die Client-Software ist es möglich verschiedene Rollen mit verschiedenen Zugriffsrechten zu definieren.
 So hätte z.B. der Chef einen Vollzugriff und ein Mitarbeiter nur Zugriff auf verschiedene Funktionen 
