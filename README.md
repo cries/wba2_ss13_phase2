@@ -1,5 +1,15 @@
-wba2_ss13_phase2
-================
 
-Smart Home System
+Smart Buildings
 =================
+
+Entwicklung eines Systems zur Überwachung von Gebäude-spezifischen Daten mit mobilen Endgeräten. 
+
+REST (synchron)
+---------------
+
+
+
+Publish / Subscribe (asynchron)
+--------------------------------
+
+
