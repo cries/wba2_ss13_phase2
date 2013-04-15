@@ -22,9 +22,9 @@ REST (synchron)
 
 ### Rollen:
 
-* Chef        -> Vollzugriff
-* Mitarbeiter -> Teilzugriff
-* Hausmeister -> Vollzugriff
+* **Chef**        -> Vollzugriff
+* **Mitarbeiter** -> Teilzugriff
+* **Hausmeister** -> Vollzugriff
 
 
 Publish / Subscribe (asynchron)
@@ -39,8 +39,8 @@ Publish / Subscribe (asynchron)
 
 ### Rollen:
 
-* Chef              -> Vollzugriff
-* Hausmeister       -> Vollzugriff
-* Polizei           -> Teilzugriff
-* Feuerwehr         -> Teilzugriff
-* Sicherheitsfirma  -> Teilzugriff
+* **Chef**              -> Vollzugriff
+* **Hausmeister**       -> Vollzugriff
+* **Polizei**           -> Teilzugriff
+* **Feuerwehr**         -> Teilzugriff
+* **Sicherheitsfirma**  -> Teilzugriff
