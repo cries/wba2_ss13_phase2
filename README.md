@@ -37,16 +37,14 @@ des Systems (REST & Pub/Sub).
 
 ## Funktionen
 
-#### REST (synchron)
-----------------------------------------
+### REST (synchron)
 
 * Abfrage von Energiedaten (aktueller Energieverbrauch)
 * Abfrage von Innentemperatur / Luftfeuchte
 * Abfrage von CO2-Sensoren
 * Abfrage von Überwachungskamera (Kamerabilder)
 
-#### Publish / Subscribe (asynchron)
-----------------------------------------
+### Publish / Subscribe (asynchron)
 
 * Meldung bei Betätigung der Türklingel
 * Meldung von Bewegungen (Bewegungsmelder)
@@ -56,13 +54,13 @@ des Systems (REST & Pub/Sub).
 
 ## Rollen:
 
-#### REST (synchron)
+### REST (synchron)
 
- **Chef**        -> Vollzugriff
- **Mitarbeiter** -> Teilzugriff
- **Hausmeister** -> Vollzugriff
+* **Chef**        -> Vollzugriff
+* **Mitarbeiter** -> Teilzugriff
+* **Hausmeister** -> Vollzugriff
 
-#### Publish / Subscribe (asynchron)
+### Publish / Subscribe (asynchron)
 
 * **Chef**              -> Vollzugriff
 * **Hausmeister**       -> Vollzugriff
