@@ -6,7 +6,14 @@
 2. [Funktionen](#funktionen)
 3. [Rollen](#rollen)
 4. [Meilensteine](#meilensteine)  
-  4.1 [Kommunikationsabläufe und Interaktionen](#m0-kommunikationsablufe-und-interaktionen)
+  4.1 [Kommunikationsabläufe und Interaktionen](#m0-kommunikationsablufe-und-interaktionen)  
+  4.2 [Projektspezifisches XML Schema](#m1-projektspezifisches-xml-schema)  
+  4.3 [Ressourcen und die Semantik der HTTP-Operationen](#m2-ressourcen-und-die-semantik-der-http-operationen)  
+  4.4 [RESTful Webservice](#m3-restful-webservice)  
+  4.5 [Konzeption asynchrone Kommunikation](#m4-konzeption-asynchrone-kommunikation)  
+  4.6 [XMPP - Client](#m5-xmpp---client)  
+  4.7 [Client - Entwicklung](#m6-client---entwicklung)  
+  4.8 [Endabgabe](#endabgabe)
 5. [Projekttagebuch](#projekttagebuch)
 
 ## Smart Buildings Szenario
