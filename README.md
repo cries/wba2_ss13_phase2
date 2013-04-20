@@ -1,6 +1,14 @@
 #Web-basierte Anwendungen 2 - Phase 2
 
-##Smart Buildings Szenario
+## Inhalt
+
+[Szenario](#smart-buildings-szenario)
+[Funktionen](https://github.com/cries/wba2_ss13_phase2#smart-buildings-szenario)
+[Rollen](https://github.com/cries/wba2_ss13_phase2#smart-buildings-szenario)
+[Meilensteine](https://github.com/cries/wba2_ss13_phase2#meilensteine)
+[Projekttagebuch](https://github.com/cries/wba2_ss13_phase2#Projekttagebuch)
+
+## Smart Buildings Szenario
 
 Entwicklung eines Systems zur Überwachung von Gebäude-spezifischen Daten mit mobilen Endgeräten. 
 
