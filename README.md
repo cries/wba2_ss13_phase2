@@ -1,6 +1,6 @@
 #Web-basierte Anwendungen 2 - Phase 2
 
-# Inhalt
+## Inhalt
 
 1. [Szenario](#smart-buildings-szenario)
 2. [Funktionen](#funktionen)
@@ -8,7 +8,7 @@
 4. [Meilensteine](#meilensteine)
 5. [Projekttagebuch](#projekttagebuch)
 
-# Smart Buildings Szenario
+## Smart Buildings Szenario
 [nach oben](#inhalt)
 
 Entwicklung eines Systems zur Überwachung von Gebäude-spezifischen Daten mit mobilen Endgeräten. 
@@ -68,7 +68,7 @@ des Systems (REST & Pub/Sub).
 * **Feuerwehr**         -> Teilzugriff
 * **Sicherheitsfirma**  -> Teilzugriff
 
-# Meilensteine
+## Meilensteine
 [nach oben](#inhalt)
 
 ## M0 Kommunikationsabläufe und Interaktionen 
@@ -104,7 +104,7 @@ des Systems (REST & Pub/Sub).
 21.06.2013
 
 
-# Projekttagebuch
+## Projekttagebuch
 [nach oben](#inhalt)
 
 ## 15.04.2013
