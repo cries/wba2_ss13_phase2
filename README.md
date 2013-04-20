@@ -119,5 +119,6 @@ Weiterführende Ausarbeitung der Funktionen, Beschreibung des Szenario
 
 ### 21.04.2013
 
-TODO: Alle Funktionen genau definieren & 1. Konzeptphase abschließen
-TODO: Ausarbeitung von Kommunikations- und Interaktiondiagramm & 2. Konzeptphase abschließen
+**TODO**: Alle Funktionen genau definieren & 1. Konzeptphase abschließen
+
+**TODO**: Ausarbeitung von Kommunikations- und Interaktiondiagramm & 2. Konzeptphase abschließen
