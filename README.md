@@ -36,6 +36,7 @@ des Systems (REST & Pub/Sub).
 [nach oben](#inhalt)
 
 ## Funktionen
+[nach oben](#inhalt)
 
 ### REST (synchron)
 
@@ -53,6 +54,7 @@ des Systems (REST & Pub/Sub).
 
 
 ## Rollen
+[nach oben](#inhalt)
 
 ### REST (synchron)
 
@@ -71,35 +73,35 @@ des Systems (REST & Pub/Sub).
 ## Meilensteine
 [nach oben](#inhalt)
 
-## M0 Kommunikationsabläufe und Interaktionen 
+### M0 Kommunikationsabläufe und Interaktionen 
 
 22.04.2013
 
-## M1 Projektspezifisches XML Schema
+### M1 Projektspezifisches XML Schema
 
 06.05.2013
 
-## M2 Ressourcen und die Semantik der HTTP-Operationen   
+### M2 Ressourcen und die Semantik der HTTP-Operationen   
 
 06.05.2013
 
-## M3 RESTful Webservice 
+### M3 RESTful Webservice 
 
 13.05.2013
 
-## M4 Konzeption asynchrone Kommunikation
+### M4 Konzeption asynchrone Kommunikation
 
 03.06.2013
 
-## M5 XMPP - Client 
+### M5 XMPP - Client 
 
 03.06.2013
 
-## M6 Client - Entwicklung 
+### M6 Client - Entwicklung 
 
 17.06.2013
 
-## Endabgabe
+### Endabgabe
 
 21.06.2013
 
@@ -107,15 +109,15 @@ des Systems (REST & Pub/Sub).
 ## Projekttagebuch
 [nach oben](#inhalt)
 
-## 15.04.2013
+### 15.04.2013
 
 Projektidee festgelegt, erste Ausarbeitung der Funktionen und Rollen
 
-## 20.04.2013
+### 20.04.2013
 
 Weiterführende Ausarbeitung der Funktionen, Beschreibung des Szenario
 
-## 21.04.2013
+### 21.04.2013
 
 TODO: Alle Funktionen genau definieren & 1. Konzeptphase abschließen
 TODO: Ausarbeitung von Kommunikations- und Interaktiondiagramm & 2. Konzeptphase abschließen
