@@ -96,6 +96,10 @@ des Systems (REST & Pub/Sub).
 
 06.05.2013
 
+Mögliches Sequenzdiagramm mit angebunder mySQL-Datenbank (optional)
+
+![GET Anfrage mit mySQL-DB](https://github.com/cries/wba2_ss13_phase2/blob/master/wba2_ss13_phase2/pics/get_request.png)
+
 ### M3 RESTful Webservice  
 [nach oben](#inhalt)
 
