@@ -3,8 +3,8 @@
 ## Inhalt
 
 1. [Szenario](#smart-buildings-szenario)
-2. [Funktionen](#)
-3. [Rollen](#)
+2. [Funktionen](#funktionen)
+3. [Rollen](#rollen)
 4. [Meilensteine](#meilensteine)
 5. [Projekttagebuch](#projekttagebuch)
 
@@ -34,32 +34,31 @@ So hätte z.B. der Chef einen Vollzugriff und ein Mitarbeiter nur Zugriff auf ve
 des Systems (REST & Pub/Sub).
 
 [nach oben](#inhalt)
-### REST (synchron)
 
-#### Funktionen:
+### Funktionen
+#### REST (synchron)
 
 * Abfrage von Energiedaten (aktueller Energieverbrauch)
 * Abfrage von Innentemperatur / Luftfeuchte
 * Abfrage von CO2-Sensoren
 * Abfrage von Überwachungskamera (Kamerabilder)
 
-#### Rollen:
-
-* **Chef**        -> Vollzugriff
-* **Mitarbeiter** -> Teilzugriff
-* **Hausmeister** -> Vollzugriff
-
-
-### Publish / Subscribe (asynchron)
-
-#### Funktionen:
+#### Publish / Subscribe (asynchron)
 
 * Meldung bei Betätigung der Türklingel
 * Meldung von Bewegungen (Bewegungsmelder)
 * Meldung von Tür-, Fensterkontakten
 * Meldung von Feuermeldern / Gasmelder
 
-#### Rollen:
+
+### Rollen:
+#### REST (synchron)
+
+ **Chef**        -> Vollzugriff
+ **Mitarbeiter** -> Teilzugriff
+ **Hausmeister** -> Vollzugriff
+
+#### Publish / Subscribe (asynchron)
 
 * **Chef**              -> Vollzugriff
 * **Hausmeister**       -> Vollzugriff
@@ -102,7 +101,7 @@ des Systems (REST & Pub/Sub).
 
 21.06.2013
 
-[nach oben](#inhalt)
+
 ## Projekttagebuch
 [nach oben](#inhalt)
 
