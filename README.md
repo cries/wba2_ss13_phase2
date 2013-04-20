@@ -1,6 +1,6 @@
 #Web-basierte Anwendungen 2 - Phase 2
 
-## Inhalt
+# Inhalt
 
 1. [Szenario](#smart-buildings-szenario)
 2. [Funktionen](#funktionen)
@@ -8,7 +8,7 @@
 4. [Meilensteine](#meilensteine)
 5. [Projekttagebuch](#projekttagebuch)
 
-## Smart Buildings Szenario
+# Smart Buildings Szenario
 [nach oben](#inhalt)
 
 Entwicklung eines Systems zur Überwachung von Gebäude-spezifischen Daten mit mobilen Endgeräten. 
@@ -52,7 +52,7 @@ des Systems (REST & Pub/Sub).
 * Meldung von Feuermeldern / Gasmelder
 
 
-## Rollen:
+## Rollen
 
 ### REST (synchron)
 
@@ -68,54 +68,54 @@ des Systems (REST & Pub/Sub).
 * **Feuerwehr**         -> Teilzugriff
 * **Sicherheitsfirma**  -> Teilzugriff
 
-## Meilensteine
+# Meilensteine
 [nach oben](#inhalt)
 
-### M0 Kommunikationsabläufe und Interaktionen 
+## M0 Kommunikationsabläufe und Interaktionen 
 
 22.04.2013
 
-### M1 Projektspezifisches XML Schema
+## M1 Projektspezifisches XML Schema
 
 06.05.2013
 
-### M2 Ressourcen und die Semantik der HTTP-Operationen   
+## M2 Ressourcen und die Semantik der HTTP-Operationen   
 
 06.05.2013
 
-### M3 RESTful Webservice 
+## M3 RESTful Webservice 
 
 13.05.2013
 
-### M4 Konzeption asynchrone Kommunikation
+## M4 Konzeption asynchrone Kommunikation
 
 03.06.2013
 
-### M5 XMPP - Client 
+## M5 XMPP - Client 
 
 03.06.2013
 
-### M6 Client - Entwicklung 
+## M6 Client - Entwicklung 
 
 17.06.2013
 
-### Endabgabe
+## Endabgabe
 
 21.06.2013
 
 
-## Projekttagebuch
+# Projekttagebuch
 [nach oben](#inhalt)
 
-### 15.04.2013
+## 15.04.2013
 
 Projektidee festgelegt, erste Ausarbeitung der Funktionen und Rollen
 
-### 20.04.2013
+## 20.04.2013
 
 Weiterführende Ausarbeitung der Funktionen, Beschreibung des Szenario
 
-### 21.04.2013
+## 21.04.2013
 
 TODO: Alle Funktionen genau definieren & 1. Konzeptphase abschließen
 TODO: Ausarbeitung von Kommunikations- und Interaktiondiagramm & 2. Konzeptphase abschließen
