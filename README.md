@@ -5,7 +5,7 @@
 1. [Szenario](#smart-buildings-szenario)
 2. [Funktionen](#funktionen)
 3. [Rollen](#rollen)
-4. [Meilensteine](#meilensteine)
+4. [Meilensteine](#meilensteine)  
   4.1 [Meilenstein 0](#m0-kommunikationsablufe-und-interaktionen)
 5. [Projekttagebuch](#projekttagebuch)
 
