@@ -2,11 +2,11 @@
 
 ## Inhalt
 
-*[Szenario](#smart-buildings-szenario)
-*[Funktionen](#)
-*[Rollen](#)
-*[Meilensteine](#meilensteine)
-*[Projekttagebuch](#Projekttagebuch)
+1. [Szenario](#smart-buildings-szenario)
+2. [Funktionen](#)
+3. [Rollen](#)
+4. [Meilensteine](#meilensteine)
+5. [Projekttagebuch](#Projekttagebuch)
 
 ## Smart Buildings Szenario
 
