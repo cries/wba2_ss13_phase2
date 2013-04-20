@@ -1,5 +1,6 @@
-Smart Buildings Szenario
-=================
+#Web-basierte Anwendungen 2 - Phase 2
+
+##Smart Buildings Szenario
 
 Entwicklung eines Systems zur Überwachung von Gebäude-spezifischen Daten mit mobilen Endgeräten. 
 
@@ -24,10 +25,7 @@ So hätte z.B. der Chef einen Vollzugriff und ein Mitarbeiter nur Zugriff auf ve
 des Systems (REST & Pub/Sub).
 
 
-
-
-REST (synchron)
----------------
+## REST (synchron)
 
 ### Funktionen:
 
@@ -43,8 +41,7 @@ REST (synchron)
 * **Hausmeister** -> Vollzugriff
 
 
-Publish / Subscribe (asynchron)
---------------------------------
+## Publish / Subscribe (asynchron)
 
 ### Funktionen:
 
@@ -60,3 +57,42 @@ Publish / Subscribe (asynchron)
 * **Polizei**           -> Teilzugriff
 * **Feuerwehr**         -> Teilzugriff
 * **Sicherheitsfirma**  -> Teilzugriff
+
+## Meilensteine
+
+### M0 Kommunikationsabläufe und Interaktionen 
+
+22.04.2013
+
+### M1 Projektspezifisches XML Schema
+
+06.05.2013
+
+### M2 Ressourcen und die Semantik der HTTP-Operationen   
+
+06.05.2013
+
+### M3 RESTful Webservice 
+
+13.05.2013
+
+### M4 Konzeption asynchrone Kommunikation
+
+03.06.2013
+
+### M5 XMPP - Client 
+
+03.06.2013
+
+### M6 Client - Entwicklung 
+
+17.06.2013
+
+### Endabgabe
+
+21.06.2013
+
+## Projekttagebuch
+
+
+
