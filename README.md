@@ -100,8 +100,9 @@ Projektidee festgelegt, erste Ausarbeitung der Funktionen und Rollen
 
 ### 20.04.2013
 
-Weiterführende Ausarbeitung, Beschreibung des Szenario
+Weiterführende Ausarbeitung der Funktionen, Beschreibung des Szenario
 
 ### 21.04.2013
 
-TODO: Ausarbeitung von Kommunikations- und Interaktiondiagramm
+TODO: Alle Funktionen genau definieren & 1. Konzeptphase abschließen
+TODO: Ausarbeitung von Kommunikations- und Interaktiondiagramm & 2. Konzeptphase abschließen
