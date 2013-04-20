@@ -9,7 +9,7 @@
 5. [Projekttagebuch](#projekttagebuch)
 
 ## Smart Buildings Szenario
-[nach Oben](#inhalt)
+[nach oben](#inhalt)
 
 Entwicklung eines Systems zur Überwachung von Gebäude-spezifischen Daten mit mobilen Endgeräten. 
 
@@ -33,7 +33,7 @@ Die zweite Funktion ist die Überwachung des Gebäudes bezogen auf seine Sicherh
 So hätte z.B. der Chef einen Vollzugriff und ein Mitarbeiter nur Zugriff auf verschiedene Funktionen 
 des Systems (REST & Pub/Sub).
 
-
+[nach oben](#inhalt)
 ### REST (synchron)
 
 #### Funktionen:
