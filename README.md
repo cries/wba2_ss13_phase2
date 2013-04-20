@@ -36,6 +36,9 @@ des Systems (REST & Pub/Sub).
 [nach oben](#inhalt)
 
 ### Funktionen
+
+----------------------------------
+
 #### REST (synchron)
 
 * Abfrage von Energiedaten (aktueller Energieverbrauch)
@@ -52,6 +55,9 @@ des Systems (REST & Pub/Sub).
 
 
 ### Rollen:
+
+----------------------------------
+
 #### REST (synchron)
 
  **Chef**        -> Vollzugriff
