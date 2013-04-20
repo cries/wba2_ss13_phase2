@@ -25,32 +25,32 @@ So hätte z.B. der Chef einen Vollzugriff und ein Mitarbeiter nur Zugriff auf ve
 des Systems (REST & Pub/Sub).
 
 
-## REST (synchron)
+### REST (synchron)
 
-### Funktionen:
+#### Funktionen:
 
 * Abfrage von Energiedaten (aktueller Energieverbrauch)
 * Abfrage von Innentemperatur / Luftfeuchte
 * Abfrage von CO2-Sensoren
 * Abfrage von Überwachungskamera (Kamerabilder)
 
-### Rollen:
+#### Rollen:
 
 * **Chef**        -> Vollzugriff
 * **Mitarbeiter** -> Teilzugriff
 * **Hausmeister** -> Vollzugriff
 
 
-## Publish / Subscribe (asynchron)
+### Publish / Subscribe (asynchron)
 
-### Funktionen:
+#### Funktionen:
 
 * Meldung bei Betätigung der Türklingel
 * Meldung von Bewegungen (Bewegungsmelder)
 * Meldung von Tür-, Fensterkontakten
 * Meldung von Feuermeldern / Gasmelder
 
-### Rollen:
+#### Rollen:
 
 * **Chef**              -> Vollzugriff
 * **Hausmeister**       -> Vollzugriff
