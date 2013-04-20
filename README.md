@@ -46,9 +46,9 @@ Weiter könnte z.B. die Feuerwehr auf auslösende Feuermelder reagieren und mög
 
 TODO
 
-Über die Client-Software ist es möglich verschiedene Rollen mit verschiedenen Zugriffsrechten zu definieren.
+Über die Client-Software ist es möglich Profile mit verschiedenen Zugriffsrechten zu definieren.
 So hätte z.B. der Chef einen Vollzugriff und ein Mitarbeiter nur Zugriff auf verschiedene Funktionen 
-des Systems (REST & Pub/Sub).
+des Systems.
 
 [nach oben](#inhalt)
 
