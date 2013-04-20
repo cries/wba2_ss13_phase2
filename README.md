@@ -37,7 +37,7 @@ des Systems (REST & Pub/Sub).
 
 ### Funktionen
 
-----------------------------------
+* * * 
 
 #### REST (synchron)
 
