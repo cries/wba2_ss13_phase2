@@ -2,11 +2,11 @@
 
 ## Inhalt
 
-[Szenario](#smart-buildings-szenario)
-[Funktionen](https://github.com/cries/wba2_ss13_phase2#smart-buildings-szenario)
-[Rollen](https://github.com/cries/wba2_ss13_phase2#smart-buildings-szenario)
-[Meilensteine](https://github.com/cries/wba2_ss13_phase2#meilensteine)
-[Projekttagebuch](https://github.com/cries/wba2_ss13_phase2#Projekttagebuch)
+*[Szenario](#smart-buildings-szenario)
+*[Funktionen](#)
+*[Rollen](#)
+*[Meilensteine](#meilensteine)
+*[Projekttagebuch](#Projekttagebuch)
 
 ## Smart Buildings Szenario
 
