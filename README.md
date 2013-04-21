@@ -1,50 +1,66 @@
+Fachhochschule Köln Campus Gummersbach  
+Fakultät für Informatik und Ingenieurwissenschaften
+
 #Web-basierte Anwendungen 2 - Phase 2
 
 ## Inhalt
 
-1. [Szenario](#smart-buildings-szenario)
-2. [Funktionen](#funktionen)
-3. [Rollen](#rollen)
-4. [Meilensteine](#meilensteine)  
-  4.1 [Kommunikationsabläufe und Interaktionen](#m0-kommunikationsablufe-und-interaktionen)  
-  4.2 [Projektspezifisches XML Schema](#m1-projektspezifisches-xml-schema)  
-  4.3 [Ressourcen und die Semantik der HTTP-Operationen](#m2-ressourcen-und-die-semantik-der-http-operationen)  
-  4.4 [RESTful Webservice](#m3-restful-webservice)  
-  4.5 [Konzeption asynchrone Kommunikation](#m4-konzeption-asynchrone-kommunikation)  
-  4.6 [XMPP - Client](#m5-xmpp---client)  
-  4.7 [Client - Entwicklung](#m6-client---entwicklung)  
-  4.8 [Endabgabe](#endabgabe)
-5. [Projekttagebuch](#projekttagebuch)
+1. [Beschreibung](#smart-buildings---beschreibung)
+2. [Szenario](#szenario)  
+  2.1 [Energieüberwachung](#energieberwachung)  
+  2.2 [Alarmfunktion](#alarmfunktion)  
+  2.3 [Steuerung](#steuerung)  
+3. [Funktionen](#funktionen)
+4. [Rollen](#rollen)
+5. [Meilensteine](#meilensteine)  
+  5.1 [Kommunikationsabläufe und Interaktionen](#m0-kommunikationsablufe-und-interaktionen)  
+  5.2 [Projektspezifisches XML Schema](#m1-projektspezifisches-xml-schema)  
+  5.3 [Ressourcen und die Semantik der HTTP-Operationen](#m2-ressourcen-und-die-semantik-der-http-operationen)  
+  5.4 [RESTful Webservice](#m3-restful-webservice)  
+  5.5 [Konzeption asynchrone Kommunikation](#m4-konzeption-asynchrone-kommunikation)  
+  5.6 [XMPP - Client](#m5-xmpp---client)  
+  5.7 [Client - Entwicklung](#m6-client---entwicklung)  
+  5.8 [Endabgabe](#endabgabe)
+6. [Projekttagebuch](#projekttagebuch)
 
-## Smart Buildings Szenario
-[nach oben](#inhalt)
+## Smart Buildings - Beschreibung
 
-Entwicklung eines Systems zur Überwachung von Gebäude-spezifischen Daten mit mobilen Endgeräten. 
+Entwicklung eines Systems zur Abfrage, Steuerung und Abonnierung von Gebäude-spezifischen Daten & Funktionen. 
+Dabei wird auf REST & Publish/Subscribe gesetzt.
 
-Die oben genannten Daten beziehen sich dabei auf, von diversen Sensoren, erfasste Werte. Diese Sensoren werden in zwei Kategorien gegliedert:
-Sensoren die zeit-diskret eine bestimmte Art von Wert erfassen (Stromverbrauch, Temperatur, Luftfeuchte, CO2-Sensoren)
-Sensoren die bei einer Veränderung eines Zustandes eine Meldung auslösen (Feuermelder, Türklingel, Bewegungsmelder, Fenster-/ Türkontake)
+Die oben genannten Daten beziehen sich dabei auf, von diversen Sensoren, erfasste Werte. Diese Sensoren werden in zwei Kategorien gegliedert:  
+
+* Sensoren die zeit-diskret eine bestimmte Art von Wert erfassen und synchron abgefragt werden können (Stromverbrauch, Temperatur, Luftfeuchte, CO2-Sensoren) 
+* Sensoren die bei einer Veränderung eines Zustandes eine asynchrone Meldung auslösen (Feuermelder, Türklingel, Bewegungsmelder, Fenster-/ Türkontake) Diese verschiedenen Meldungs-Typen werden einzelnen Topics zugeordnet die von den Benutzern abonniert werden können.
 
 Durch die Verwendung beider Sensortypen ergibt sich ein System zur Überwachung der Energiebilanz, sowie zur Überwachung der Sicherheit eines Gebäudes. 
-Über eine mobile Anwendung bzw. Client-Software für stationäre Rechner, wird gewährleistet dass ein Benutzer diese Überwachung auch aus der Ferne tätigen kann.
 
-Zusätzlich zur Überwachung wird einem Benutzer die Möglichkeit gegeben aktiv in das System einzugreifen und somit einzelne Funktionen manuell zu steuern.
-Z.B.: Tür öffnen, Heizung Soll-Wert einstellen, Licht aus/einschalten bzw. dimmen, Jalousien steuern, Zeitabhängige Szenen erstellen und abrufen. (Szenen -> vordefinierte Sammlung von Zuständen für Funktionen die zeit-abhängig oder zeit-unabhängig abgerufen werden können)
+Zusätzlich zu dieser Überwachung wird einem Benutzer die Möglichkeit gegeben aktiv die Funktionen des System zu steuern.
+Z.B.: Tür öffnen, Heizungs Soll-Wert einstellen, Licht ein-/ausschalten bzw. dimmen, Verschattung steuern, Zeitabhängige Szenen erstellen und abrufen. (Szenen -> vordefinierte Sammlung von Zuständen für Funktionen die zeit-abhängig oder zeit-unabhängig abgerufen werden können)
 
+Über eine mobile Anwendung bzw. Client-Software für stationäre Rechner, wird gewährleistet dass ein Benutzer diese Überwachung bzw. Steuerung auch aus der Ferne tätigen kann. Zusätzlich können Profile mit verschiedenen Zugriffsrechten angelegt werden.
+
+## Szenario
+[nach oben](#inhalt)
+
+### Energieüberwachung:
 Dieses Sytem kann z.B. Anwendung in einem Bürogebäude finden. Man nehme das Beispiel eines Chefs der versucht die Energiebilanz seiner Gesellschaft zu verbessern. Durch die verschiedenen Sensoren ist es möglich eine Statistik über den Energieverbrauch zu erstellen. Anhand dieser Statistik können Schwachstellen erkannt, und mit Hilfe des Systems ausgeschaltet werden. 
 Die Schwachstellen könnten z.B. eine ungünstig eingestellte Heizung (Tag-/Nachttemperatur), Geräte mit einem sehr hohen Energieverbrauch, schlechte Belüftung oder ungünstige Verschattung von Räumen sein.
 
-Die zweite Funktion ist die Überwachung des Gebäudes bezogen auf seine Sicherheit. Eine Sicherheitsfirma oder beispielsweise die Polizei benutzt die Anwendung um z.B. Bewegungsmelder und Tür-/Fensterkontakte zu überwachen. Wird ein Sensor/Melder ausgelöst so wird eine Meldung abgesetzt um über diese Veränderung zu berichten. 
+### Alarmfunktion:
+Die zweite Funktion ist die Überwachung des Gebäudes bezogen auf seine Sicherheit. Eine Sicherheitsfirma oder beispielsweise die Polizei benutzt die Anwendung um z.B. Bewegungsmelder und Tür-/Fensterkontakte zu überwachen. Wird ein Sensor/Melder ausgelöst so wird eine Meldung abgesetzt um über diese Veränderung zu berichten. So kann sofort auf einen möglichen Einbruch reagiert werden.
+Weiter könnte z.B. die Feuerwehr auf auslösende Feuermelder reagieren und möglichst schnell einen entstandenen Brand bekämpfen.
 
+### Steuerung:
 
-Über die Client-Software ist es möglich verschiedene Rollen mit verschiedenen Zugriffsrechten zu definieren.
-So hätte z.B. der Chef einen Vollzugriff und ein Mitarbeiter nur Zugriff auf verschiedene Funktionen 
-des Systems (REST & Pub/Sub).
+**TODO**
 
 [nach oben](#inhalt)
 
 ## Funktionen
 [nach oben](#inhalt)
+
+**TODO**: ergänzen
 
 ### REST (synchron)
 
@@ -63,6 +79,8 @@ des Systems (REST & Pub/Sub).
 
 ## Rollen
 [nach oben](#inhalt)
+
+**TODO**: ergänzen
 
 ### REST (synchron)
 
@@ -85,6 +103,12 @@ des Systems (REST & Pub/Sub).
 [nach oben](#inhalt)
 
 22.04.2013
+
+**TODO**: Kommunikations-/Sequenzdiagramm
+
+Mögliches Sequenzdiagramm mit angebundener mySQL-Datenbank (optional)
+
+![GET Anfrage mit mySQL-DB](https://github.com/cries/wba2_ss13_phase2/blob/master/wba2_ss13_phase2/pics/get_request.png?raw=true)
 
 ### M1 Projektspezifisches XML Schema  
 [nach oben](#inhalt)
