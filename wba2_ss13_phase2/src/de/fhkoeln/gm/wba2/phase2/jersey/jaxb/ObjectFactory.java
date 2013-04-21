@@ -2,7 +2,7 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.6 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2013.04.21 um 09:49:20 PM CEST 
+// Generiert: 2013.04.21 um 10:31:03 PM CEST 
 //
 
 
@@ -17,7 +17,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the generated package. 
+ * generated in the de.fhkoeln.gm.wba2.phase2.jersey.jaxb package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -32,13 +32,14 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _TemperaturenEl_QNAME = new QName("", "temperaturen_el");
+    private final static QName _Id_QNAME = new QName("", "id");
     private final static QName _Einheit_QNAME = new QName("", "einheit");
     private final static QName _Wert_QNAME = new QName("", "wert");
     private final static QName _TemperaturEl_QNAME = new QName("", "temperatur_el");
     private final static QName _Raum_QNAME = new QName("", "raum");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: generated
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: de.fhkoeln.gm.wba2.phase2.jersey.jaxb
      * 
      */
     public ObjectFactory() {
@@ -67,6 +68,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "", name = "temperaturen_el")
     public JAXBElement<Temperaturen> createTemperaturenEl(Temperaturen value) {
         return new JAXBElement<Temperaturen>(_TemperaturenEl_QNAME, Temperaturen.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Integer }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "", name = "id")
+    public JAXBElement<Integer> createId(Integer value) {
+        return new JAXBElement<Integer>(_Id_QNAME, Integer.class, null, value);
     }
 
     /**

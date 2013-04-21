@@ -13,7 +13,7 @@ public class RESTServer {
 		final Map<String, String> params = new HashMap<String, String>();
 		
 		params.put("com.sun.jersey.config.property.packages", 
-				"ex1");
+				"de.fhkoeln.gm.wba2.phase2.jersey.res");
 		
 		System.out.println("Starting web server...");
 		

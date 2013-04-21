@@ -2,7 +2,7 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.6 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2013.04.21 um 09:49:20 PM CEST 
+// Generiert: 2013.04.21 um 10:31:03 PM CEST 
 //
 
 
@@ -25,6 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element ref="{}id"/>
  *         &lt;element ref="{}raum"/>
  *         &lt;element ref="{}wert"/>
  *         &lt;element ref="{}einheit"/>
@@ -38,20 +39,37 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "temperatur", propOrder = {
+    "id",
     "raum",
     "wert",
     "einheit"
 })
-@XmlRootElement(name = "temperatur",
-		namespace = "http://localhost:4711/temperaturen/Schema")
+@XmlRootElement(name = "temperatur", namespace = "http://localhost:4711/temperaturen/Schema")
 public class Temperatur {
 
+    protected int id;
     @XmlElement(required = true)
     protected String raum;
     @XmlElement(required = true)
     protected String wert;
     @XmlElement(required = true)
     protected String einheit;
+
+    /**
+     * Ruft den Wert der id-Eigenschaft ab.
+     * 
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Legt den Wert der id-Eigenschaft fest.
+     * 
+     */
+    public void setId(int value) {
+        this.id = value;
+    }
 
     /**
      * Ruft den Wert der raum-Eigenschaft ab.
