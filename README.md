@@ -2,10 +2,10 @@
 
 ## Inhalt
 
-1. [Szenario](#smart-buildings-szenario)
-  1.1 [Energieüberwachung](#energieberwachung)
-  1.2 [Alarmfunktion](#alarmfunktion)
-  1.3 [Steuerung](#steuerung)
+1. [Szenario](#smart-buildings-szenario)  
+  1.1 [Energieüberwachung](#energieberwachung)  
+  1.2 [Alarmfunktion](#alarmfunktion)  
+  1.3 [Steuerung](#steuerung)  
 2. [Funktionen](#funktionen)
 3. [Rollen](#rollen)
 4. [Meilensteine](#meilensteine)  
