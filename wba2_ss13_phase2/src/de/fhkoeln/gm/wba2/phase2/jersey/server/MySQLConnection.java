@@ -1,4 +1,4 @@
-package ex1;
+package de.fhkoeln.gm.wba2.phase2.jersey.server;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
@@ -8,8 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.xml.*;
 import java.util.ArrayList;
-
-import generated.*;
 
 
 public class MySQLConnection {

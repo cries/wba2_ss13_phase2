@@ -1,4 +1,4 @@
-package ex1;
+package de.fhkoeln.gm.wba2.phase2.jersey.client;
 
 import java.net.URL;
 import java.util.Scanner;
