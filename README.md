@@ -2,7 +2,7 @@
 
 ## Inhalt
 
-1. [Beschreibung](#beschriebung)
+1. [Beschreibung](#smart-buildings---beschreibung)
 2. [Szenario](#smart-buildings-szenario)  
   2.1 [Energieüberwachung](#energieberwachung)  
   2.2 [Alarmfunktion](#alarmfunktion)  
