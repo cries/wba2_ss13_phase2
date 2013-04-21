@@ -2,25 +2,25 @@
 
 ## Inhalt
 
-1. [Szenario](#smart-buildings-szenario)  
-  1.1 [Energieüberwachung](#energieberwachung)  
-  1.2 [Alarmfunktion](#alarmfunktion)  
-  1.3 [Steuerung](#steuerung)  
-2. [Funktionen](#funktionen)
-3. [Rollen](#rollen)
-4. [Meilensteine](#meilensteine)  
-  4.1 [Kommunikationsabläufe und Interaktionen](#m0-kommunikationsablufe-und-interaktionen)  
-  4.2 [Projektspezifisches XML Schema](#m1-projektspezifisches-xml-schema)  
-  4.3 [Ressourcen und die Semantik der HTTP-Operationen](#m2-ressourcen-und-die-semantik-der-http-operationen)  
-  4.4 [RESTful Webservice](#m3-restful-webservice)  
-  4.5 [Konzeption asynchrone Kommunikation](#m4-konzeption-asynchrone-kommunikation)  
-  4.6 [XMPP - Client](#m5-xmpp---client)  
-  4.7 [Client - Entwicklung](#m6-client---entwicklung)  
-  4.8 [Endabgabe](#endabgabe)
-5. [Projekttagebuch](#projekttagebuch)
+1. [Beschreibung](#beschriebung)
+2. [Szenario](#smart-buildings-szenario)  
+  2.1 [Energieüberwachung](#energieberwachung)  
+  2.2 [Alarmfunktion](#alarmfunktion)  
+  2.3 [Steuerung](#steuerung)  
+3. [Funktionen](#funktionen)
+4. [Rollen](#rollen)
+5. [Meilensteine](#meilensteine)  
+  5.1 [Kommunikationsabläufe und Interaktionen](#m0-kommunikationsablufe-und-interaktionen)  
+  5.2 [Projektspezifisches XML Schema](#m1-projektspezifisches-xml-schema)  
+  5.3 [Ressourcen und die Semantik der HTTP-Operationen](#m2-ressourcen-und-die-semantik-der-http-operationen)  
+  5.4 [RESTful Webservice](#m3-restful-webservice)  
+  5.5 [Konzeption asynchrone Kommunikation](#m4-konzeption-asynchrone-kommunikation)  
+  5.6 [XMPP - Client](#m5-xmpp---client)  
+  5.7 [Client - Entwicklung](#m6-client---entwicklung)  
+  5.8 [Endabgabe](#endabgabe)
+6. [Projekttagebuch](#projekttagebuch)
 
-## Smart Buildings Szenario
-[nach oben](#inhalt)
+## Smart Buildings - Beschreibung
 
 Entwicklung eines Systems zur Abfrage, Steuerung und Abonnierung von Gebäude-spezifischen Daten & Funktionen. 
 Dabei wird auf REST & Publish/Subscribe gesetzt.
@@ -36,6 +36,9 @@ Zusätzlich zu dieser Überwachung wird einem Benutzer die Möglichkeit gegeben 
 Z.B.: Tür öffnen, Heizungs Soll-Wert einstellen, Licht ein-/ausschalten bzw. dimmen, Verschattung steuern, Zeitabhängige Szenen erstellen und abrufen. (Szenen -> vordefinierte Sammlung von Zuständen für Funktionen die zeit-abhängig oder zeit-unabhängig abgerufen werden können)
 
 Über eine mobile Anwendung bzw. Client-Software für stationäre Rechner, wird gewährleistet dass ein Benutzer diese Überwachung bzw. Steuerung auch aus der Ferne tätigen kann. Zusätzlich können Profile mit verschiedenen Zugriffsrechten angelegt werden.
+
+## Szenario
+[nach oben](#inhalt)
 
 ### Energieüberwachung:
 Dieses Sytem kann z.B. Anwendung in einem Bürogebäude finden. Man nehme das Beispiel eines Chefs der versucht die Energiebilanz seiner Gesellschaft zu verbessern. Durch die verschiedenen Sensoren ist es möglich eine Statistik über den Energieverbrauch zu erstellen. Anhand dieser Statistik können Schwachstellen erkannt, und mit Hilfe des Systems ausgeschaltet werden. 
