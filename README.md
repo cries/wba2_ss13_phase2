@@ -106,7 +106,7 @@ Weiter könnte z.B. die Feuerwehr auf auslösende Feuermelder reagieren und mög
 
 **TODO**: Kommunikations-/Sequenzdiagramm
 
-Mögliches Sequenzdiagramm mit angebunder mySQL-Datenbank (optional)
+Mögliches Sequenzdiagramm mit angebundener mySQL-Datenbank (optional)
 
 ![GET Anfrage mit mySQL-DB](https://github.com/cries/wba2_ss13_phase2/blob/master/wba2_ss13_phase2/pics/get_request.png?raw=true)
 
