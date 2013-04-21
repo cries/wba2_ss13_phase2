@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:element name="temperaturen" type="temperaturen_type"/>
+	<xsd:element name="temperatur" type="temperatur_type" />
+	<xsd:element name="raum" type="xsd:string" />
+	<xsd:element name="wert" type="wert_type" />
+	
+	
+	<xsd:complexType name="temperaturen_type">
+		<xsd:sequence>
+			<xsd:element ref="temperatur" maxOccurs="unbounded" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="temperatur_type">
+		<xsd:sequence>
+			<xsd:element ref="raum" />
+			<xsd:element ref="wert" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="wert_type">
+		<xsd:simpleContent>
+       		<xsd:extension base="xsd:decimal">
+            	<xsd:attribute name="einheit" type="xsd:string" use="required"/>
+            </xsd:extension>
+       	</xsd:simpleContent>
+	</xsd:complexType>
+	
+</xsd:schema>

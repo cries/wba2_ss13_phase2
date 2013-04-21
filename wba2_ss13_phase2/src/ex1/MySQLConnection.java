@@ -1,10 +1,16 @@
 package ex1;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.xml.*;
+import java.util.ArrayList;
+
+import generated.*;
+
 
 public class MySQLConnection {
 	  private static Connection conn = null;
@@ -44,10 +50,9 @@ public class MySQLConnection {
 		  return conn;
 	  }
 	  
-	  public static String printTemperaturen(String ort)
+	  public static String getTemperatur(String ort)
 	  {
-		  
-		  String name = "";
+		String output = "";
 	    conn = getInstance();
 	 
 	    if(conn != null)
@@ -58,19 +63,17 @@ public class MySQLConnection {
 	        query = conn.createStatement();
 	 
 	        // Ergebnistabelle erzeugen und abholen.
-	        String sql = "SELECT WERT, RAUM FROM TEMPERATUR WHERE RAUM ='" + ort + "';";
+	        String sql = "SELECT WERT, RAUM FROM TEMPERATUR WHERE RAUM = '" + ort + "';";
 	        ResultSet result = query.executeQuery(sql);
 	 
 	        // Ergebnissätze durchfahren.
-	        while (result.next()) {
-	          String raum = result.getString("RAUM");
-	          String wert = result.getString("WERT");
-	          name = raum + ", " + wert + " Grad Celsius";
+	        while (result.next()) {        
+	          output = result.getString("RAUM") + ": " + result.getString("WERT") + " Grad Celsius";
 	        }
 	      } catch (SQLException e) {
 	        e.printStackTrace();
 	      }
 	    }
-		return name;
+	    return output;
 	  }
 }
