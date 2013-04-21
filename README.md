@@ -50,12 +50,14 @@ Weiter könnte z.B. die Feuerwehr auf auslösende Feuermelder reagieren und mög
 
 ### Steuerung:
 
-TODO
+**TODO**
 
 [nach oben](#inhalt)
 
 ## Funktionen
 [nach oben](#inhalt)
+
+**TODO**: ergänzen
 
 ### REST (synchron)
 
@@ -74,6 +76,8 @@ TODO
 
 ## Rollen
 [nach oben](#inhalt)
+
+**TODO**: ergänzen
 
 ### REST (synchron)
 
@@ -96,6 +100,8 @@ TODO
 [nach oben](#inhalt)
 
 22.04.2013
+
+**TODO**: Kommunikations-/Sequenzdiagramm
 
 Mögliches Sequenzdiagramm mit angebunder mySQL-Datenbank (optional)
 
