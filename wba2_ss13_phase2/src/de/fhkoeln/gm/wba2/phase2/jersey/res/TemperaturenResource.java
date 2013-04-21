@@ -1,6 +1,7 @@
 package de.fhkoeln.gm.wba2.phase2.jersey.res;
 
 import java.net.URI;
+import java.util.ArrayList;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
@@ -20,6 +21,8 @@ import com.sun.jersey.api.NotFoundException;
 
 import de.fhkoeln.gm.wba2.phase2.jersey.jaxb.Temperatur;
 import de.fhkoeln.gm.wba2.phase2.jersey.jaxb.Temperaturen;
+
+import de.fhkoeln.gm.wba2.phase2.jersey.server.*;
 
 
 @Path("/temperaturen/")
@@ -58,6 +61,8 @@ public class TemperaturenResource {
 			@FormParam("wert") String wert,
 			@FormParam("einheit") String einheit) {
 		
+		ArrayList<Temperatur> temperaturenDB = new ArrayList<Temperatur>();
+		
 		if (raum == null || wert == null || einheit == null) {
 			throw new WebApplicationException(
 					Response.status(400).entity("Temperatur could not be added").build());
@@ -68,6 +73,10 @@ public class TemperaturenResource {
 		temperatur.setRaum(raum);
 		temperatur.setWert(wert);
 		temperatur.setEinheit(einheit);
+		
+		
+		temperaturenDB.add(temperatur);
+		MySQLConnection.putTemperatur(temperaturenDB);
 		
 		URI location = addTemperatur(temperatur);
 		

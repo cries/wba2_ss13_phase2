@@ -5,6 +5,11 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+
+import com.mysql.jdbc.PreparedStatement;
+
+import de.fhkoeln.gm.wba2.phase2.jersey.jaxb.Temperatur;
 
 
 public class MySQLConnection {
@@ -70,5 +75,31 @@ public class MySQLConnection {
 	      }
 	    }
 	    return output;
+	  }
+	  
+	  public static void putTemperatur(ArrayList<Temperatur> temperatur)
+	  {
+	    conn = getInstance();
+	 
+	    if(conn != null)
+	    {
+	      // Anfrage-Statement erzeugen.
+	      Statement query;
+	      try {
+	        query = conn.createStatement();
+	        Temperatur newTemperatur = temperatur.get(0);
+	        // Ergebnistabelle erzeugen und abholen.
+	        String sql = "INSERT INTO TEMPERATUR(id, raum, wert, einheit) VALUES(?, ?, ?, ?)";
+	        PreparedStatement preparedStatement = (PreparedStatement) conn.prepareStatement(sql);
+	        preparedStatement.setLong(1, newTemperatur.getId());
+	        preparedStatement.setString(2, newTemperatur.getRaum());
+	        preparedStatement.setString(3, newTemperatur.getWert());
+	        preparedStatement.setString(4, newTemperatur.getEinheit());
+	        preparedStatement.executeUpdate();
+	        System.out.println("DEBUG: adding new temperatur to DB");
+	      } catch (SQLException e) {
+	        e.printStackTrace();
+	      }
+	    }
 	  }
 }
