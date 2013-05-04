@@ -161,3 +161,39 @@ Weiterführende Ausarbeitung der Funktionen, Beschreibung des Szenario
 
 **TODO**: Alle Funktionen genau definieren & 1. Konzeptphase abschließen  
 **TODO**: Ausarbeitung von Kommunikations- und Interaktiondiagramm & 2. Konzeptphase abschließen
+
+
+
+
+
+
+
+
+
+----------
+
+| | GET | PUT | POST | DELETE |
+| :----- | :----------: | :---------: | :----------: | :------------: |
+| /etage | x | ? | x | x |
+| /etage/1 | x | ? | x | x |
+| /etage/1/raum | x | ? | x | x |
+| /etage/1/raum/feuchtigkeit | x | | x | x |
+| /etage/1/raum/energie | x | | x | x |
+| /etage/1/raum/temperatur | x | | x | x |
+| /etage/1/raum/temperatur/soll | x | x | x | x |
+| /etage/1/raum/temperatur/ist | x | | x | x |
+| /etage/1/raum/licht | x | | x | x |
+| /etage/1/raum/licht/1 | x | x | x | x |
+| /etage/1/raum/verschaltung | x | | x | x |
+| /etage/1/raum/verschaltung/1 | x | x | x | x |
+| /etage/1/raum/steckdose |x | | x | x |
+| /etage/1/raum/steckdose/1 | x | x | x | x |
+| | 
+| | 
+| /heizung | x | | x | x |
+| /heizung/ist | x | | x | x |
+| /heizung/soll | x | x | x | x |
+| /kamera | x | | x | x |
+| /kamera/1 | x | x | x | x |
+| /energie | x | | x | x |
+
