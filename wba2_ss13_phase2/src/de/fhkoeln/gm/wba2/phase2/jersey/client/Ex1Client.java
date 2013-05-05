@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Ex1Client {
 	public static void main(String[] args) throws Exception {
-		Scanner scanner = new Scanner(new URL("http://localhost:4711/temperatur/kueche").openStream());
+		Scanner scanner = new Scanner(new URL("http://localhost:4711/temperatur/1").openStream());
 		while(scanner.hasNextLine()){
 			System.out.println(scanner.nextLine());
 		}

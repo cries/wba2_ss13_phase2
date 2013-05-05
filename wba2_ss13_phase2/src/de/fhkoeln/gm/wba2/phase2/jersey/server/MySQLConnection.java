@@ -15,19 +15,10 @@ import de.fhkoeln.gm.wba2.phase2.jersey.jaxb.Temperatur;
 public class MySQLConnection {
 	  private static Connection conn = null;
 	 
-	  // Hostname
 	  private static String dbHost = "localhost";
-	 
-	  // Port -- Standard: 3306
 	  private static String dbPort = "3306";
-	 
-	  // Datenbankname
 	  private static String database = "smartbuilding";
-	 
-	  // Datenbankuser
 	  private static String dbUser = "sqluser";
-	 
-	  // Datenbankpasswort
 	  private static String dbPassword = "sqluserpw";
 	  
 	  private MySQLConnection() {
@@ -57,16 +48,13 @@ public class MySQLConnection {
 	 
 	    if(conn != null)
 	    {
-	      // Anfrage-Statement erzeugen.
 	      Statement query;
 	      try {
 	        query = conn.createStatement();
-	 
-	        // Ergebnistabelle erzeugen und abholen.
+	
 	        String sql = "SELECT WERT, RAUM FROM TEMPERATUR WHERE RAUM = '" + ort + "';";
 	        ResultSet result = query.executeQuery(sql);
 	 
-	        // Ergebnissätze durchfahren.
 	        while (result.next()) {        
 	          output = result.getString("RAUM") + ": " + result.getString("WERT") + " Grad Celsius";
 	        }
@@ -83,12 +71,11 @@ public class MySQLConnection {
 	 
 	    if(conn != null)
 	    {
-	      // Anfrage-Statement erzeugen.
 	      Statement query;
 	      try {
 	        query = conn.createStatement();
 	        Temperatur newTemperatur = temperatur.get(0);
-	        // Ergebnistabelle erzeugen und abholen.
+
 	        String sql = "INSERT INTO TEMPERATUR(id, raum, wert, einheit) VALUES(?, ?, ?, ?)";
 	        PreparedStatement preparedStatement = (PreparedStatement) conn.prepareStatement(sql);
 	        preparedStatement.setLong(1, newTemperatur.getId());
@@ -96,6 +83,7 @@ public class MySQLConnection {
 	        preparedStatement.setString(3, newTemperatur.getWert());
 	        preparedStatement.setString(4, newTemperatur.getEinheit());
 	        preparedStatement.executeUpdate();
+	        
 	        System.out.println("DEBUG: adding new temperatur to DB");
 	      } catch (SQLException e) {
 	        e.printStackTrace();
