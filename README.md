@@ -115,10 +115,325 @@ Mögliches Sequenzdiagramm mit angebundener mySQL-Datenbank (optional)
 
 06.05.2013
 
+XML-Schema:
+
+```
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<xsd:element name="gebaeudeEl" type="gebaeude" />
+<xsd:element name="klingelEl" type="klingel" />
+<xsd:element name="energieEl" type="energie" />
+<xsd:element name="heizungEl" type="heizung" />
+<xsd:element name="heizungIstEl" type="heizungIst" />
+<xsd:element name="heizungSollEl" type="heizungSoll" />
+<xsd:element name="kamerasEl" type="kameras" />
+<xsd:element name="kameraEl" type="kamera" />
+<xsd:element name="etagenEl" type="etagen" />
+<xsd:element name="etageEl" type="etage" />
+<xsd:element name="raeumeEl" type="raeume" />
+<xsd:element name="raumEl" type="raum" />
+<xsd:element name="feuchtigkeitEl" type="feuchtigkeit" />
+<xsd:element name="energieRaumEl" type="energieRaum" />
+<xsd:element name="temperaturEl" type="temperatur" />
+<xsd:element name="temperaturIstEl" type="temperaturIst" />
+<xsd:element name="temperaturSollEl" type="temperaturSoll" />
+<xsd:element name="lichterEl" type="lichter" />
+<xsd:element name="lichtEl" type="licht" />
+<xsd:element name="verschattungenEl" type="verschattungen" />
+<xsd:element name="verschattungEl" type="verschattung" />
+<xsd:element name="steckdosenEl" type="steckdosen" />
+<xsd:element name="steckdoseEl" type="steckdose" />
+<xsd:element name="kontakteEl" type="kontakte" />
+<xsd:element name="kontaktEl" type="kontakt" />
+<xsd:element name="bewegungenEl" type="bewegungen" />
+<xsd:element name="bewegungEl" type="bewegung" />
+<xsd:element name="feuermelderEl" type="feuermelder" />
+<xsd:element name="feuermeldEl" type="feuermeld" />
+
+<xsd:element name="id" type="xsd:int" />
+<xsd:element name="info" type="xsd:string" />
+
+<xsd:element name="wert" type="xsd:decimal" />
+<xsd:element name="einheit" type="xsd:string" />
+
+<xsd:element name="zustand" type="xsd:boolean" />
+
+<xsd:element name="kameraBild" type="xsd:anyURI" />
+
+<xsd:complexType name="gebaeude">
+  <xsd:sequence>
+		<xsd:element ref="klingelEl" minOccurs="0"/>
+		<xsd:element ref="energieEl" minOccurs="0"/>
+		<xsd:element ref="heizungEl" minOccurs="0"/>
+		<xsd:element ref="kamerasEl" minOccurs="0"/>
+		<xsd:element ref="etagenEl" minOccurs="0"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="klingel">
+	<xsd:sequence>
+		<xsd:element ref="zustand" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="energie">
+	<xsd:sequence>
+		<xsd:element ref="id" />
+		<xsd:element ref="info" />
+		<xsd:element ref="wert" />
+		<xsd:element ref="einheit" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="heizung">
+	<xsd:sequence>
+		<xsd:element ref="info" />
+		<xsd:element ref="heizungIstEl" minOccurs="0"/>
+		<xsd:element ref="heizungSollEl" minOccurs="0"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="heizungIst">
+	<xsd:sequence>
+		<xsd:element ref="wert" />
+		<xsd:element ref="einheit" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="heizungSoll">
+	<xsd:sequence>
+		<xsd:element ref="wert" />
+		<xsd:element ref="einheit" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="kameras">
+	<xsd:sequence>
+		<xsd:element ref="kameraEl" minOccurs="0" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="kamera">
+	<xsd:sequence>
+		<xsd:element ref="id" />
+		<xsd:element ref="info" />
+		<xsd:element ref="zustand" minOccurs="0"/>
+		<xsd:element ref="kameraBild" minOccurs="0"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="etagen">
+	<xsd:sequence>
+		<xsd:element ref="etageEl" minOccurs="0" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="etage">
+	<xsd:sequence>
+		<xsd:element ref="id" />
+		<xsd:element ref="info" />
+		<xsd:element ref="raeumeEl" minOccurs="0"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="raeume">
+	<xsd:sequence>
+		<xsd:element ref="raumEl" minOccurs="0" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="raum">
+	<xsd:sequence>
+		<xsd:element ref="id" />
+		<xsd:element ref="info" />
+		<xsd:element ref="feuchtigkeitEl" minOccurs="0"/>
+		<xsd:element ref="energieRaumEl" minOccurs="0"/>
+		<xsd:element ref="temperaturEl" minOccurs="0"/>
+		<xsd:element ref="lichterEl" minOccurs="0"/>
+		<xsd:element ref="verschattungenEl" minOccurs="0"/>
+		<xsd:element ref="steckdosenEl" minOccurs="0"/>
+		<xsd:element ref="kontakteEl" minOccurs="0"/>
+		<xsd:element ref="bewegungenEl" minOccurs="0"/>
+		<xsd:element ref="feuermelderEl" minOccurs="0"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="feuchtigkeit">
+	<xsd:sequence>
+		<xsd:element ref="wert" />
+		<xsd:element ref="einheit" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="energieRaum">
+	<xsd:sequence>
+		<xsd:element ref="wert" />
+		<xsd:element ref="einheit" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="temperatur">
+	<xsd:sequence>
+		<xsd:element ref="temperaturIstEl" minOccurs="0"/>
+		<xsd:element ref="temperaturSollEl" minOccurs="0"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="temperaturIst">
+	<xsd:sequence>
+		<xsd:element ref="wert" />
+		<xsd:element ref="einheit" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="temperaturSoll">
+	<xsd:sequence>
+		<xsd:element ref="wert" />
+		<xsd:element ref="einheit" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="lichter">
+	<xsd:sequence>
+		<xsd:element ref="lichtEl" minOccurs="0" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="licht">
+	<xsd:sequence>
+		<xsd:element ref="id" />
+		<xsd:element ref="info" />
+		<xsd:element ref="zustand" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="verschattungen">
+	<xsd:sequence>
+		<xsd:element ref="verschattungEl" minOccurs="0" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="verschattung">
+	<xsd:sequence>
+		<xsd:element ref="id" />
+		<xsd:element ref="info" />
+		<xsd:element ref="wert" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="steckdosen">
+	<xsd:sequence>
+		<xsd:element ref="steckdoseEl" minOccurs="0" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="steckdose">
+	<xsd:sequence>
+		<xsd:element ref="id" />
+		<xsd:element ref="info" />
+		<xsd:element ref="zustand" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="kontakte">
+	<xsd:sequence>
+		<xsd:element ref="kontaktEl" minOccurs="0" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="kontakt">
+	<xsd:sequence>
+		<xsd:element ref="id" />
+		<xsd:element ref="info" />
+		<xsd:element ref="zustand" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="bewegungen">
+	<xsd:sequence>
+		<xsd:element ref="bewegungEl" minOccurs="0" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="bewegung">
+	<xsd:sequence>
+		<xsd:element ref="id" />
+		<xsd:element ref="info" />
+		<xsd:element ref="zustand" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="feuermelder">
+	<xsd:sequence>
+		<xsd:element ref="feuermeldEl" minOccurs="0" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="feuermeld">
+	<xsd:sequence>
+		<xsd:element ref="id" />
+		<xsd:element ref="info" />
+		<xsd:element ref="zustand" />
+	</xsd:sequence>
+</xsd:complexType>
+
+</xsd:schema>
+```
+
 ### M2 Ressourcen und die Semantik der HTTP-Operationen  
 [nach oben](#inhalt)
 
 06.05.2013
+
+**REST-Hierarchie**
+
+Die entwickelte REST-Hierarchie und die verfügbaren Ressourcen wurden stark an den realen Aufbau eines Gebäudes angelehnt.
+Jedes Gebäude ist in Etagen unterteilt, die wiederrum in einzelne Räume aufgeteilt sind. Für jeden Raum können Sensoren & Aktoren 
+hinzugefügt werden. Daraus ergibt sich folgende Struktur `http://host:port/etage/<id>/raum/<id>/<funktion>/...` Die jeweiligen Etagen bzw. Räume
+werden über die `id` identifiziert. Es gibt zusätzlich noch Ressourcen die unabhängig von Räumen sind bzw. ihrer Räumlichen Lage sind.
+Diese werden als alleinstehende Ressourcen angeboten. Darunter fallen z.B die Zentralheizung, Überwachungskameras und
+den globalen Energieverbrauch. Die einzelnen Kameras sind wiederum über `id` ansprechbar.  
+Wird eine Ressource ohne eine bestimmte id angesprochen z.B `GET /etage` wird eine Liste mit allen in der Ressource befindlichen Unterressourcen
+zurückgegeben, in diesem Fall eine Liste aller Etagen. Für Räume gilt das gleiche Prinzip `GET /etage/1/raum` holt eine Liste aller Räume
+auf Etage 1. (??? ID String/Integer ???) 
+Ressourcen welche nicht über eine `id` verfügen stellen somit keine Listen dar. Beispiel `GET /etage/1/raum/2/temperatur` gibt einen Datensatz zurück.
+Eine Besonderheit stellt die Unterteilung einer Heizungs-Ressource dar. Dort findet die beiden Ressourcen `Soll` & `Ist`. 
+Dies war nötig, da die Heizung auf einen bestimmten Soll-Wert eingestellt werden kann, der Ist-Wert ändert sich aber nur langsam. Um beide
+Zustände darstellen zu können wurden daraus 2 Ressourcen gebildet. Der Soll-Wert kann über `PUT /etage/1/raum/3/temperatur/soll` gesetzt werden.
+
+
+![GET Anfrage mit mySQL-DB](https://github.com/cries/wba2_ss13_phase2/blob/master/wba2_ss13_phase2/pics/rest_hierarchie_1.png?raw=true)
+
+HTTP-Operationen:
+
+| | GET | PUT | POST | DELETE |
+| :----- | :----------: | :---------: | :--------: | :--------: |
+| /etage | x | ? | x | x |
+| /etage/&lt;id> | x | ? | x | x |
+| /etage/&lt;id&gt;/raum | x | ? | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id> | x | ? | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/feuchtigkeit | x | | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/energie | x | | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/temperatur | x | | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/temperatur/soll | x | x | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/temperatur/ist | x | | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/licht | x | | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/licht/&lt;id> | x | x | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/verschattung | x | | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/verschattung/&lt;id> | x | x | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/steckdose |x | | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/steckdose/&lt;id> | x | x | x | x |
+| | GET | PUT | POST | DELETE |
+| /heizung | x | | x | x |
+| /heizung/ist | x | | x | x |
+| /heizung/soll | x | x | x | x |
+| | GET | PUT | POST | DELETE |
+| /kamera | x | | x | x |
+| /kamera/&lt;id> | x | x | x | x |
+| /energie | x | | x | x |
+
+[nach oben](#inhalt)
 
 ### M3 RESTful Webservice  
 [nach oben](#inhalt)
@@ -172,28 +487,5 @@ Weiterführende Ausarbeitung der Funktionen, Beschreibung des Szenario
 
 ----------
 
-| | GET | PUT | POST | DELETE |
-| :----- | :----------: | :---------: | :----------: | :------------: |
-| /etage | x | ? | x | x |
-| /etage/1 | x | ? | x | x |
-| /etage/1/raum | x | ? | x | x |
-| /etage/1/raum/feuchtigkeit | x | | x | x |
-| /etage/1/raum/energie | x | | x | x |
-| /etage/1/raum/temperatur | x | | x | x |
-| /etage/1/raum/temperatur/soll | x | x | x | x |
-| /etage/1/raum/temperatur/ist | x | | x | x |
-| /etage/1/raum/licht | x | | x | x |
-| /etage/1/raum/licht/1 | x | x | x | x |
-| /etage/1/raum/verschaltung | x | | x | x |
-| /etage/1/raum/verschaltung/1 | x | x | x | x |
-| /etage/1/raum/steckdose |x | | x | x |
-| /etage/1/raum/steckdose/1 | x | x | x | x |
-| | 
-| | 
-| /heizung | x | | x | x |
-| /heizung/ist | x | | x | x |
-| /heizung/soll | x | x | x | x |
-| /kamera | x | | x | x |
-| /kamera/1 | x | x | x | x |
-| /energie | x | | x | x |
+
 
