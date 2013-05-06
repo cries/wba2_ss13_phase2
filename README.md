@@ -115,7 +115,15 @@ Mögliches Sequenzdiagramm mit angebundener mySQL-Datenbank (optional)
 
 06.05.2013
 
-XML-Schema:
+**XML-Schema**
+
+Das XML-Schema ist modular aufgebaut. Für jede Ressource wird ein Complex-Type verwendet, da diese unterschiedliche Informationen bzw.
+weitere Complex-Typen enthalten können. Die gewählte Verschachtelung von Etagen & Räumen wird auch hier angewendet.
+Die Listen werden über den Typennamen in der Mehrzahl dargestellt. z.B. `etagen` ist eine Liste von Etagen, welche vom Typ `Etage` sind.
+Für die Elemente einer Liste muss zusätzlich noch eine ID definiert werden damit diese eindeutig zuordenbar sind.
+
+Der Umstand dass in diesem System einzelne Ressourcen abgefragt werden können, erfordert diesen Modularen Aufbau ohne explizites Root-Element.
+Dieses Schema kann also XML-Dokumente mit unterschiedlichen Root-Elementen validieren.  
 
 ```
 <?xml version="1.0"?>
