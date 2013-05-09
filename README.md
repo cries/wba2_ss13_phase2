@@ -441,6 +441,28 @@ HTTP-Operationen:
 | /kamera/&lt;id> | x | x | x | x |
 | /energie | x | | x | x |
 
+**Raumspezifische Ressourcen die man lesen(GET), löschen(DELETE), erstellen(POST) kann wären**
+
+- Feuchtigkeit
+- Energie
+- Temperatur
+
+**Raumspezifische Ressourcen auf die man lesen(GET), löschen(DELETE), erstellen(POST) und schreiben(PUT) kann wären**
+
+- Temperatur
+- Licht
+- Verschattung
+- Steckdosen
+
+**Gebäudespezifische Ressourcen die man lesen(GET), löschen(DELETE), erstellen(POST) kann wären**
+
+- Energie
+
+**Gebäudespezifische Ressourcen die man lesen(GET), löschen(DELETE), erstellen(POST) und schreiben(PUT) kann wären**
+
+- Kamera ??
+- Heizung Ist-Soll ??
+
 [nach oben](#inhalt)
 
 ### M3 RESTful Webservice  
