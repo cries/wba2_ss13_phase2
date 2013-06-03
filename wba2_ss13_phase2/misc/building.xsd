@@ -91,7 +91,7 @@
 		<xsd:element name="zustand" type="xsd:boolean" />
 		<xsd:element ref="kameraBild" minOccurs="0"/>
 	</xsd:sequence>
-	<xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+	<xsd:attribute name="id" type="xsd:positiveInteger"/>
 </xsd:complexType>
 
 <xsd:complexType name="etagen">
@@ -105,7 +105,7 @@
 		<xsd:element name="info" type="xsd:string" />
 		<xsd:element ref="raeumeEl" minOccurs="0"/>
 	</xsd:sequence>
-	<xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+	<xsd:attribute name="id" type="xsd:positiveInteger"/>
 </xsd:complexType>
 
 <xsd:complexType name="raeume">
@@ -127,7 +127,7 @@
 		<xsd:element ref="bewegungenEl" minOccurs="0"/>
 		<xsd:element ref="feuermelderEl" minOccurs="0"/>
 	</xsd:sequence>
-	<xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+	<xsd:attribute name="id" type="xsd:positiveInteger"/>
 </xsd:complexType>
 
 <xsd:complexType name="feuchtigkeit">
@@ -176,7 +176,7 @@
 		<xsd:element name="info" type="xsd:string" />
 		<xsd:element name="zustand" type="xsd:boolean" />
 	</xsd:sequence>
-	<xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+	<xsd:attribute name="id" type="xsd:positiveInteger"/>
 </xsd:complexType>
 
 <xsd:complexType name="verschattungen">
@@ -190,7 +190,7 @@
 		<xsd:element name="info" type="xsd:string" />
 		<xsd:element name="wert" type="xsd:decimal" />
 	</xsd:sequence>
-	<xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+	<xsd:attribute name="id" type="xsd:positiveInteger"/>
 </xsd:complexType>
 
 <xsd:complexType name="steckdosen">
@@ -204,7 +204,7 @@
 		<xsd:element name="info" type="xsd:string" />
 		<xsd:element name="zustand" type="xsd:boolean" />
 	</xsd:sequence>
-	<xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+	<xsd:attribute name="id" type="xsd:positiveInteger"/>
 </xsd:complexType>
 
 <xsd:complexType name="kontakte">
@@ -218,7 +218,7 @@
 		<xsd:element name="info" type="xsd:string" />
 		<xsd:element name="zustand" type="xsd:boolean" />
 	</xsd:sequence>
-	<xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+	<xsd:attribute name="id" type="xsd:positiveInteger"/>
 </xsd:complexType>
 
 <xsd:complexType name="bewegungen">
@@ -232,7 +232,7 @@
 		<xsd:element name="info" type="xsd:string" />
 		<xsd:element name="zustand" type="xsd:boolean" />
 	</xsd:sequence>
-	<xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+	<xsd:attribute name="id" type="xsd:positiveInteger"/>
 </xsd:complexType>
 
 <xsd:complexType name="feuermelder">
@@ -246,7 +246,7 @@
 		<xsd:element name="info" type="xsd:string" />
 		<xsd:element name="zustand" type="xsd:boolean" />
 	</xsd:sequence>
-	<xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+	<xsd:attribute name="id" type="xsd:positiveInteger"/>
 </xsd:complexType>
 
 </xsd:schema>

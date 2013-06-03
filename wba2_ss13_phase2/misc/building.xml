@@ -1,229 +1,238 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gebaeudeEl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="building.xsd">
-  <klingelEl>
-    <zustand>true</zustand>
-  </klingelEl>
-  <energieEl>
-    <info>Energieverbrauch</info>
-    <wert>1400</wert>
-    <einheit>kWh</einheit>
-  </energieEl>
-  <heizungEl>
-    <info>Zentralheizung</info>
-    <heizungIstEl>
-      <wert>21</wert>
-      <einheit>C</einheit>
-    </heizungIstEl>
-    <heizungSollEl>
-      <wert>23.5</wert>
-      <einheit>C</einheit>
-    </heizungSollEl>
-  </heizungEl>
-  <kamerasEl>
-    <kameraEl id="1">
-      <info>Flur</info>
-      <zustand>true</zustand>
-      <kameraBild>http://tempuri.org</kameraBild>
-    </kameraEl>
-    <kameraEl id="2">
-      <info>Haustür</info>
-      <zustand>true</zustand>
-      <kameraBild>http://tempuri.org</kameraBild>
-    </kameraEl>
-  </kamerasEl>
-  <etagenEl>
-    <etageEl id="1">
-      <info>Erdge</info>
-      <raeumeEl>
-        <raumEl id="1">
-          <info>Badezimmer</info>
-          <feuchtigkeitEl>
-            <wert>80</wert>
-            <einheit>%</einheit>
-          </feuchtigkeitEl>
-          <energieRaumEl>
-            <wert>1200</wert>
-            <einheit>W</einheit>
-          </energieRaumEl>
-          <temperaturEl>
-            <temperaturIstEl>
-              <wert>23</wert>
-              <einheit>C</einheit>
-            </temperaturIstEl>
-            <temperaturSollEl>
-              <wert>24</wert>
-              <einheit>C</einheit>
-            </temperaturSollEl>
-          </temperaturEl>
-          <lichterEl>
-            <lichtEl id="1">
-              <info>Decke Mitte</info>
-              <zustand>true</zustand>
-            </lichtEl>
-            <lichtEl id="2">
-              <info>Decke Tür</info>
-              <zustand>true</zustand>
-            </lichtEl>
-            <lichtEl id="3">
-              <info>Wand</info>
-              <zustand>false</zustand>
-            </lichtEl>
-            <lichtEl id="4">
-              <info>Wand</info>
-              <zustand>true</zustand>
-            </lichtEl>
-          </lichterEl>
-          <verschattungenEl>
-            <verschattungEl id="1">
-              <info>Fenster</info>
-              <wert>50</wert>
-            </verschattungEl>
-          </verschattungenEl>
-          <steckdosenEl>
-            <steckdoseEl id="1">
-              <info>steckdose1</info>
-              <zustand>true</zustand>
-            </steckdoseEl>
-          </steckdosenEl>
-          <kontakteEl>
-            <kontaktEl id="1">
-              <info>kontakt1</info>
-              <zustand>true</zustand>
-            </kontaktEl>
-          </kontakteEl>
-          <bewegungenEl>
-            <bewegungEl id="1">
-              <info>beweg1</info>
-              <zustand>true</zustand>
-            </bewegungEl>
-          </bewegungenEl>
-          <feuermelderEl>
-            <feuermeldEl id="1">
-              <info>feuermeld1</info>
-              <zustand>true</zustand>
-            </feuermeldEl>
-          </feuermelderEl>
-        </raumEl>
-        <raumEl id="2">
-          <info>Badezimmer</info>
-          <feuchtigkeitEl>
-            <wert>80</wert>
-            <einheit>%</einheit>
-          </feuchtigkeitEl>
-          <energieRaumEl>
-            <wert>1200</wert>
-            <einheit>W</einheit>
-          </energieRaumEl>
-          <temperaturEl>
-            <temperaturIstEl>
-              <wert>23</wert>
-              <einheit>C</einheit>
-            </temperaturIstEl>
-            <temperaturSollEl>
-              <wert>24</wert>
-              <einheit>C</einheit>
-            </temperaturSollEl>
-          </temperaturEl>
-          <lichterEl>
-            <lichtEl id="1">
-              <info>Decke</info>
-              <zustand>true</zustand>
-            </lichtEl>
-          </lichterEl>
-          <verschattungenEl>
-            <verschattungEl id="1">
-              <info>Fenster</info>
-              <wert>50</wert>
-            </verschattungEl>
-          </verschattungenEl>
-          <steckdosenEl>
-            <steckdoseEl id="1">
-              <info>steckdose1</info>
-              <zustand>true</zustand>
-            </steckdoseEl>
-          </steckdosenEl>
-          <kontakteEl>
-            <kontaktEl id="1">
-              <info>kontakt1</info>
-              <zustand>true</zustand>
-            </kontaktEl>
-          </kontakteEl>
-          <bewegungenEl>
-            <bewegungEl id="1">
-              <info>beweg1</info>
-              <zustand>true</zustand>
-            </bewegungEl>
-          </bewegungenEl>
-          <feuermelderEl>
-            <feuermeldEl id="1">
-              <info>feuermeld1</info>
-              <zustand>true</zustand>
-            </feuermeldEl>
-          </feuermelderEl>
-        </raumEl>
-      </raeumeEl>
-    </etageEl>
-    <etageEl id="2">
-      <info>info</info>
-      <raeumeEl>
-        <raumEl id="1">
-          <info>info</info>
-          <feuchtigkeitEl>
-            <wert>0.0</wert>
-            <einheit>einheit</einheit>
-          </feuchtigkeitEl>
-          <energieRaumEl>
-            <wert>0.0</wert>
-            <einheit>einheit</einheit>
-          </energieRaumEl>
-          <temperaturEl>
-            <temperaturIstEl>
-              <wert>0.0</wert>
-              <einheit>einheit</einheit>
-            </temperaturIstEl>
-            <temperaturSollEl>
-              <wert>0.0</wert>
-              <einheit>einheit</einheit>
-            </temperaturSollEl>
-          </temperaturEl>
-          <lichterEl>
-            <lichtEl id="1">
-              <info>info</info>
-              <zustand>true</zustand>
-            </lichtEl>
-          </lichterEl>
-          <verschattungenEl>
-            <verschattungEl id="1">
-              <info>info</info>
-              <wert>0.0</wert>
-            </verschattungEl>
-          </verschattungenEl>
-          <steckdosenEl>
-            <steckdoseEl id="1">
-              <info>info</info>
-              <zustand>true</zustand>
-            </steckdoseEl>
-          </steckdosenEl>
-          <kontakteEl>
-            <kontaktEl id="1">
-              <info>info</info>
-              <zustand>true</zustand>
-            </kontaktEl>
-          </kontakteEl>
-          <bewegungenEl>
-            <bewegungEl id="1">
-              <info>info</info>
-              <zustand>true</zustand>
-            </bewegungEl>
-          </bewegungenEl>
-          <feuermelderEl>
-            <feuermeldEl id="1">
-              <info>info</info>
-              <zustand>true</zustand>
-            </feuermeldEl>
-          </feuermelderEl>
-        </raumEl>
-      </raeumeEl>
-    </etageEl>
-  </etagenEl>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<gebaeudeEl>
+    <klingelEl>
+        <zustand>true</zustand>
+    </klingelEl>
+    <energieEl>
+        <info>Energieverbrauch</info>
+        <wert>1400</wert>
+        <einheit>kWh</einheit>
+    </energieEl>
+    <heizungEl>
+        <info>Zentralheizung</info>
+        <heizungIstEl>
+            <wert>21</wert>
+            <einheit>C</einheit>
+        </heizungIstEl>
+        <heizungSollEl>
+            <wert>23.5</wert>
+            <einheit>C</einheit>
+        </heizungSollEl>
+    </heizungEl>
+    <kamerasEl>
+        <kameraEl id="1">
+            <info>Flur</info>
+            <zustand>true</zustand>
+            <kameraBild>http://tempuri.org</kameraBild>
+        </kameraEl>
+        <kameraEl id="2">
+            <info>Haustür</info>
+            <zustand>true</zustand>
+            <kameraBild>http://tempuri.org</kameraBild>
+        </kameraEl>
+    </kamerasEl>
+    <etagenEl>
+        <etageEl id="1">
+            <info>Erdge</info>
+            <raeumeEl>
+                <raumEl id="1">
+                    <info>Badezimmer</info>
+                    <feuchtigkeitEl>
+                        <wert>80</wert>
+                        <einheit>%</einheit>
+                    </feuchtigkeitEl>
+                    <energieRaumEl>
+                        <wert>1200</wert>
+                        <einheit>W</einheit>
+                    </energieRaumEl>
+                    <temperaturEl>
+                        <temperaturIstEl>
+                            <wert>23</wert>
+                            <einheit>C</einheit>
+                        </temperaturIstEl>
+                        <temperaturSollEl>
+                            <wert>24</wert>
+                            <einheit>C</einheit>
+                        </temperaturSollEl>
+                    </temperaturEl>
+                    <lichterEl>
+                        <lichtEl id="1">
+                            <info>Decke Mitte</info>
+                            <zustand>true</zustand>
+                        </lichtEl>
+                        <lichtEl id="2">
+                            <info>Decke Tür</info>
+                            <zustand>true</zustand>
+                        </lichtEl>
+                        <lichtEl id="3">
+                            <info>Wand</info>
+                            <zustand>false</zustand>
+                        </lichtEl>
+                        <lichtEl id="4">
+                            <info>Wand</info>
+                            <zustand>true</zustand>
+                        </lichtEl>
+                    </lichterEl>
+                    <verschattungenEl>
+                        <verschattungEl id="1">
+                            <info>Fenster</info>
+                            <wert>50</wert>
+                        </verschattungEl>
+                    </verschattungenEl>
+                    <steckdosenEl>
+                        <steckdoseEl id="1">
+                            <info>steckdose1</info>
+                            <zustand>true</zustand>
+                        </steckdoseEl>
+                    </steckdosenEl>
+                    <kontakteEl>
+                        <kontaktEl id="1">
+                            <info>kontakt1</info>
+                            <zustand>true</zustand>
+                        </kontaktEl>
+                    </kontakteEl>
+                    <bewegungenEl>
+                        <bewegungEl id="1">
+                            <info>beweg1</info>
+                            <zustand>true</zustand>
+                        </bewegungEl>
+                    </bewegungenEl>
+                    <feuermelderEl>
+                        <feuermeldEl id="1">
+                            <info>feuermeld1</info>
+                            <zustand>true</zustand>
+                        </feuermeldEl>
+                    </feuermelderEl>
+                </raumEl>
+                <raumEl id="2">
+                    <info>Badezimmer</info>
+                    <feuchtigkeitEl>
+                        <wert>80</wert>
+                        <einheit>%</einheit>
+                    </feuchtigkeitEl>
+                    <energieRaumEl>
+                        <wert>1200</wert>
+                        <einheit>W</einheit>
+                    </energieRaumEl>
+                    <temperaturEl>
+                        <temperaturIstEl>
+                            <wert>23</wert>
+                            <einheit>C</einheit>
+                        </temperaturIstEl>
+                        <temperaturSollEl>
+                            <wert>24</wert>
+                            <einheit>C</einheit>
+                        </temperaturSollEl>
+                    </temperaturEl>
+                    <lichterEl>
+                        <lichtEl id="1">
+                            <info>Decke</info>
+                            <zustand>true</zustand>
+                        </lichtEl>
+                    </lichterEl>
+                    <verschattungenEl>
+                        <verschattungEl id="1">
+                            <info>Fenster</info>
+                            <wert>50</wert>
+                        </verschattungEl>
+                    </verschattungenEl>
+                    <steckdosenEl>
+                        <steckdoseEl id="1">
+                            <info>steckdose1</info>
+                            <zustand>true</zustand>
+                        </steckdoseEl>
+                    </steckdosenEl>
+                    <kontakteEl>
+                        <kontaktEl id="1">
+                            <info>kontakt1</info>
+                            <zustand>true</zustand>
+                        </kontaktEl>
+                    </kontakteEl>
+                    <bewegungenEl>
+                        <bewegungEl id="1">
+                            <info>beweg1</info>
+                            <zustand>true</zustand>
+                        </bewegungEl>
+                    </bewegungenEl>
+                    <feuermelderEl>
+                        <feuermeldEl id="1">
+                            <info>feuermeld1</info>
+                            <zustand>true</zustand>
+                        </feuermeldEl>
+                    </feuermelderEl>
+                </raumEl>
+                <raumEl id="3">
+                    <info>Wohnzimmer</info>
+                </raumEl>
+            </raeumeEl>
+        </etageEl>
+        <etageEl id="2">
+            <info>info</info>
+            <raeumeEl>
+                <raumEl id="1">
+                    <info>info</info>
+                    <feuchtigkeitEl>
+                        <wert>0.0</wert>
+                        <einheit>einheit</einheit>
+                    </feuchtigkeitEl>
+                    <energieRaumEl>
+                        <wert>0.0</wert>
+                        <einheit>einheit</einheit>
+                    </energieRaumEl>
+                    <temperaturEl>
+                        <temperaturIstEl>
+                            <wert>0.0</wert>
+                            <einheit>einheit</einheit>
+                        </temperaturIstEl>
+                        <temperaturSollEl>
+                            <wert>0.0</wert>
+                            <einheit>einheit</einheit>
+                        </temperaturSollEl>
+                    </temperaturEl>
+                    <lichterEl>
+                        <lichtEl id="1">
+                            <info>info</info>
+                            <zustand>true</zustand>
+                        </lichtEl>
+                    </lichterEl>
+                    <verschattungenEl>
+                        <verschattungEl id="1">
+                            <info>info</info>
+                            <wert>0.0</wert>
+                        </verschattungEl>
+                    </verschattungenEl>
+                    <steckdosenEl>
+                        <steckdoseEl id="1">
+                            <info>info</info>
+                            <zustand>true</zustand>
+                        </steckdoseEl>
+                    </steckdosenEl>
+                    <kontakteEl>
+                        <kontaktEl id="1">
+                            <info>info</info>
+                            <zustand>true</zustand>
+                        </kontaktEl>
+                    </kontakteEl>
+                    <bewegungenEl>
+                        <bewegungEl id="1">
+                            <info>info</info>
+                            <zustand>true</zustand>
+                        </bewegungEl>
+                    </bewegungenEl>
+                    <feuermelderEl>
+                        <feuermeldEl id="1">
+                            <info>info</info>
+                            <zustand>true</zustand>
+                        </feuermeldEl>
+                    </feuermelderEl>
+                </raumEl>
+                <raumEl id="2">
+                    <info>Etage 2 Wohnzimmer</info>
+                </raumEl>
+            </raeumeEl>
+        </etageEl>
+        <etageEl id="3">
+            <info>Dachgeschoss</info>
+        </etageEl>
+    </etagenEl>
 </gebaeudeEl>

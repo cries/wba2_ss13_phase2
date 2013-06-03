@@ -2,7 +2,7 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.6 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2013.06.03 um 11:13:33 AM CEST 
+// Generiert: 2013.06.03 um 05:00:30 PM CEST 
 //
 
 
@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="info" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element ref="{}raeumeEl" minOccurs="0"/>
  *       &lt;/sequence>
- *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" />
+ *       &lt;attribute name="id" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -48,7 +48,7 @@ public class Etage {
     @XmlElement(required = true)
     protected String info;
     protected Raeume raeumeEl;
-    @XmlAttribute(name = "id", required = true)
+    @XmlAttribute(name = "id")
     @XmlSchemaType(name = "positiveInteger")
     protected BigInteger id;
 

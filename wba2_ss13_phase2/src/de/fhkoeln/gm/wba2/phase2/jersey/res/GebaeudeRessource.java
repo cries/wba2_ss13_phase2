@@ -2,7 +2,9 @@ package de.fhkoeln.gm.wba2.phase2.jersey.res;
 
 import java.math.BigInteger;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -77,6 +79,20 @@ public class GebaeudeRessource {
 		return Response.ok().entity(etagen).type(MediaType.APPLICATION_XML).build();
 	}
 	
+	@POST
+	@Path("/etage")
+	@Consumes(MediaType.APPLICATION_XML)
+	public Response createEtage(String body) {
+		BigInteger etagen_id = dh.createEtage(body);
+		if(etagen_id != null) {
+			String location = "http://localhost:4711/etage/" + etagen_id;
+			return Response.status(201).header("Location", location).build();
+		}
+		else {
+			return Response.status(404).build();
+		}
+	}
+	
 	@GET
 	@Path("/etage/{etagenid}")
 	public Response getEtage(@PathParam("etagenid") BigInteger etagen_id){
@@ -84,11 +100,26 @@ public class GebaeudeRessource {
 		return Response.ok().entity(etage).type(MediaType.APPLICATION_XML).build();
 	}
 	
+	
 	@GET
 	@Path("/etage/{etagenid}/raum")
 	public Response getRaeume(@PathParam("etagenid") BigInteger etagen_id){
 		String raeume = dh.getRaeume(etagen_id);
 		return Response.ok().entity(raeume).type(MediaType.APPLICATION_XML).build();
+	}
+	
+	@POST
+	@Path("/etage/{etagenid}/raum")
+	@Consumes(MediaType.APPLICATION_XML)
+	public Response createRaum(@PathParam("etagenid") BigInteger etagen_id, String body) {
+		BigInteger raum_id = dh.createRaum(etagen_id, body);
+		if(raum_id != null) {
+			String location = "http://localhost:4711/etage/" + etagen_id + "/raum/" + raum_id;
+			return Response.status(201).header("Location", location).build();
+		}
+		else {
+			return Response.status(404).build();
+		}
 	}
 	
 	@GET
