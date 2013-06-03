@@ -9,8 +9,6 @@ import java.util.ArrayList;
 
 import com.mysql.jdbc.PreparedStatement;
 
-import de.fhkoeln.gm.wba2.phase2.jersey.jaxb.Temperatur;
-
 
 public class MySQLConnection {
 	  private static Connection conn = null;

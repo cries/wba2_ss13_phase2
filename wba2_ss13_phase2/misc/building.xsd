@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<xsd:element name="gebaeudeEl" type="gebaeude" />
+<xsd:element name="klingelEl" type="klingel" />
+<xsd:element name="energieEl" type="energie" />
+<xsd:element name="heizungEl" type="heizung" />
+<xsd:element name="heizungIstEl" type="heizungIst" />
+<xsd:element name="heizungSollEl" type="heizungSoll" />
+<xsd:element name="kamerasEl" type="kameras" />
+<xsd:element name="kameraEl" type="kamera" />
+<xsd:element name="etagenEl" type="etagen" />
+<xsd:element name="etageEl" type="etage" />
+<xsd:element name="raeumeEl" type="raeume" />
+<xsd:element name="raumEl" type="raum" />
+<xsd:element name="feuchtigkeitEl" type="feuchtigkeit" />
+<xsd:element name="energieRaumEl" type="energieRaum" />
+<xsd:element name="temperaturEl" type="temperatur" />
+<xsd:element name="temperaturIstEl" type="temperaturIst" />
+<xsd:element name="temperaturSollEl" type="temperaturSoll" />
+<xsd:element name="lichterEl" type="lichter" />
+<xsd:element name="lichtEl" type="licht" />
+<xsd:element name="verschattungenEl" type="verschattungen" />
+<xsd:element name="verschattungEl" type="verschattung" />
+<xsd:element name="steckdosenEl" type="steckdosen" />
+<xsd:element name="steckdoseEl" type="steckdose" />
+<xsd:element name="kontakteEl" type="kontakte" />
+<xsd:element name="kontaktEl" type="kontakt" />
+<xsd:element name="bewegungenEl" type="bewegungen" />
+<xsd:element name="bewegungEl" type="bewegung" />
+<xsd:element name="feuermelderEl" type="feuermelder" />
+<xsd:element name="feuermeldEl" type="feuermeld" />
+
+<xsd:element name="kameraBild" type="xsd:anyURI" />
+
+<xsd:complexType name="gebaeude">
+	<xsd:sequence>
+		<xsd:element ref="klingelEl" minOccurs="0"/>
+		<xsd:element ref="energieEl" minOccurs="0"/>
+		<xsd:element ref="heizungEl" minOccurs="0"/>
+		<xsd:element ref="kamerasEl" minOccurs="0"/>
+		<xsd:element ref="etagenEl" minOccurs="0"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="klingel">
+	<xsd:sequence>
+		<xsd:element name="zustand" type="xsd:boolean" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="energie">
+	<xsd:sequence>
+		<xsd:element name="info" type="xsd:string" />
+		<xsd:element name="wert" type="xsd:decimal" />
+		<xsd:element name="einheit" type="xsd:string" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="heizung">
+	<xsd:sequence>
+		<xsd:element name="info" type="xsd:string" />
+		<xsd:element ref="heizungIstEl" minOccurs="0"/>
+		<xsd:element ref="heizungSollEl" minOccurs="0"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="heizungIst">
+	<xsd:sequence>
+		<xsd:element name="wert" type="xsd:decimal" />
+		<xsd:element name="einheit" type="xsd:string" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="heizungSoll">
+	<xsd:sequence>
+		<xsd:element name="wert" type="xsd:decimal" />
+		<xsd:element name="einheit" type="xsd:string" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="kameras">
+	<xsd:sequence>
+		<xsd:element ref="kameraEl" minOccurs="0" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="kamera">
+	<xsd:sequence>
+		<xsd:element name="info" type="xsd:string" />
+		<xsd:element name="zustand" type="xsd:boolean" />
+		<xsd:element ref="kameraBild" minOccurs="0"/>
+	</xsd:sequence>
+	<xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+</xsd:complexType>
+
+<xsd:complexType name="etagen">
+	<xsd:sequence>
+		<xsd:element ref="etageEl" minOccurs="0" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="etage">
+	<xsd:sequence>
+		<xsd:element name="info" type="xsd:string" />
+		<xsd:element ref="raeumeEl" minOccurs="0"/>
+	</xsd:sequence>
+	<xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+</xsd:complexType>
+
+<xsd:complexType name="raeume">
+	<xsd:sequence>
+		<xsd:element ref="raumEl" minOccurs="0" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="raum">
+	<xsd:sequence>
+		<xsd:element name="info" type="xsd:string" />
+		<xsd:element ref="feuchtigkeitEl" minOccurs="0"/>
+		<xsd:element ref="energieRaumEl" minOccurs="0"/>
+		<xsd:element ref="temperaturEl" minOccurs="0"/>
+		<xsd:element ref="lichterEl" minOccurs="0"/>
+		<xsd:element ref="verschattungenEl" minOccurs="0"/>
+		<xsd:element ref="steckdosenEl" minOccurs="0"/>
+		<xsd:element ref="kontakteEl" minOccurs="0"/>
+		<xsd:element ref="bewegungenEl" minOccurs="0"/>
+		<xsd:element ref="feuermelderEl" minOccurs="0"/>
+	</xsd:sequence>
+	<xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+</xsd:complexType>
+
+<xsd:complexType name="feuchtigkeit">
+	<xsd:sequence>
+		<xsd:element name="wert" type="xsd:decimal" />
+		<xsd:element name="einheit" type="xsd:string" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="energieRaum">
+	<xsd:sequence>
+		<xsd:element name="wert" type="xsd:decimal" />
+		<xsd:element name="einheit" type="xsd:string" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="temperatur">
+	<xsd:sequence>
+		<xsd:element ref="temperaturIstEl" minOccurs="0"/>
+		<xsd:element ref="temperaturSollEl" minOccurs="0"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="temperaturIst">
+	<xsd:sequence>
+		<xsd:element name="wert" type="xsd:decimal" />
+		<xsd:element name="einheit" type="xsd:string" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="temperaturSoll">
+	<xsd:sequence>
+		<xsd:element name="wert" type="xsd:decimal" />
+		<xsd:element name="einheit" type="xsd:string" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="lichter">
+	<xsd:sequence>
+		<xsd:element ref="lichtEl" minOccurs="0" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="licht">
+	<xsd:sequence>
+		<xsd:element name="info" type="xsd:string" />
+		<xsd:element name="zustand" type="xsd:boolean" />
+	</xsd:sequence>
+	<xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+</xsd:complexType>
+
+<xsd:complexType name="verschattungen">
+	<xsd:sequence>
+		<xsd:element ref="verschattungEl" minOccurs="0" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="verschattung">
+	<xsd:sequence>
+		<xsd:element name="info" type="xsd:string" />
+		<xsd:element name="wert" type="xsd:decimal" />
+	</xsd:sequence>
+	<xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+</xsd:complexType>
+
+<xsd:complexType name="steckdosen">
+	<xsd:sequence>
+		<xsd:element ref="steckdoseEl" minOccurs="0" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="steckdose">
+	<xsd:sequence>
+		<xsd:element name="info" type="xsd:string" />
+		<xsd:element name="zustand" type="xsd:boolean" />
+	</xsd:sequence>
+	<xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+</xsd:complexType>
+
+<xsd:complexType name="kontakte">
+	<xsd:sequence>
+		<xsd:element ref="kontaktEl" minOccurs="0" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="kontakt">
+	<xsd:sequence>
+		<xsd:element name="info" type="xsd:string" />
+		<xsd:element name="zustand" type="xsd:boolean" />
+	</xsd:sequence>
+	<xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+</xsd:complexType>
+
+<xsd:complexType name="bewegungen">
+	<xsd:sequence>
+		<xsd:element ref="bewegungEl" minOccurs="0" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="bewegung">
+	<xsd:sequence>
+		<xsd:element name="info" type="xsd:string" />
+		<xsd:element name="zustand" type="xsd:boolean" />
+	</xsd:sequence>
+	<xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+</xsd:complexType>
+
+<xsd:complexType name="feuermelder">
+	<xsd:sequence>
+		<xsd:element ref="feuermeldEl" minOccurs="0" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="feuermeld">
+	<xsd:sequence>
+		<xsd:element name="info" type="xsd:string" />
+		<xsd:element name="zustand" type="xsd:boolean" />
+	</xsd:sequence>
+	<xsd:attribute name="id" type="xsd:positiveInteger" use="required"/>
+</xsd:complexType>
+
+</xsd:schema>

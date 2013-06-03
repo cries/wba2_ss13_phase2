@@ -2,32 +2,30 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.6 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2013.04.21 um 10:31:03 PM CEST 
+// Generiert: 2013.06.03 um 11:13:33 AM CEST 
 //
 
 
-package de.fhkoeln.gm.wba2.phase2.jersey.jaxb;
+package de.fhkoeln.gm.wba2.phase2.jersey.generated;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für temperaturen complex type.
+ * <p>Java-Klasse für verschattungen complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
- * &lt;complexType name="temperaturen">
+ * &lt;complexType name="verschattungen">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{}temperatur_el" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element ref="{}verschattungEl" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -37,42 +35,40 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "temperaturen", propOrder = {
-    "temperaturEl"
+@XmlType(name = "verschattungen", propOrder = {
+    "verschattungEl"
 })
-@XmlRootElement
-public class Temperaturen {
+public class Verschattungen {
 
-    @XmlElement(name = "temperatur_el")
-    protected List<Temperatur> temperaturEl;
+    protected List<Verschattung> verschattungEl;
 
     /**
-     * Gets the value of the temperaturEl property.
+     * Gets the value of the verschattungEl property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the temperaturEl property.
+     * This is why there is not a <CODE>set</CODE> method for the verschattungEl property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getTemperaturEl().add(newItem);
+     *    getVerschattungEl().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Temperatur }
+     * {@link Verschattung }
      * 
      * 
      */
-    public List<Temperatur> getTemperaturEl() {
-        if (temperaturEl == null) {
-            temperaturEl = new ArrayList<Temperatur>();
+    public List<Verschattung> getVerschattungEl() {
+        if (verschattungEl == null) {
+            verschattungEl = new ArrayList<Verschattung>();
         }
-        return this.temperaturEl;
+        return this.verschattungEl;
     }
 
 }
