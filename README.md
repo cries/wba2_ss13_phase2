@@ -64,10 +64,19 @@ Weiter könnte z.B. die Feuerwehr auf auslösende Feuermelder reagieren und mög
 
 ### REST (synchron)
 
-* Abfrage von Energiedaten (aktueller Energieverbrauch)
-* Abfrage von Innentemperatur / Luftfeuchte
-* Abfrage von CO2-Sensoren
-* Abfrage von Überwachungskamera (Kamerabilder)
+* Abfrage der Energiedaten (aktueller Gesamtenergieverbrauch)
+* Abfrage der Energiedaten je Raum (aktueller Energieverbrauch)
+* Abfrage der Zentralheizungstemperatur (IST)
+* Abfrage der Innentemperatur je Raum
+* Abfrage der Luftfeuchtigkeit je Raum
+* Abfrage der Verschattung je Raum
+* Abfrage der Lichtquellen je Raum
+* Abfrage der Steckdosen je Raum
+* Abfrage der Überwachungskamera (Kamerabilder)
+* Steuerung der Innentemperatur je Raumm 
+* Steuerung der Verschattung je Raum
+* Steuerung der Lichtquellen je Raum
+* Steuerung der Zentralheizungstemperatur (SOLL)
 
 ### Publish / Subscribe (asynchron)
 
@@ -87,6 +96,9 @@ Weiter könnte z.B. die Feuerwehr auf auslösende Feuermelder reagieren und mög
 * **Chef**        -> Vollzugriff
 * **Mitarbeiter** -> Teilzugriff
 * **Hausmeister** -> Vollzugriff
+
+**Chef**
+- 
 
 ### Publish / Subscribe (asynchron)
 
