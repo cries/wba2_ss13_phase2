@@ -141,6 +141,9 @@ Weiter könnte z.B. die Feuerwehr auf auslösende Feuermelder reagieren und mög
 - Steuerung der Lichtquellen je Raum
 - Steuerung der Zentralheizungstemperatur (SOLL)
 
+**Sicherheitsfirma**
+- Abfrage der Überwachungskamera (Kamerabilder)
+
 ### Publish / Subscribe (asynchron)
 
 * **Chef**              -> Vollzugriff
