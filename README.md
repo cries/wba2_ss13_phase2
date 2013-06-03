@@ -96,6 +96,29 @@ Weiter könnte z.B. die Feuerwehr auf auslösende Feuermelder reagieren und mög
 * **Feuerwehr**         -> Teilzugriff
 * **Sicherheitsfirma**  -> Teilzugriff
 
+**Chef**  
+- Bewegungsmelder
+- Tür und Fensterkontakte
+- Feuermelder 
+- Türklingel
+
+**Hausmeister**
+- Bewegungsmelder
+- Tür und Fensterkontakte
+- Feuermelder
+- Türklingel
+
+**Polizei**
+- Bewegungsmelder
+- Tür und Fensterkontakte
+
+**Sicherheitsfirma**
+- Bewegungsmelder
+- Tür und Fensterkontakte
+
+**Feuerwehr**
+- Feuermelder
+
 ## Meilensteine
 [nach oben](#inhalt)
 
