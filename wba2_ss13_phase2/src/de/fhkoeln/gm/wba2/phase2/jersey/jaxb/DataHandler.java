@@ -215,6 +215,44 @@ public class DataHandler {
 		return marshall(steckdoseObj);
 	}
 	
+	public BigInteger createEtage(String etage_data){
+		Etage newEtage = (Etage)unmarshall(etage_data, Etage.class);
+		int arraySize = rootEl.getEtagenEl().getEtageEl().size();
+		int new_id = 1;
+		
+		if(arraySize > 0){
+			Etage last_etage = rootEl.getEtagenEl().getEtageEl().get(arraySize-1);
+			new_id = last_etage.getId().intValue() + 1;
+		}
+		
+		newEtage.setId(BigInteger.valueOf(new_id));
+	
+		rootEl.getEtagenEl().getEtageEl().add(newEtage);
+		
+		root_marshall();
+		
+		return BigInteger.valueOf(new_id);
+	}
+	
+	public BigInteger createRaum(BigInteger etagen_id, String raum_data){
+		Raum newRaum = (Raum)unmarshall(raum_data, Raum.class);
+		int arraySize = getEtageObj(etagen_id).getRaeumeEl().getRaumEl().size();
+		int new_id = 1;
+		
+		if(arraySize > 0){
+			Raum last_raum = getEtageObj(etagen_id).getRaeumeEl().getRaumEl().get(arraySize-1);
+			new_id = last_raum.getId().intValue() + 1;
+		}
+		
+		newRaum.setId(BigInteger.valueOf(new_id));
+	
+		getEtageObj(etagen_id).getRaeumeEl().getRaumEl().add(newRaum);
+		
+		root_marshall();
+		
+		return BigInteger.valueOf(new_id);
+	}
+	
 	private String marshall(Object instance) {
 
 		if(instance == null)
@@ -317,10 +355,18 @@ public class DataHandler {
 		return str;
 	}
 	
+	private void root_marshall() {
+		try {
+			Marshaller m = context.createMarshaller();
+			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+			m.marshal(new ObjectFactory().createGebaeudeEl(rootEl), XMLFile);
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	private Object unmarshall(String str, Class<?> c) {
-
 		Object element = null;
-		
 		try {
 			JAXBContext context = JAXBContext.newInstance(c);
 			Unmarshaller um = context.createUnmarshaller();
