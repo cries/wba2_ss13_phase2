@@ -94,8 +94,9 @@ Weiter könnte z.B. die Feuerwehr auf auslösende Feuermelder reagieren und mög
 ### REST (synchron)
 
 * **Chef**        -> Vollzugriff
-* **Mitarbeiter** -> Teilzugriff
 * **Hausmeister** -> Vollzugriff
+* **Mitarbeiter** -> Teilzugriff
+* **Sicherheitsfirma** -> Teilzugriff
 
 **Chef**
 - Abfrage der Energiedaten (aktueller Gesamtenergieverbrauch)
@@ -107,6 +108,19 @@ Weiter könnte z.B. die Feuerwehr auf auslösende Feuermelder reagieren und mög
 - Abfrage der Lichtquellen je Raum
 - Abfrage der Steckdosen je Raum
 - Abfrage der Überwachungskamera (Kamerabilder)
+- Steuerung der Innentemperatur je Raumm
+- Steuerung der Verschattung je Raum
+- Steuerung der Lichtquellen je Raum
+- Steuerung der Zentralheizungstemperatur (SOLL)
+
+**Mitarbeiter**
+- Abfrage der Energiedaten (aktueller Gesamtenergieverbrauch)
+- Abfrage der Energiedaten je Raum (aktueller Energieverbrauch)
+- Abfrage der Innentemperatur je Raum
+- Abfrage der Luftfeuchtigkeit je Raum
+- Abfrage der Verschattung je Raum
+- Abfrage der Lichtquellen je Raum
+- Abfrage der Steckdosen je Raum
 - Steuerung der Innentemperatur je Raumm
 - Steuerung der Verschattung je Raum
 - Steuerung der Lichtquellen je Raum
