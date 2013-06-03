@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Program Files/Java/jdk1.7.0_17"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Admin/Downloads/jersey-archive-1.1.5.1/jersey-archive-1.1.5.1/lib/asm-3.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Admin/Downloads/jersey-archive-1.1.5.1/jersey-archive-1.1.5.1/lib/jackson-core-asl-1.1.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Admin/Downloads/jersey-archive-1.1.5.1/jersey-archive-1.1.5.1/lib/jersey-client-1.1.5.1.jar"/>
@@ -21,5 +25,6 @@
 	<classpathentry kind="lib" path="C:/Users/Admin/Downloads/jaxb-ri-2.2.6/jaxb-ri-2.2.6/lib/jaxb-impl-javadoc.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Admin/Downloads/jaxb-ri-2.2.6/jaxb-ri-2.2.6/lib/jaxb-xjc.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Admin/Downloads/jaxb-ri-2.2.6/jaxb-ri-2.2.6/lib/jaxb-xjc-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Admin/Downloads/restclient-ui-3.1-jar-with-dependencies.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

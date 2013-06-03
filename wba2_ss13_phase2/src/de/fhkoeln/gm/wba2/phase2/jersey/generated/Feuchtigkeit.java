@@ -2,33 +2,31 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.6 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2013.04.21 um 10:31:03 PM CEST 
+// Generiert: 2013.06.03 um 11:13:33 AM CEST 
 //
 
 
-package de.fhkoeln.gm.wba2.phase2.jersey.jaxb;
+package de.fhkoeln.gm.wba2.phase2.jersey.generated;
 
+import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für temperatur complex type.
+ * <p>Java-Klasse für feuchtigkeit complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
- * &lt;complexType name="temperatur">
+ * &lt;complexType name="feuchtigkeit">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{}id"/>
- *         &lt;element ref="{}raum"/>
- *         &lt;element ref="{}wert"/>
- *         &lt;element ref="{}einheit"/>
+ *         &lt;element name="wert" type="{http://www.w3.org/2001/XMLSchema}decimal"/>
+ *         &lt;element name="einheit" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -38,72 +36,26 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "temperatur", propOrder = {
-    "id",
-    "raum",
+@XmlType(name = "feuchtigkeit", propOrder = {
     "wert",
     "einheit"
 })
-@XmlRootElement(name = "temperatur", namespace = "http://localhost:4711/temperaturen/Schema")
-public class Temperatur {
+public class Feuchtigkeit {
 
-    protected int id;
     @XmlElement(required = true)
-    protected String raum;
-    @XmlElement(required = true)
-    protected String wert;
+    protected BigDecimal wert;
     @XmlElement(required = true)
     protected String einheit;
-
-    /**
-     * Ruft den Wert der id-Eigenschaft ab.
-     * 
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Legt den Wert der id-Eigenschaft fest.
-     * 
-     */
-    public void setId(int value) {
-        this.id = value;
-    }
-
-    /**
-     * Ruft den Wert der raum-Eigenschaft ab.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getRaum() {
-        return raum;
-    }
-
-    /**
-     * Legt den Wert der raum-Eigenschaft fest.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setRaum(String value) {
-        this.raum = value;
-    }
 
     /**
      * Ruft den Wert der wert-Eigenschaft ab.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link BigDecimal }
      *     
      */
-    public String getWert() {
+    public BigDecimal getWert() {
         return wert;
     }
 
@@ -112,10 +64,10 @@ public class Temperatur {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link BigDecimal }
      *     
      */
-    public void setWert(String value) {
+    public void setWert(BigDecimal value) {
         this.wert = value;
     }
 
