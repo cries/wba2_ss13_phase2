@@ -108,7 +108,22 @@ Weiter könnte z.B. die Feuerwehr auf auslösende Feuermelder reagieren und mög
 - Abfrage der Lichtquellen je Raum
 - Abfrage der Steckdosen je Raum
 - Abfrage der Überwachungskamera (Kamerabilder)
-- Steuerung der Innentemperatur je Raumm
+- Steuerung der Innentemperatur je Raum
+- Steuerung der Verschattung je Raum
+- Steuerung der Lichtquellen je Raum
+- Steuerung der Zentralheizungstemperatur (SOLL)
+
+**Hausmeister**
+- Abfrage der Energiedaten (aktueller Gesamtenergieverbrauch)
+- Abfrage der Energiedaten je Raum (aktueller Energieverbrauch)
+- Abfrage der Zentralheizungstemperatur (IST)
+- Abfrage der Innentemperatur je Raum
+- Abfrage der Luftfeuchtigkeit je Raum
+- Abfrage der Verschattung je Raum
+- Abfrage der Lichtquellen je Raum
+- Abfrage der Steckdosen je Raum
+- Abfrage der Überwachungskamera (Kamerabilder)
+- Steuerung der Innentemperatur je 
 - Steuerung der Verschattung je Raum
 - Steuerung der Lichtquellen je Raum
 - Steuerung der Zentralheizungstemperatur (SOLL)
@@ -121,7 +136,7 @@ Weiter könnte z.B. die Feuerwehr auf auslösende Feuermelder reagieren und mög
 - Abfrage der Verschattung je Raum
 - Abfrage der Lichtquellen je Raum
 - Abfrage der Steckdosen je Raum
-- Steuerung der Innentemperatur je Raumm
+- Steuerung der Innentemperatur je Raum
 - Steuerung der Verschattung je Raum
 - Steuerung der Lichtquellen je Raum
 - Steuerung der Zentralheizungstemperatur (SOLL)
