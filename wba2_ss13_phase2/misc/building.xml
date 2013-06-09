@@ -234,5 +234,13 @@
         <etageEl id="3">
             <info>Dachgeschoss</info>
         </etageEl>
+        <etageEl id="4">
+            <info>
+        Dachgeschoss
+    </info>
+        </etageEl>
+        <etageEl id="5">
+            <info>1.Obergeschoss</info>
+        </etageEl>
     </etagenEl>
 </gebaeudeEl>

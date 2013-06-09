@@ -136,6 +136,20 @@ public class GebaeudeRessource {
 		return Response.ok().entity(feuchte).type(MediaType.APPLICATION_XML).build();
 	}
 	
+//	@POST
+//	@Path("/etage/{etagenid}/raum/{raumid}/feuchtigkeit")
+//	@Consumes(MediaType.APPLICATION_XML)
+//	public Response createFeuchtigkeit(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id, String body) {
+//		BigInteger feuchtigkeit_id = dh.createFeuchtigkeit(etagen_id, raum_id body);
+//		if(feuchtigkeit_id != null) {
+//			String location = "http://localhost:4711/etage/" + etagen_id + "/raum/" + raum_id + "/feuchtigkeit";
+//			return Response.status(201).header("Location", location).build();
+//		}
+//		else {
+//			return Response.status(404).build();
+//		}
+//	}
+	
 	@GET
 	@Path("/etage/{etagenid}/raum/{raumid}/energie")
 	public Response getRaumEnergie(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id){
