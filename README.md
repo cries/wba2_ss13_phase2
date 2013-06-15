@@ -497,20 +497,20 @@ HTTP-Operationen:
 | | GET | PUT | POST | DELETE |
 | :----- | :----------: | :---------: | :--------: | :--------: |
 | /etage | x | ? | x | x |
-| /etage/&lt;id> | x | ? | x | x |
+| /etage/&lt;id> | x | ? |  | x |
 | /etage/&lt;id&gt;/raum | x | ? | x | x |
-| /etage/&lt;id&gt;/raum/&lt;id> | x | ? | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id> | x | ? |  | x |
 | /etage/&lt;id&gt;/raum/&lt;id&gt;/feuchtigkeit | x | | x | x |
 | /etage/&lt;id&gt;/raum/&lt;id&gt;/energie | x | | x | x |
 | /etage/&lt;id&gt;/raum/&lt;id&gt;/temperatur | x | | x | x |
 | /etage/&lt;id&gt;/raum/&lt;id&gt;/temperatur/soll | x | x | x | x |
 | /etage/&lt;id&gt;/raum/&lt;id&gt;/temperatur/ist | x | | x | x |
 | /etage/&lt;id&gt;/raum/&lt;id&gt;/licht | x | | x | x |
-| /etage/&lt;id&gt;/raum/&lt;id&gt;/licht/&lt;id> | x | x | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/licht/&lt;id> | x | x |  | x |
 | /etage/&lt;id&gt;/raum/&lt;id&gt;/verschattung | x | | x | x |
-| /etage/&lt;id&gt;/raum/&lt;id&gt;/verschattung/&lt;id> | x | x | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/verschattung/&lt;id> | x | x |  | x |
 | /etage/&lt;id&gt;/raum/&lt;id&gt;/steckdose |x | | x | x |
-| /etage/&lt;id&gt;/raum/&lt;id&gt;/steckdose/&lt;id> | x | x | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/steckdose/&lt;id> | x | x |  | x |
 | | GET | PUT | POST | DELETE |
 | /heizung | x | | x | x |
 | /heizung/ist | x | | x | x |
