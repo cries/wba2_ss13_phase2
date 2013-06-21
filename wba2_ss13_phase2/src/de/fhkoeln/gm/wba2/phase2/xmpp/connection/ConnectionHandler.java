@@ -78,9 +78,9 @@ public class ConnectionHandler {
 		return entries;
 	}
 	
-	public boolean createNode() {
+	public boolean createNode(String nodeid) {
 		try {
-			LeafNode leaf = pubSubMngr.createNode("testNode");
+			LeafNode leaf = pubSubMngr.createNode(nodeid);
 			ConfigureForm form = new ConfigureForm(FormType.submit);
 			form.setAccessModel(AccessModel.open);
 	     	form.setDeliverPayloads(false);
