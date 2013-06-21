@@ -497,28 +497,35 @@ HTTP-Operationen:
 | | GET | PUT | POST | DELETE |
 | :----- | :----------: | :---------: | :--------: | :--------: |
 | /etage | x | ? | x | x |
-| /etage/&lt;id> | x | ? | x | x |
+| /etage/&lt;id> | x | ? |  | x |
 | /etage/&lt;id&gt;/raum | x | ? | x | x |
-| /etage/&lt;id&gt;/raum/&lt;id> | x | ? | x | x |
-| /etage/&lt;id&gt;/raum/&lt;id&gt;/feuchtigkeit | x | | x | x |
-| /etage/&lt;id&gt;/raum/&lt;id&gt;/energie | x | | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id> | x | ? |  | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/feuchtigkeit | x | x | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/energie | x | x | x | x |
 | /etage/&lt;id&gt;/raum/&lt;id&gt;/temperatur | x | | x | x |
 | /etage/&lt;id&gt;/raum/&lt;id&gt;/temperatur/soll | x | x | x | x |
 | /etage/&lt;id&gt;/raum/&lt;id&gt;/temperatur/ist | x | | x | x |
 | /etage/&lt;id&gt;/raum/&lt;id&gt;/licht | x | | x | x |
-| /etage/&lt;id&gt;/raum/&lt;id&gt;/licht/&lt;id> | x | x | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/licht/&lt;id> | x | x |  | x |
 | /etage/&lt;id&gt;/raum/&lt;id&gt;/verschattung | x | | x | x |
-| /etage/&lt;id&gt;/raum/&lt;id&gt;/verschattung/&lt;id> | x | x | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/verschattung/&lt;id> | x | x |  | x |
 | /etage/&lt;id&gt;/raum/&lt;id&gt;/steckdose |x | | x | x |
-| /etage/&lt;id&gt;/raum/&lt;id&gt;/steckdose/&lt;id> | x | x | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/steckdose/&lt;id> | x | x |  | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/feuermelder | x | | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/feuermelder/&lt;id> | x | x  |  | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/kontakte | x |  | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/kontakte/&lt;id> | x | x |  | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/bewegungsmelder | x | | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/bewegungsmelder/&lt;id> | x | x |  | x 
 | | GET | PUT | POST | DELETE |
 | /heizung | x | | x | x |
 | /heizung/ist | x | | x | x |
 | /heizung/soll | x | x | x | x |
 | | GET | PUT | POST | DELETE |
+| /klingel | x | x | x | x |
 | /kamera | x | | x | x |
-| /kamera/&lt;id> | x | x | x | x |
-| /energie | x | | x | x |
+| /kamera/&lt;id> | x | x |  | x |
+| /energie | x | x | x | x |
 
 **Raumspezifische Ressourcen die man lesen(GET), löschen(DELETE), erstellen(POST) kann wären**
 
