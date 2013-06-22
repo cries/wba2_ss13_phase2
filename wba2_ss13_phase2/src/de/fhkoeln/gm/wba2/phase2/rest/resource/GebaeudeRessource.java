@@ -36,7 +36,8 @@ public class GebaeudeRessource {
 	@Path("/heizung")
 	public Response getHeizung() {
 		String heizung = dh.getHeizung();
-		return Response.ok().entity(heizung).type(MediaType.APPLICATION_XML).build();
+		if (heizung != null) return Response.ok().entity(heizung).type(MediaType.APPLICATION_XML).build();
+		else return Response.status(404).build();
 	}
 	
 	@POST
@@ -66,6 +67,7 @@ public class GebaeudeRessource {
 	
 	@GET
 	@Path("/heizung/ist")
+	@Produces(MediaType.APPLICATION_XML)
 	public Response getHeizungIst() {
 		String heizungIst = dh.getHeizungIst();
 		return Response.ok().entity(heizungIst).type(MediaType.APPLICATION_XML).build();
@@ -73,6 +75,7 @@ public class GebaeudeRessource {
 	
 	@GET
 	@Path("/heizung/soll")
+	@Produces(MediaType.APPLICATION_XML)
 	public Response getHeizungSoll() {
 		String heizungSoll = dh.getHeizungSoll();
 		return Response.ok().entity(heizungSoll).type(MediaType.APPLICATION_XML).build();
@@ -80,9 +83,11 @@ public class GebaeudeRessource {
 	
 	@GET
 	@Path("/kamera")
+	@Produces(MediaType.APPLICATION_XML)
 	public Response getKameras() {
 		String kameras = dh.getKameras();
-		return Response.ok().entity(kameras).type(MediaType.APPLICATION_XML).build();
+		if (kameras != null) return Response.ok().entity(kameras).type(MediaType.APPLICATION_XML).build();
+		else return Response.status(404).build();
 	}
 	
 	@POST
@@ -113,9 +118,11 @@ public class GebaeudeRessource {
 	
 	@GET
 	@Path("/kamera/{kameraid}")
+	@Produces(MediaType.APPLICATION_XML)
 	public Response getKameras(@PathParam("kameraid") BigInteger kamera_id) {
 		String kameras = dh.getKamera(kamera_id);
-		return Response.ok().entity(kameras).type(MediaType.APPLICATION_XML).build();
+		if (kameras != null) return Response.ok().entity(kameras).type(MediaType.APPLICATION_XML).build();
+		else return Response.status(404).build();
 	}
 	
 	@DELETE
@@ -131,9 +138,11 @@ public class GebaeudeRessource {
 	
 	@GET
 	@Path("/energie")
+	@Produces(MediaType.APPLICATION_XML)
 	public Response getEnergie() {
 		String energie = dh.getEnergie();
-		return Response.ok().entity(energie).type(MediaType.APPLICATION_XML).build();
+		if (energie != null) return Response.ok().entity(energie).type(MediaType.APPLICATION_XML).build();
+		else return Response.status(404).build();
 	}
 	
 	@POST
@@ -163,9 +172,11 @@ public class GebaeudeRessource {
 	
 	@GET
 	@Path("/etage")
+	@Produces(MediaType.APPLICATION_XML)
 	public Response getEtagen() {
 		String etagen = dh.getEtagen();
-		return Response.ok().entity(etagen).type(MediaType.APPLICATION_XML).build();
+		if (etagen != null) return Response.ok().entity(etagen).type(MediaType.APPLICATION_XML).build();
+		else return Response.status(404).build();
 	}
 	
 	@POST
@@ -195,9 +206,11 @@ public class GebaeudeRessource {
 	
 	@GET
 	@Path("/etage/{etagenid}")
+	@Produces(MediaType.APPLICATION_XML)
 	public Response getEtage(@PathParam("etagenid") BigInteger etagen_id){
 		String etage = dh.getEtage(etagen_id);
-		return Response.ok().entity(etage).type(MediaType.APPLICATION_XML).build();
+		if (etage != null) return Response.ok().entity(etage).type(MediaType.APPLICATION_XML).build();
+		else return Response.status(404).build();
 	}
 	
 	@DELETE
@@ -213,9 +226,11 @@ public class GebaeudeRessource {
 	
 	@GET
 	@Path("/etage/{etagenid}/raum")
+	@Produces(MediaType.APPLICATION_XML)
 	public Response getRaeume(@PathParam("etagenid") BigInteger etagen_id){
 		String raeume = dh.getRaeume(etagen_id);
-		return Response.ok().entity(raeume).type(MediaType.APPLICATION_XML).build();
+		if (raeume != null) return Response.ok().entity(raeume).type(MediaType.APPLICATION_XML).build();
+		else return Response.status(404).build();
 	}
 	
 	@POST
@@ -245,9 +260,11 @@ public class GebaeudeRessource {
 	
 	@GET
 	@Path("/etage/{etagenid}/raum/{raumid}")
+	@Produces(MediaType.APPLICATION_XML)
 	public Response getRaum(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id){
 		String raeume = dh.getRaum(etagen_id, raum_id);
-		return Response.ok().entity(raeume).type(MediaType.APPLICATION_XML).build();
+		if (raeume != null) return Response.ok().entity(raeume).type(MediaType.APPLICATION_XML).build();
+		else return Response.status(404).build();
 	}
 	
 	@DELETE
@@ -263,9 +280,11 @@ public class GebaeudeRessource {
 	
 	@GET
 	@Path("/etage/{etagenid}/raum/{raumid}/feuchtigkeit")
+	@Produces(MediaType.APPLICATION_XML)
 	public Response getRaumFeuchtigkeit(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id){
 		String feuchte = dh.getRaumFeuchtigkeit(etagen_id, raum_id);
-		return Response.ok().entity(feuchte).type(MediaType.APPLICATION_XML).build();
+		if (feuchte != null) return Response.ok().entity(feuchte).type(MediaType.APPLICATION_XML).build();
+		else return Response.status(404).build();
 	}
 	
 	@POST
@@ -307,9 +326,11 @@ public class GebaeudeRessource {
 	
 	@GET
 	@Path("/etage/{etagenid}/raum/{raumid}/energie")
+	@Produces(MediaType.APPLICATION_XML)
 	public Response getRaumEnergie(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id){
 		String energie = dh.getRaumEnergie(etagen_id, raum_id);
-		return Response.ok().entity(energie).type(MediaType.APPLICATION_XML).build();
+		if (energie != null) return Response.ok().entity(energie).type(MediaType.APPLICATION_XML).build();
+		else return Response.status(404).build();
 	}
 	
 	@POST
@@ -339,9 +360,11 @@ public class GebaeudeRessource {
 	
 	@GET
 	@Path("/etage/{etagenid}/raum/{raumid}/temperatur")
+	@Produces(MediaType.APPLICATION_XML)
 	public Response getRaumTemperatur(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id){
 		String temperatur = dh.getRaumTemperatur(etagen_id, raum_id);
-		return Response.ok().entity(temperatur).type(MediaType.APPLICATION_XML).build();
+		if (temperatur != null) return Response.ok().entity(temperatur).type(MediaType.APPLICATION_XML).build();
+		else return Response.status(404).build();
 	}
 	
 	@POST
@@ -371,6 +394,7 @@ public class GebaeudeRessource {
 	
 	@GET
 	@Path("/etage/{etagenid}/raum/{raumid}/temperatur/ist")
+	@Produces(MediaType.APPLICATION_XML)
 	public Response getRaumTemperaturIst(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id){
 		String temperaturIst = dh.getRaumTemperaturIst(etagen_id, raum_id);
 		return Response.ok().entity(temperaturIst).type(MediaType.APPLICATION_XML).build();
@@ -378,6 +402,7 @@ public class GebaeudeRessource {
 	
 	@GET
 	@Path("/etage/{etagenid}/raum/{raumid}/temperatur/soll")
+	@Produces(MediaType.APPLICATION_XML)
 	public Response getRaumTemperaturSoll(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id){
 		String temperaturSoll = dh.getRaumTemperaturSoll(etagen_id, raum_id);
 		return Response.ok().entity(temperaturSoll).type(MediaType.APPLICATION_XML).build();
@@ -385,9 +410,11 @@ public class GebaeudeRessource {
 	
 	@GET
 	@Path("/etage/{etagenid}/raum/{raumid}/licht")
+	@Produces(MediaType.APPLICATION_XML)
 	public Response getRaumLichter(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id){
 		String lichter = dh.getRaumLichter(etagen_id, raum_id);
-		return Response.ok().entity(lichter).type(MediaType.APPLICATION_XML).build();
+		if (lichter != null) return Response.ok().entity(lichter).type(MediaType.APPLICATION_XML).build();
+		else return Response.status(404).build();
 	}
 	
 	@POST
@@ -417,9 +444,11 @@ public class GebaeudeRessource {
 	
 	@GET
 	@Path("/etage/{etagenid}/raum/{raumid}/licht/{elemid}")
+	@Produces(MediaType.APPLICATION_XML)
 	public Response getRaumLicht(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id, @PathParam("elemid") BigInteger elem_id){
 		String licht = dh.getRaumLicht(etagen_id, raum_id, elem_id);
-		return Response.ok().entity(licht).type(MediaType.APPLICATION_XML).build();
+		if (licht != null) return Response.ok().entity(licht).type(MediaType.APPLICATION_XML).build();
+		else return Response.status(404).build();
 	}
 	
 	@DELETE
@@ -435,9 +464,11 @@ public class GebaeudeRessource {
 	
 	@GET
 	@Path("/etage/{etagenid}/raum/{raumid}/verschattung")
+	@Produces(MediaType.APPLICATION_XML)
 	public Response getRaumVerschattungen(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id){
 		String verschattungen = dh.getRaumVerschattungen(etagen_id, raum_id);
-		return Response.ok().entity(verschattungen).type(MediaType.APPLICATION_XML).build();
+		if (verschattungen != null) return Response.ok().entity(verschattungen).type(MediaType.APPLICATION_XML).build();
+		else return Response.status(404).build();
 	}
 	
 	@POST
@@ -467,9 +498,11 @@ public class GebaeudeRessource {
 	
 	@GET
 	@Path("/etage/{etagenid}/raum/{raumid}/verschattung/{elemid}")
+	@Produces(MediaType.APPLICATION_XML)
 	public Response getRaumVerschattung(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id, @PathParam("elemid") BigInteger elem_id){
 		String verschattung = dh.getRaumVerschattung(etagen_id, raum_id, elem_id);
-		return Response.ok().entity(verschattung).type(MediaType.APPLICATION_XML).build();
+		if (verschattung != null) return Response.ok().entity(verschattung).type(MediaType.APPLICATION_XML).build();
+		else return Response.status(404).build();
 	}
 	
 	@DELETE
@@ -485,9 +518,11 @@ public class GebaeudeRessource {
 	
 	@GET
 	@Path("/etage/{etagenid}/raum/{raumid}/steckdose")
+	@Produces(MediaType.APPLICATION_XML)
 	public Response getRaumSteckdosen(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id){
 		String steckdosen = dh.getRaumSteckdosen(etagen_id, raum_id);
-		return Response.ok().entity(steckdosen).type(MediaType.APPLICATION_XML).build();
+		if (steckdosen != null) return Response.ok().entity(steckdosen).type(MediaType.APPLICATION_XML).build();
+		else return Response.status(404).build();
 	}
 	
 	@POST
@@ -517,9 +552,11 @@ public class GebaeudeRessource {
 	
 	@GET
 	@Path("/etage/{etagenid}/raum/{raumid}/steckdose/{elemid}")
+	@Produces(MediaType.APPLICATION_XML)
 	public Response getRaumSteckdose(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id, @PathParam("elemid") BigInteger elem_id){
 		String steckdose = dh.getRaumSteckdose(etagen_id, raum_id, elem_id);
-		return Response.ok().entity(steckdose).type(MediaType.APPLICATION_XML).build();
+		if (steckdose != null) return Response.ok().entity(steckdose).type(MediaType.APPLICATION_XML).build();
+		else return Response.status(404).build();
 	}
 	
 	@DELETE
@@ -535,9 +572,11 @@ public class GebaeudeRessource {
 	
 	@GET
 	@Path("/etage/{etagenid}/raum/{raumid}/kontakt")
+	@Produces(MediaType.APPLICATION_XML)
 	public Response getRaumKontakte(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id){
 		String kontakte = dh.getRaumKontakte(etagen_id, raum_id);
-		return Response.ok().entity(kontakte).type(MediaType.APPLICATION_XML).build();
+		if (kontakte != null) return Response.ok().entity(kontakte).type(MediaType.APPLICATION_XML).build();
+		else return Response.status(404).build();
 	}
 	
 	@POST
@@ -567,15 +606,125 @@ public class GebaeudeRessource {
 	
 	@GET
 	@Path("/etage/{etagenid}/raum/{raumid}/kontakt/{elemid}")
+	@Produces(MediaType.APPLICATION_XML)
 	public Response getRaumKontakt(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id, @PathParam("elemid") BigInteger elem_id){
 		String kontakt = dh.getRaumKontakt(etagen_id, raum_id, elem_id);
-		return Response.ok().entity(kontakt).type(MediaType.APPLICATION_XML).build();
+		if (kontakt != null) return Response.ok().entity(kontakt).type(MediaType.APPLICATION_XML).build();
+		else return Response.status(404).build();
 	}
 	
 	@DELETE
 	@Path("/etage/{etagenid}/raum/{raumid}/kontakt/{elemid}")
 	public Response deleteKontakt(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id, @PathParam("elemid") BigInteger elem_id) {
 		Boolean success = dh.deleteKontakt(etagen_id, raum_id, elem_id);
+		if(success)
+			return Response.noContent().build();
+		else {
+			return Response.status(404).build();
+		}
+	}
+	
+	@GET
+	@Path("/etage/{etagenid}/raum/{raumid}/feuermelder")
+	@Produces(MediaType.APPLICATION_XML)
+	public Response getRaumFeuermelder(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id){
+		String kontakte = dh.getRaumFeuermelder(etagen_id, raum_id);
+		if (kontakte != null) return Response.ok().entity(kontakte).type(MediaType.APPLICATION_XML).build();
+		else return Response.status(404).build();
+	}
+	
+	@POST
+	@Path("/etage/{etagenid}/raum/{raumid}/feuermelder")
+	@Consumes(MediaType.APPLICATION_XML)
+	public Response createFeuermelder(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id, String body) {
+		BigInteger feuermelder_id = dh.createFeuermelder(etagen_id, raum_id, body);
+		if(feuermelder_id.intValue() > 0) {
+			String location = "http://localhost:4711/etage/" + etagen_id + "/raum/" + raum_id + "/feuermelder/" + feuermelder_id;
+			return Response.status(201).header("Location", location).build();
+		}
+		else {
+			return Response.status(404).build();
+		}
+	}
+	
+	@DELETE
+	@Path("/etage/{etagenid}/raum/{raumid}/feuermelder")
+	public Response deleteFeuermelder(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id) {
+		Boolean success = dh.deleteFeuermelder(etagen_id, raum_id);
+		if(success)
+			return Response.noContent().build();
+		else {
+			return Response.status(404).build();
+		}
+	}
+	
+	@GET
+	@Path("/etage/{etagenid}/raum/{raumid}/feuermelder/{elemid}")
+	@Produces(MediaType.APPLICATION_XML)
+	public Response getRaumFeuermeld(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id, @PathParam("elemid") BigInteger elem_id){
+		String feuermeld = dh.getRaumFeuermeld(etagen_id, raum_id, elem_id);
+		if (feuermeld != null) return Response.ok().entity(feuermeld).type(MediaType.APPLICATION_XML).build();
+		else return Response.status(404).build();
+	}
+	
+	@DELETE
+	@Path("/etage/{etagenid}/raum/{raumid}/feuermelder/{elemid}")
+	public Response deleteFeuermeld(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id, @PathParam("elemid") BigInteger elem_id) {
+		Boolean success = dh.deleteFeuermeld(etagen_id, raum_id, elem_id);
+		if(success)
+			return Response.noContent().build();
+		else {
+			return Response.status(404).build();
+		}
+	}
+	
+	@GET
+	@Path("/etage/{etagenid}/raum/{raumid}/bewegungsmelder")
+	@Produces(MediaType.APPLICATION_XML)
+	public Response getRaumBewegungsmelder(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id){
+		String bewegungsmelder = dh.getRaumBewegungsmelder(etagen_id, raum_id);
+		if (bewegungsmelder != null) return Response.ok().entity(bewegungsmelder).type(MediaType.APPLICATION_XML).build();
+		else return Response.status(404).build();
+	}
+	
+	@POST
+	@Path("/etage/{etagenid}/raum/{raumid}/bewegungsmelder")
+	@Consumes(MediaType.APPLICATION_XML)
+	public Response createBewegungsmelder(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id, String body) {
+		BigInteger bewegungsmelder_id = dh.createFeuermelder(etagen_id, raum_id, body);
+		if(bewegungsmelder_id.intValue() > 0) {
+			String location = "http://localhost:4711/etage/" + etagen_id + "/raum/" + raum_id + "/bewegungsmelder/" + bewegungsmelder_id;
+			return Response.status(201).header("Location", location).build();
+		}
+		else {
+			return Response.status(404).build();
+		}
+	}
+	
+	@DELETE
+	@Path("/etage/{etagenid}/raum/{raumid}/bewegungsmelder")
+	public Response deleteBewegungsmelder(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id) {
+		Boolean success = dh.deleteBewegungsmelder(etagen_id, raum_id);
+		if(success)
+			return Response.noContent().build();
+		else {
+			return Response.status(404).build();
+		}
+	}
+	
+	@GET
+	@Path("/etage/{etagenid}/raum/{raumid}/bewegungsmelder/{elemid}")
+	@Produces(MediaType.APPLICATION_XML)
+	public Response getRaumBewegungsmeld(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id, @PathParam("elemid") BigInteger elem_id){
+		String bewegungsmelder = dh.getRaumBewegungsmeld(etagen_id, raum_id, elem_id);
+		if (bewegungsmelder != null) return Response.ok().entity(bewegungsmelder).type(MediaType.APPLICATION_XML).build();
+		else return Response.status(404).build();
+	}
+	
+	@DELETE
+	@Path("/etage/{etagenid}/raum/{raumid}/bewegungsmelder/{elemid}")
+	public Response deleteBewegungsmeld(@PathParam("etagenid") BigInteger etagen_id, @PathParam("raumid") BigInteger raum_id, @PathParam("elemid") BigInteger elem_id) {
+		Boolean success = dh.deleteBewegungsmeld(etagen_id, raum_id, elem_id);
 		if(success)
 			return Response.noContent().build();
 		else {

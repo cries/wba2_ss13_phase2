@@ -159,6 +159,32 @@ public class DataHandler {
 		return kontaktObj;
 	}
 	
+	private Feuermeld getFeuermeldObj(BigInteger etagen_id, BigInteger raum_id, BigInteger feuermeld_id){
+		Feuermeld feuermeldObj = null;
+		List<Feuermeld> feuermelder_list = getRaumObj(etagen_id, raum_id).getFeuermelderEl().getFeuermeldEl();
+		
+		for(Feuermeld curr_feuermeld: feuermelder_list){
+			if(curr_feuermeld.getId().equals(feuermeld_id)){
+				feuermeldObj = curr_feuermeld;
+				break;
+			}
+		}
+		return feuermeldObj;
+	}
+	
+	private Bewegung getBewegungsmeldObj(BigInteger etagen_id, BigInteger raum_id, BigInteger bewegungsmeld_id){
+		Bewegung bewegungsmeldObj = null;
+		List<Bewegung> bewegungsmelder_list = getRaumObj(etagen_id, raum_id).getBewegungenEl().getBewegungEl();
+		
+		for(Bewegung curr_bewegungsmeld: bewegungsmelder_list){
+			if(curr_bewegungsmeld.getId().equals(bewegungsmeld_id)){
+				bewegungsmeldObj = curr_bewegungsmeld;
+				break;
+			}
+		}
+		return bewegungsmeldObj;
+	}
+	
 	public String getGebaeude() {
 		Gebaeude gebaeude_elem = rootEl;
 		return marshall(gebaeude_elem);
@@ -354,6 +380,40 @@ public class DataHandler {
 		return marshall(kontaktObj);
 	}
 	
+	public String getRaumFeuermelder(BigInteger etage_id, BigInteger raum_id) {
+		return marshall(getRaumObj(etage_id, raum_id).getFeuermelderEl());
+	}
+	
+	public String getRaumFeuermeld(BigInteger etage_id, BigInteger raum_id, BigInteger feuermeld_id) {
+		Feuermeld feuermeldObj = null;
+		List<Feuermeld> feuermelder_list = getRaumObj(etage_id, raum_id).getFeuermelderEl().getFeuermeldEl();
+		
+		for(Feuermeld curr_feuermeld: feuermelder_list){
+			if(curr_feuermeld.getId().equals(feuermeld_id)){
+				feuermeldObj = curr_feuermeld;
+				break;
+			}
+		}
+		return marshall(feuermeldObj);
+	}
+	
+	public String getRaumBewegungsmelder(BigInteger etage_id, BigInteger raum_id) {
+		return marshall(getRaumObj(etage_id, raum_id).getBewegungenEl());
+	}
+	
+	public String getRaumBewegungsmeld(BigInteger etage_id, BigInteger raum_id, BigInteger bewegungsmeld_id) {
+		Bewegung bewegungsmeldObj = null;
+		List<Bewegung> bewegungsmelder_list = getRaumObj(etage_id, raum_id).getBewegungenEl().getBewegungEl();
+		
+		for(Bewegung curr_bewegungsmeld: bewegungsmelder_list){
+			if(curr_bewegungsmeld.getId().equals(bewegungsmeld_id)){
+				bewegungsmeldObj = curr_bewegungsmeld;
+				break;
+			}
+		}
+		return marshall(bewegungsmeldObj);
+	}
+	
 	public BigInteger createEtage(String etage_data){
 		Etage newEtage = (Etage)unmarshall(etage_data, Etage.class);
 		int arraySize = 0;
@@ -428,8 +488,8 @@ public class DataHandler {
 		newTemperatur.setTemperaturIstEl(newTemperaturIst);
 		newTemperatur.setTemperaturSollEl(newTemperaturSoll);
 		
-		newTemperatur.getTemperaturIstEl().setEinheit("Celsius");
-		newTemperatur.getTemperaturSollEl().setEinheit("Celsius");
+		newTemperatur.getTemperaturIstEl().setEinheit("C");
+		newTemperatur.getTemperaturSollEl().setEinheit("C");
 		newTemperatur.getTemperaturIstEl().setWert(BigDecimal.valueOf(20.0));
 		newTemperatur.getTemperaturSollEl().setWert(BigDecimal.valueOf(20.0));
 		
@@ -532,6 +592,56 @@ public class DataHandler {
 		newKontakt.setId(BigInteger.valueOf(new_id));
 	
 		getRaumObj(etagen_id, raum_id).getKontakteEl().getKontaktEl().add(newKontakt);
+		
+		root_marshall();
+		
+		return BigInteger.valueOf(new_id);
+	}
+	
+	public BigInteger createFeuermelder(BigInteger etagen_id, BigInteger raum_id, String feuermelder_data){
+		Feuermeld newFeuermelder = (Feuermeld)unmarshall(feuermelder_data, Feuermeld.class);
+		int arraySize = 0; 
+		int new_id = 1;
+		
+		try {
+			arraySize = getRaumObj(etagen_id, raum_id).getFeuermelderEl().getFeuermeldEl().size();
+		} catch(NullPointerException e) {
+			getRaumObj(etagen_id, raum_id).setFeuermelderEl(new Feuermelder());
+		}
+		
+		if(arraySize > 0){
+			Feuermeld last_feuermelder = getRaumObj(etagen_id, raum_id).getFeuermelderEl().getFeuermeldEl().get(arraySize-1);
+			new_id = last_feuermelder.getId().intValue() + 1;
+		} 
+		
+		newFeuermelder.setId(BigInteger.valueOf(new_id));
+	
+		getRaumObj(etagen_id, raum_id).getFeuermelderEl().getFeuermeldEl().add(newFeuermelder);
+		
+		root_marshall();
+		
+		return BigInteger.valueOf(new_id);
+	}
+	
+	public BigInteger createBewegungsmelder(BigInteger etagen_id, BigInteger raum_id, String bewegungsmelder_data){
+		Bewegung newBewegungsmelder = (Bewegung)unmarshall(bewegungsmelder_data, Feuermeld.class);
+		int arraySize = 0; 
+		int new_id = 1;
+		
+		try {
+			arraySize = getRaumObj(etagen_id, raum_id).getBewegungenEl().getBewegungEl().size();
+		} catch(NullPointerException e) {
+			getRaumObj(etagen_id, raum_id).setBewegungenEl(new Bewegungen());
+		}
+		
+		if(arraySize > 0){
+			Bewegung last_bewegungsmelder = getRaumObj(etagen_id, raum_id).getBewegungenEl().getBewegungEl().get(arraySize-1);
+			new_id = last_bewegungsmelder.getId().intValue() + 1;
+		} 
+		
+		newBewegungsmelder.setId(BigInteger.valueOf(new_id));
+	
+		getRaumObj(etagen_id, raum_id).getBewegungenEl().getBewegungEl().add(newBewegungsmelder);
 		
 		root_marshall();
 		
@@ -710,6 +820,42 @@ public class DataHandler {
 		return true;
 	}
 	
+	public Boolean deleteFeuermelder(BigInteger etagen_id, BigInteger raum_id){
+		if(getRaumObj(etagen_id, raum_id).getFeuermelderEl() == null) 
+			return false;
+		getRaumObj(etagen_id, raum_id).setFeuermelderEl(null);
+		root_marshall();
+		return true;
+	}
+	
+	public Boolean deleteFeuermeld(BigInteger etagen_id, BigInteger raum_id, BigInteger elem_id){
+		Feuermeld found_feuermeld;
+		if((found_feuermeld = getFeuermeldObj(etagen_id, raum_id, elem_id)) != null) {
+			getRaumObj(etagen_id, raum_id).getFeuermelderEl().getFeuermeldEl().remove(found_feuermeld);
+			root_marshall();
+			return true;
+		} else 
+			return false;
+	}
+	
+	public Boolean deleteBewegungsmelder(BigInteger etagen_id, BigInteger raum_id){
+		if(getRaumObj(etagen_id, raum_id).getBewegungenEl() == null) 
+			return false;
+		getRaumObj(etagen_id, raum_id).setBewegungenEl(null);
+		root_marshall();
+		return true;
+	}
+	
+	public Boolean deleteBewegungsmeld(BigInteger etagen_id, BigInteger raum_id, BigInteger elem_id){
+		Bewegung found_bewegungsmeld;
+		if((found_bewegungsmeld = getBewegungsmeldObj(etagen_id, raum_id, elem_id)) != null) {
+			getRaumObj(etagen_id, raum_id).getFeuermelderEl().getFeuermeldEl().remove(found_bewegungsmeld);
+			root_marshall();
+			return true;
+		} else 
+			return false;
+	}
+	
 	public Boolean updateFeuchtigkeit(BigInteger etage_id, BigInteger raum_id, String body){
 		Raum found_raum = getRaumObj(etage_id, raum_id);
 				
@@ -808,6 +954,24 @@ public class DataHandler {
 			break;
 			case "Verschattung":
 				jaxbe = objFact.createVerschattungEl((Verschattung)instance);
+			break;
+			case "Kontakte":
+				jaxbe = objFact.createKontakteEl((Kontakte)instance);
+			break;
+			case "Kontakt":
+				jaxbe = objFact.createKontaktEl((Kontakt)instance);
+			break;
+			case "Feuermelder":
+				jaxbe = objFact.createFeuermelderEl((Feuermelder)instance);
+			break;
+			case "Feuermeld":
+				jaxbe = objFact.createFeuermeldEl((Feuermeld)instance);
+			break;
+			case "Bewegungen":
+				jaxbe = objFact.createBewegungenEl((Bewegungen)instance);
+			break;
+			case "Bewegung":
+				jaxbe = objFact.createBewegungEl((Bewegung)instance);
 			break;
 			default:
 				return null;

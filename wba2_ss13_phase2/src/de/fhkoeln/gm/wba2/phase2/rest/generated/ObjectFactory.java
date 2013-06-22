@@ -2,7 +2,7 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.6 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2013.06.03 um 05:00:30 PM CEST 
+// Generiert: 2013.06.21 um 09:40:33 PM CEST 
 //
 
 
@@ -17,7 +17,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the de.fhkoeln.gm.wba2.phase2.jersey.generated package. 
+ * generated in the de.fhkoeln.gm.wba2.phase2.rest.generated package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -63,7 +63,7 @@ public class ObjectFactory {
     private final static QName _EtagenEl_QNAME = new QName("", "etagenEl");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: de.fhkoeln.gm.wba2.phase2.jersey.generated
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: de.fhkoeln.gm.wba2.phase2.rest.generated
      * 
      */
     public ObjectFactory() {

@@ -13,7 +13,7 @@
             <info>Erdgeschoss</info>
             <raeumeEl>
                 <raumEl id="1">
-                    <info>Badezimmer</info>
+                    <info>Raum1</info>
                     <feuchtigkeitEl>
                         <wert>60.0</wert>
                         <einheit>%</einheit>
@@ -24,11 +24,11 @@
                     </energieRaumEl>
                     <temperaturEl>
                         <temperaturIstEl>
-                            <wert>23</wert>
+                            <wert>23.6</wert>
                             <einheit>C</einheit>
                         </temperaturIstEl>
                         <temperaturSollEl>
-                            <wert>24</wert>
+                            <wert>24.2</wert>
                             <einheit>C</einheit>
                         </temperaturSollEl>
                     </temperaturEl>
@@ -38,7 +38,7 @@
                             <zustand>true</zustand>
                         </lichtEl>
                         <lichtEl id="2">
-                            <info>Decke Tür</info>
+                            <info>Decke Tuer</info>
                             <zustand>true</zustand>
                         </lichtEl>
                     </lichterEl>
@@ -54,12 +54,6 @@
                             <zustand>true</zustand>
                         </steckdoseEl>
                     </steckdosenEl>
-                    <kontakteEl>
-                        <kontaktEl id="1">
-                            <info>kontakt1</info>
-                            <zustand>true</zustand>
-                        </kontaktEl>
-                    </kontakteEl>
                     <bewegungenEl>
                         <bewegungEl id="1">
                             <info>beweg1</info>
@@ -73,45 +67,60 @@
                         </feuermeldEl>
                     </feuermelderEl>
                 </raumEl>
-            </raeumeEl>
-        </etageEl>
-        <etageEl id="3">
-            <info>Dachgeschoss</info>
-            <raeumeEl>
-                <raumEl id="1">
-                    <info>Wohnzimmer</info>
-                </raumEl>
-            </raeumeEl>
-        </etageEl>
-        <etageEl id="5">
-            <info>1.Obergeschoss</info>
-            <raeumeEl>
-                <raumEl id="1">
-                    <info>Badezimmer</info>
-                </raumEl>
-            </raeumeEl>
-        </etageEl>
-        <etageEl id="6">
-            <info>Kellergeschoss</info>
-            <raeumeEl>
-                <raumEl id="1">
-                    <info>Kellerraum 1</info>
+                <raumEl id="2">
+                    <info>Raum2</info>
                     <feuchtigkeitEl>
-                        <wert>88.0</wert>
+                        <wert>60.0</wert>
                         <einheit>%</einheit>
                     </feuchtigkeitEl>
+                    <energieRaumEl>
+                        <wert>1200</wert>
+                        <einheit>W</einheit>
+                    </energieRaumEl>
                     <temperaturEl>
                         <temperaturIstEl>
-                            <wert>20.0</wert>
-                            <einheit>Celsius</einheit>
+                            <wert>22</wert>
+                            <einheit>C</einheit>
                         </temperaturIstEl>
                         <temperaturSollEl>
-                            <wert>20.0</wert>
-                            <einheit>Celsius</einheit>
+                            <wert>19</wert>
+                            <einheit>C</einheit>
                         </temperaturSollEl>
                     </temperaturEl>
+                    <verschattungenEl>
+                        <verschattungEl id="1">
+                            <info>Fenster</info>
+                            <wert>50</wert>
+                        </verschattungEl>
+                    </verschattungenEl>
+                    <steckdosenEl/>
+                    <kontakteEl/>
+                    <bewegungenEl>
+                        <bewegungEl id="1">
+                            <info>beweg1</info>
+                            <zustand>true</zustand>
+                        </bewegungEl>
+                    </bewegungenEl>
+                    <feuermelderEl>
+                        <feuermeldEl id="1">
+                            <info>feuermeld1</info>
+                            <zustand>true</zustand>
+                        </feuermeldEl>
+                    </feuermelderEl>
+                </raumEl>
+                <raumEl id="3">
+                    <info>Raum3</info>
+                </raumEl>
+                <raumEl id="4">
+                    <info>Raum4</info>
                 </raumEl>
             </raeumeEl>
+        </etageEl>
+        <etageEl id="2">
+            <info>1. Obergeschoss</info>
+        </etageEl>
+        <etageEl id="3">
+            <info></info>
         </etageEl>
     </etagenEl>
 </gebaeudeEl>

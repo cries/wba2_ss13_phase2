@@ -25,7 +25,7 @@ public class LoginFrame extends JFrame {
 	private JPasswordField txtPassword;
 	private JLabel lblStatus;
 	private ConnectionHandler connHndlr;
-	
+	private RESTHandler restHndlr;
 	
 	public LoginFrame() {
 		
@@ -108,15 +108,16 @@ public class LoginFrame extends JFrame {
                         && user.length() > 0 && password.length() > 0){
 					
 					connHndlr = new ConnectionHandler();
+					restHndlr = new RESTHandler("localhost", 4711);
 					
-					if (connHndlr.connect(host, port)){
+					if (connHndlr.connect(host, port) && restHndlr.getConnection()){
 						if (connHndlr.login(user, password)){
 							System.out.println("Connect & Anmeldung erfolgreich!");
 							// Open Second Frame
 							clntFrm.setVisible(true);
 							clntFrm.setEnabled(true);
 							setVisible(false);
-							clntFrm.setConnectionHandler(connHndlr);
+							clntFrm.setConnectionHandlers(connHndlr, restHndlr);
 						} else {
 							lblStatus.setText("Anmeldung fehlgeschlagen!");
 						}
