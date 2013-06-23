@@ -839,7 +839,7 @@ public class GebaeudeRessource {
 		BigInteger kontakt_id = dh.createKontakt(etagen_id, raum_id, body);
 		if (kontakt_id.intValue() > 0) {
 			String location = "http://localhost:4711/etage/" + etagen_id
-					+ "/raum/" + raum_id + "/steckdose/" + kontakt_id;
+					+ "/raum/" + raum_id + "/kontakt/" + kontakt_id;
 			return Response.status(201).header("Location", location).build();
 		} else {
 			return Response.status(404).build();

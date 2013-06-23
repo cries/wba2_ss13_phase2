@@ -500,7 +500,6 @@ public class DataHandler {
 			String feuchtigkeit_data) {
 		Feuchtigkeit newFeuchtigkeit = (Feuchtigkeit) unmarshall(
 				feuchtigkeit_data, Feuchtigkeit.class);
-		//connHndlr.createNode("feuchtigkeit");
 		newFeuchtigkeit.setWert(BigDecimal.valueOf(20.0));
 		newFeuchtigkeit.setEinheit("%");
 		getRaumObj(etage_id, raum_id).setFeuchtigkeitEl(newFeuchtigkeit);
@@ -1127,6 +1126,7 @@ public class DataHandler {
 			Kontakt kontakt_data = (Kontakt) unmarshall(body,
 					Kontakt.class);
 			
+			connHndlr.publishItemPayload("Kontakte", "kontaktEl", body);
 			found_kontakt.setZustand(kontakt_data.isZustand());
 
 			root_marshall();

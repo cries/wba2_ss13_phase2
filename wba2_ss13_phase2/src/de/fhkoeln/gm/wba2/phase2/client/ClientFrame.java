@@ -25,6 +25,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -58,6 +59,9 @@ import javax.swing.JLabel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 
+import org.jivesoftware.smackx.packet.DiscoverInfo;
+import org.jivesoftware.smackx.packet.DiscoverItems;
+
 public class ClientFrame extends JFrame {
 
 	private JPanel contentPane;
@@ -84,13 +88,24 @@ public class ClientFrame extends JFrame {
 	private DefaultListModel elemIdModel;
 	private DefaultListModel elemModel;
 	private JList elemView;
+	private DefaultListModel nodeModel;
+	private JList nodeList;
+	private DefaultListModel subModel;
+	private JList subList;
+	private DefaultListModel nodeItemsModel;
+	private JList nodeItemsList;
+	private DefaultListModel nodeSubModel;
+	private JList nodeSubList;
+	private JTextPane nodeInfo;
 
 	private JTextPane textOutput;
 	private String selCat;
 	private JButton btnAendern;
 	private JButton btnNeueEtage;
 	private JButton btnNeuerRaum;
-	JButton btnNeuElement;
+	private JButton btnNeuElement;
+	private JTextPane xmppOutput;
+	
 
 	// private JOptionPane updatePane;
 
@@ -109,18 +124,22 @@ public class ClientFrame extends JFrame {
 		elemIdModel = new DefaultListModel();
 
 		etagenListe = null;
-
+		nodeModel = new DefaultListModel();
+		subModel = new DefaultListModel();
+		nodeItemsModel = new DefaultListModel();
+		nodeSubModel = new DefaultListModel();
+		
 		rootNode = new DefaultMutableTreeNode("Gebaeude");
 		myParent = parent;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 900, 620);
+		setBounds(100, 100, 815, 620);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(0, 0, 884, 582);
+		tabbedPane.setBounds(0, 0, 799, 582);
 		contentPane.add(tabbedPane);
 
 		btnAendern = new JButton("\u00C4ndern");
@@ -994,11 +1013,155 @@ public class ClientFrame extends JFrame {
 
 		JPanel panel_1 = new JPanel();
 		tabbedPane.addTab("XMPP", null, panel_1, null);
+		panel_1.setLayout(null);
+		
+		JScrollPane scrollPane_5 = new JScrollPane();
+		scrollPane_5.setBounds(10, 34, 140, 170);
+		panel_1.add(scrollPane_5);
+		nodeList = new JList(nodeModel);
+		nodeList.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent arg0) {
+				if(nodeList.getSelectedIndex() > -1){
+					nodeInfo.setText("");
+					String info = connHndlr.getNodeInformation(nodeList.getSelectedValue().toString());
+					nodeInfo.setText(nodeInfo.getText() + info);
+				}
+			}
+		});
+		scrollPane_5.setViewportView(nodeList);
+		
+		JButton btnDiscoverNodes = new JButton("Discover");
+		btnDiscoverNodes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				List<String> entries = connHndlr.getAllNodes();
+				nodeModel.clear();
+				
+				for (String curr : entries){
+					nodeModel.addElement(curr);
+				}
+			}
+		});
+		btnDiscoverNodes.setBounds(30, 215, 100, 23);
+		panel_1.add(btnDiscoverNodes);
+		
+		JScrollPane scrollPane_6 = new JScrollPane();
+		scrollPane_6.setBounds(644, 34, 140, 170);
+		panel_1.add(scrollPane_6);
+		
+		subList = new JList(subModel);
+		scrollPane_6.setViewportView(subList);
+		
+		JLabel lblAvailableNodes = new JLabel("Available Nodes");
+		lblAvailableNodes.setBounds(10, 9, 94, 14);
+		panel_1.add(lblAvailableNodes);
+		
+		JLabel lblMySubscriptions = new JLabel("My Subscriptions");
+		lblMySubscriptions.setBounds(644, 9, 94, 14);
+		panel_1.add(lblMySubscriptions);
+		
+		JButton btnNewButton = new JButton("Subscribe");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String selNode = nodeList.getSelectedValue().toString();
+				if (connHndlr.subscribeToNode(selNode)){
+					xmppOutput.setText(xmppOutput.getText() + "<"
+							+ now("hh:mm:ss") + ">\tNode '" + selNode
+							+ "' wurde erfolgreich abonniert!\n");
+				} else {
+					xmppOutput.setText(xmppOutput.getText() + "<"
+							+ now("hh:mm:ss") + ">\tNode '" + selNode
+							+ "' konnte nicht abonniert werden!\n");
+				}
+			}
+		});
+		btnNewButton.setBounds(30, 249, 100, 23);
+		panel_1.add(btnNewButton);
+		
+		JButton btnUpdate = new JButton("Update");
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				List<String> entries = connHndlr.getAllSubscriptions();
+				subModel.clear();
+				
+				for (String curr: entries) {
+					subModel.addElement(curr);
+				}
+			}
+		});
+		btnUpdate.setBounds(665, 215, 100, 23);
+		panel_1.add(btnUpdate);
+		
+		JScrollPane scrollPane_7 = new JScrollPane();
+		scrollPane_7.setBounds(10, 373, 774, 170);
+		panel_1.add(scrollPane_7);
+		
+		xmppOutput = new JTextPane();
+		scrollPane_7.setViewportView(xmppOutput);
+		
+		JLabel lblOutput_1 = new JLabel("Output");
+		lblOutput_1.setBounds(10, 348, 46, 14);
+		panel_1.add(lblOutput_1);
+		
+		JButton btnUnsubscribe = new JButton("Unsubscribe");
+		btnUnsubscribe.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (connHndlr){
+					xmppOutput.setText(xmppOutput.getText() + "<"
+							+ now("hh:mm:ss") + ">\tNode '" + selNode
+							+ "' wurde erfolgreich unsubscribed!\n");
+				} else {
+					xmppOutput.setText(xmppOutput.getText() + "<"
+							+ now("hh:mm:ss") + ">\tNode '" + selNode
+							+ "' konnte nicht unsubscribed werden!\n");
+				}
+			}
+		});
+		btnUnsubscribe.setBounds(665, 249, 100, 23);
+		panel_1.add(btnUnsubscribe);
+		
+		JScrollPane scrollPane_8 = new JScrollPane();
+		scrollPane_8.setBounds(160, 34, 140, 170);
+		panel_1.add(scrollPane_8);
+		
+		nodeInfo = new JTextPane();
+		scrollPane_8.setViewportView(nodeInfo);
+		
+		JLabel lblInformation = new JLabel("Node Information");
+		lblInformation.setBounds(160, 9, 88, 14);
+		panel_1.add(lblInformation);
+		
+		JScrollPane scrollPane_9 = new JScrollPane();
+		scrollPane_9.setBounds(310, 34, 140, 170);
+		panel_1.add(scrollPane_9);
+		
+		nodeItemsList = new JList(nodeItemsModel);
+		scrollPane_9.setViewportView(nodeItemsList);
+		
+		JLabel lblNodeSubscriber = new JLabel("Node Items");
+		lblNodeSubscriber.setBounds(310, 9, 100, 14);
+		panel_1.add(lblNodeSubscriber);
+		
+		JScrollPane scrollPane_10 = new JScrollPane();
+		scrollPane_10.setBounds(460, 34, 140, 170);
+		panel_1.add(scrollPane_10);
+		
+		nodeSubList = new JList(nodeSubModel);
+		scrollPane_10.setViewportView(nodeSubList);
+		
+		JLabel lblNodeSubscriber_1 = new JLabel("Node Subscriber");
+		lblNodeSubscriber_1.setBounds(460, 9, 94, 14);
+		panel_1.add(lblNodeSubscriber_1);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setOrientation(SwingConstants.VERTICAL);
+		separator_1.setBounds(624, 9, 1, 351);
+		panel_1.add(separator_1);
 	}
 
 	public void setConnectionHandlers(ConnectionHandler connHndlr,
 			RESTHandler restHandler) {
 		this.connHndlr = connHndlr;
+		this.connHndlr.addItemListener(new ItemLoggingHandler(this));
 		this.restHandler = restHandler;
 	}
 
@@ -1028,5 +1191,9 @@ public class ClientFrame extends JFrame {
 			etagenModel.addElement(currEtage.getInfo());
 			etagenIdModel.addElement(currEtage.getId());
 		}
+	}
+	
+	public void receiveNotification(String data){
+		xmppOutput.setText(xmppOutput.getText() + data);
 	}
 }

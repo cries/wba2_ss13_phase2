@@ -17,12 +17,60 @@
             <raeumeEl>
                 <raumEl id="1">
                     <info>Raum1</info>
+                    <feuchtigkeitEl>
+                        <wert>20.0</wert>
+                        <einheit>%</einheit>
+                    </feuchtigkeitEl>
+                    <energieRaumEl>
+                        <wert>0</wert>
+                        <einheit>W</einheit>
+                    </energieRaumEl>
+                    <temperaturEl>
+                        <temperaturIstEl>
+                            <wert>20.0</wert>
+                            <einheit>C</einheit>
+                        </temperaturIstEl>
+                        <temperaturSollEl>
+                            <wert>20.0</wert>
+                            <einheit>C</einheit>
+                        </temperaturSollEl>
+                    </temperaturEl>
+                    <lichterEl>
+                        <lichtEl id="1">
+                            <info>Licht1</info>
+                            <zustand>true</zustand>
+                        </lichtEl>
+                    </lichterEl>
                     <verschattungenEl>
                         <verschattungEl id="1">
                             <info>Fenster1</info>
                             <wert>76</wert>
                         </verschattungEl>
                     </verschattungenEl>
+                    <steckdosenEl>
+                        <steckdoseEl id="1">
+                            <info>steck1</info>
+                            <zustand>true</zustand>
+                        </steckdoseEl>
+                    </steckdosenEl>
+                    <kontakteEl>
+                        <kontaktEl id="1">
+                            <info>kontakt1</info>
+                            <zustand>true</zustand>
+                        </kontaktEl>
+                        <kontaktEl id="2">
+                            <info>kontakt2</info>
+                            <zustand>true</zustand>
+                        </kontaktEl>
+                        <kontaktEl id="3">
+                            <info>kon3</info>
+                            <zustand>true</zustand>
+                        </kontaktEl>
+                        <kontaktEl id="4">
+                            <info>asd</info>
+                            <zustand>true</zustand>
+                        </kontaktEl>
+                    </kontakteEl>
                 </raumEl>
             </raeumeEl>
         </etageEl>
