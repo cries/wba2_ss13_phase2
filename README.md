@@ -497,9 +497,9 @@ HTTP-Operationen:
 | | GET | PUT | POST | DELETE |
 | :----- | :----------: | :---------: | :--------: | :--------: |
 | /etage | x | ? | x | x |
-| /etage/&lt;id> | x | ? |  | x |
-| /etage/&lt;id&gt;/raum | x | ? | x | x |
-| /etage/&lt;id&gt;/raum/&lt;id> | x | ? |  | x |
+| /etage/&lt;id> | x |  |  | x |
+| /etage/&lt;id&gt;/raum | x |  | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id> | x |  |  | x |
 | /etage/&lt;id&gt;/raum/&lt;id&gt;/feuchtigkeit | x | x | x | x |
 | /etage/&lt;id&gt;/raum/&lt;id&gt;/energie | x | x | x | x |
 | /etage/&lt;id&gt;/raum/&lt;id&gt;/temperatur | x | | x | x |
@@ -513,8 +513,8 @@ HTTP-Operationen:
 | /etage/&lt;id&gt;/raum/&lt;id&gt;/steckdose/&lt;id> | x | x |  | x |
 | /etage/&lt;id&gt;/raum/&lt;id&gt;/feuermelder | x | | x | x |
 | /etage/&lt;id&gt;/raum/&lt;id&gt;/feuermelder/&lt;id> | x | x  |  | x |
-| /etage/&lt;id&gt;/raum/&lt;id&gt;/kontakte | x |  | x | x |
-| /etage/&lt;id&gt;/raum/&lt;id&gt;/kontakte/&lt;id> | x | x |  | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/kontakt | x |  | x | x |
+| /etage/&lt;id&gt;/raum/&lt;id&gt;/kontakt/&lt;id> | x | x |  | x |
 | /etage/&lt;id&gt;/raum/&lt;id&gt;/bewegungsmelder | x | | x | x |
 | /etage/&lt;id&gt;/raum/&lt;id&gt;/bewegungsmelder/&lt;id> | x | x |  | x 
 | | GET | PUT | POST | DELETE |
