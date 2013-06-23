@@ -196,8 +196,18 @@ public class ConnectionHandler {
 		return true;
 	}
 	
-	public boolean unsubscribeNode(String nodeId){
-		
+	public boolean unsubscribeToNode(String nodeId){
+		LeafNode node = null;
+        try {
+            node = pubSubMngr.getNode(nodeId);
+            node.unsubscribe(this.username + "@" + this.hostname);
+            node.removeItemEventListener(listener);
+        } catch (XMPPException e) {
+            System.err.println("Unsubscribing failed!");
+            return false;
+        }
+        
+        return true;
 	}
 	
 	public void addItemListener(ItemEventListener<Item> listener) {

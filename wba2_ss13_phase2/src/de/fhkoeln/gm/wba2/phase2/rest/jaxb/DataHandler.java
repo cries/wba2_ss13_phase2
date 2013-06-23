@@ -691,7 +691,7 @@ public class DataHandler {
 	public BigInteger createBewegungsmelder(BigInteger etagen_id,
 			BigInteger raum_id, String bewegungsmelder_data) {
 		Bewegung newBewegungsmelder = (Bewegung) unmarshall(
-				bewegungsmelder_data, Feuermeld.class);
+				bewegungsmelder_data, Bewegung.class);
 		int arraySize = 0;
 		int new_id = 1;
 		newBewegungsmelder.setZustand(false);
@@ -1126,8 +1126,11 @@ public class DataHandler {
 			Kontakt kontakt_data = (Kontakt) unmarshall(body,
 					Kontakt.class);
 			
-			connHndlr.publishItemPayload("Kontakte", "kontaktEl", body);
 			found_kontakt.setZustand(kontakt_data.isZustand());
+			
+			String message = marshall(found_kontakt);
+			message = message.replace("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>", "");
+			connHndlr.publishItemPayload("Kontakte", "kontaktEl", message);
 
 			root_marshall();
 
@@ -1142,8 +1145,13 @@ public class DataHandler {
 			Feuermeld feuermelder_data = (Feuermeld) unmarshall(body,
 					Feuermeld.class);
 			
+			
 			found_feuermelder.setZustand(feuermelder_data.isZustand());
-
+			
+			String message = marshall(found_feuermelder);
+			message = message.replace("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>", "");
+			connHndlr.publishItemPayload("Feuermelder", "feuermeldEl", message);
+			
 			root_marshall();
 
 			return true;
@@ -1157,8 +1165,13 @@ public class DataHandler {
 			Bewegung bewegungsmelder_data = (Bewegung) unmarshall(body,
 					Bewegung.class);
 			
+			
 			found_bewegungsmelder.setZustand(bewegungsmelder_data.isZustand());
-
+		
+			String message = marshall(found_bewegungsmelder);
+			message = message.replace("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>", "");
+			connHndlr.publishItemPayload("Bewegungsmelder", "bewegungEl", message);
+			
 			root_marshall();
 
 			return true;

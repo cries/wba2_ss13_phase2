@@ -93,9 +93,7 @@ public class ClientFrame extends JFrame {
 	private DefaultListModel subModel;
 	private JList subList;
 	private DefaultListModel nodeItemsModel;
-	private JList nodeItemsList;
 	private DefaultListModel nodeSubModel;
-	private JList nodeSubList;
 	private JTextPane nodeInfo;
 
 	private JTextPane textOutput;
@@ -1062,15 +1060,17 @@ public class ClientFrame extends JFrame {
 		JButton btnNewButton = new JButton("Subscribe");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String selNode = nodeList.getSelectedValue().toString();
-				if (connHndlr.subscribeToNode(selNode)){
-					xmppOutput.setText(xmppOutput.getText() + "<"
-							+ now("hh:mm:ss") + ">\tNode '" + selNode
-							+ "' wurde erfolgreich abonniert!\n");
-				} else {
-					xmppOutput.setText(xmppOutput.getText() + "<"
-							+ now("hh:mm:ss") + ">\tNode '" + selNode
-							+ "' konnte nicht abonniert werden!\n");
+				if (nodeList.getSelectedIndex() > -1){
+					String selNode = nodeList.getSelectedValue().toString();
+					if (connHndlr.subscribeToNode(selNode)){
+						xmppOutput.setText(xmppOutput.getText() + "<"
+								+ now("hh:mm:ss") + ">\tNode '" + selNode
+								+ "' wurde erfolgreich abonniert!\n");
+					} else {
+						xmppOutput.setText(xmppOutput.getText() + "<"
+								+ now("hh:mm:ss") + ">\tNode '" + selNode
+								+ "' konnte nicht abonniert werden!\n");
+					}
 				}
 			}
 		});
@@ -1105,14 +1105,17 @@ public class ClientFrame extends JFrame {
 		JButton btnUnsubscribe = new JButton("Unsubscribe");
 		btnUnsubscribe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (connHndlr){
-					xmppOutput.setText(xmppOutput.getText() + "<"
-							+ now("hh:mm:ss") + ">\tNode '" + selNode
-							+ "' wurde erfolgreich unsubscribed!\n");
-				} else {
-					xmppOutput.setText(xmppOutput.getText() + "<"
-							+ now("hh:mm:ss") + ">\tNode '" + selNode
-							+ "' konnte nicht unsubscribed werden!\n");
+				if (subList.getSelectedIndex() > -1) {
+					String selNode = subList.getSelectedValue().toString();
+					if (connHndlr.unsubscribeToNode(selNode)){
+						xmppOutput.setText(xmppOutput.getText() + "<"
+								+ now("hh:mm:ss") + ">\tNode '" + selNode
+								+ "' wurde erfolgreich unsubscribed!\n");
+					} else {
+						xmppOutput.setText(xmppOutput.getText() + "<"
+								+ now("hh:mm:ss") + ">\tNode '" + selNode
+								+ "' konnte nicht unsubscribed werden!\n");
+					}
 				}
 			}
 		});
@@ -1130,32 +1133,55 @@ public class ClientFrame extends JFrame {
 		lblInformation.setBounds(160, 9, 88, 14);
 		panel_1.add(lblInformation);
 		
-		JScrollPane scrollPane_9 = new JScrollPane();
-		scrollPane_9.setBounds(310, 34, 140, 170);
-		panel_1.add(scrollPane_9);
-		
-		nodeItemsList = new JList(nodeItemsModel);
-		scrollPane_9.setViewportView(nodeItemsList);
-		
-		JLabel lblNodeSubscriber = new JLabel("Node Items");
-		lblNodeSubscriber.setBounds(310, 9, 100, 14);
-		panel_1.add(lblNodeSubscriber);
-		
-		JScrollPane scrollPane_10 = new JScrollPane();
-		scrollPane_10.setBounds(460, 34, 140, 170);
-		panel_1.add(scrollPane_10);
-		
-		nodeSubList = new JList(nodeSubModel);
-		scrollPane_10.setViewportView(nodeSubList);
-		
-		JLabel lblNodeSubscriber_1 = new JLabel("Node Subscriber");
-		lblNodeSubscriber_1.setBounds(460, 9, 94, 14);
-		panel_1.add(lblNodeSubscriber_1);
-		
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setOrientation(SwingConstants.VERTICAL);
 		separator_1.setBounds(624, 9, 1, 351);
 		panel_1.add(separator_1);
+		
+		JPanel panel_2 = new JPanel();
+		tabbedPane.addTab("Server", null, panel_2, null);
+		panel_2.setLayout(null);
+		
+		JScrollPane scrollPane_9 = new JScrollPane();
+		scrollPane_9.setBounds(10, 42, 150, 250);
+		panel_2.add(scrollPane_9);
+		
+		JList list = new JList();
+		scrollPane_9.setViewportView(list);
+		
+		JLabel lblKategorien = new JLabel("Kategorien");
+		lblKategorien.setBounds(10, 17, 73, 14);
+		panel_2.add(lblKategorien);
+		
+		JScrollPane scrollPane_10 = new JScrollPane();
+		scrollPane_10.setBounds(170, 42, 150, 250);
+		panel_2.add(scrollPane_10);
+		
+		JList list_1 = new JList();
+		scrollPane_10.setViewportView(list_1);
+		
+		JLabel lblElemente = new JLabel("Elemente");
+		lblElemente.setBounds(170, 17, 46, 14);
+		panel_2.add(lblElemente);
+		
+		JScrollPane scrollPane_11 = new JScrollPane();
+		scrollPane_11.setBounds(10, 383, 774, 160);
+		panel_2.add(scrollPane_11);
+		
+		JTextPane textPane = new JTextPane();
+		scrollPane_11.setViewportView(textPane);
+		
+		JLabel lblOutput_2 = new JLabel("Output");
+		lblOutput_2.setBounds(10, 358, 46, 14);
+		panel_2.add(lblOutput_2);
+		
+		JButton btnndern = new JButton("\u00C4ndern");
+		btnndern.setBounds(330, 71, 109, 23);
+		panel_2.add(btnndern);
+		
+		JButton btnAktualisieren = new JButton("Aktualisieren");
+		btnAktualisieren.setBounds(330, 40, 109, 23);
+		panel_2.add(btnAktualisieren);
 	}
 
 	public void setConnectionHandlers(ConnectionHandler connHndlr,
@@ -1194,6 +1220,7 @@ public class ClientFrame extends JFrame {
 	}
 	
 	public void receiveNotification(String data){
-		xmppOutput.setText(xmppOutput.getText() + data);
+		xmppOutput.setText(xmppOutput.getText() + "<"
+				+ now("hh:mm:ss") + ">" + data + "\n");
 	}
 }

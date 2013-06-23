@@ -70,7 +70,51 @@
                             <info>asd</info>
                             <zustand>true</zustand>
                         </kontaktEl>
+                        <kontaktEl id="5">
+                            <info>Beweg1</info>
+                            <zustand>true</zustand>
+                        </kontaktEl>
+                        <kontaktEl id="6">
+                            <info>dfg</info>
+                            <zustand>true</zustand>
+                        </kontaktEl>
+                        <kontaktEl id="7">
+                            <info>hfh</info>
+                            <zustand>true</zustand>
+                        </kontaktEl>
                     </kontakteEl>
+                    <bewegungenEl>
+                        <bewegungEl id="1">
+                            <info>fgnn</info>
+                            <zustand>true</zustand>
+                        </bewegungEl>
+                        <bewegungEl id="2">
+                            <info>sdfdf</info>
+                            <zustand>true</zustand>
+                        </bewegungEl>
+                    </bewegungenEl>
+                    <feuermelderEl>
+                        <feuermeldEl id="1">
+                            <info>Beweg1</info>
+                            <zustand>false</zustand>
+                        </feuermeldEl>
+                        <feuermeldEl id="2">
+                            <info>sad</info>
+                            <zustand>false</zustand>
+                        </feuermeldEl>
+                        <feuermeldEl id="3">
+                            <info>fghfgh</info>
+                            <zustand>false</zustand>
+                        </feuermeldEl>
+                        <feuermeldEl id="4">
+                            <info>ztutzu</info>
+                            <zustand>false</zustand>
+                        </feuermeldEl>
+                        <feuermeldEl id="5">
+                            <info>hjgj</info>
+                            <zustand>false</zustand>
+                        </feuermeldEl>
+                    </feuermelderEl>
                 </raumEl>
             </raeumeEl>
         </etageEl>

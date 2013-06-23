@@ -1008,7 +1008,7 @@ public class GebaeudeRessource {
 	public Response createBewegungsmelder(
 			@PathParam("etagenid") BigInteger etagen_id,
 			@PathParam("raumid") BigInteger raum_id, String body) {
-		BigInteger bewegungsmelder_id = dh.createFeuermelder(etagen_id,
+		BigInteger bewegungsmelder_id = dh.createBewegungsmelder(etagen_id,
 				raum_id, body);
 		if (bewegungsmelder_id.intValue() > 0) {
 			String location = "http://localhost:4711/etage/" + etagen_id

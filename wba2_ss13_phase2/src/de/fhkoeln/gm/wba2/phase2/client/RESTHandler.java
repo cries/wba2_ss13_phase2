@@ -630,6 +630,7 @@ public class RESTHandler {
 			case "kontakt" : 
 				if(createKontakt(etagenid, raumid, info)) {return true;} else {return false;}
 			case "bewegungsmelder" : 
+				System.out.println("hallo");
 				if(createBewegungsmelder(etagenid, raumid, info)) {return true;} else {return false;}
 			case "feuermelder" :
 				if(createFeuermelder(etagenid, raumid, info)) {return true;} else {return false;}
@@ -864,7 +865,7 @@ public class RESTHandler {
 		ClientResponse response = null;
 		try {
 			response = service
-					.path("/etage/" + etagenid + "/raum/" + raumid + "/kontakt")
+					.path("/etage/" + etagenid + "/raum/" + raumid + "/bewegungsmelder")
 					.type(MediaType.APPLICATION_XML)
 					.entity(newBewegung)
 					.post(ClientResponse.class, JAXBProvider.marshall(newBewegung));
@@ -872,22 +873,7 @@ public class RESTHandler {
 			return false;
 		}
 
-		if (response.getStatus() == 201) {
-			String location = response.getLocation().toString();
-			ClientResponse subresponse;
-			try {
-				subresponse = Client.create().resource(location)
-						.accept(MediaType.APPLICATION_XML)
-						.get(ClientResponse.class);
-			} catch (ClientHandlerException che) {
-				return false;
-			}
-			if (subresponse.getStatus() == 200) {
-				return true;
-			}
-		}
-
-		return false;
+		return true;
 	}
 	
 	private boolean createFeuermelder(int etagenid, int raumid, String info){
@@ -896,7 +882,7 @@ public class RESTHandler {
 		ClientResponse response = null;
 		try {
 			response = service
-					.path("/etage/" + etagenid + "/raum/" + raumid + "/kontakt")
+					.path("/etage/" + etagenid + "/raum/" + raumid + "/feuermelder")
 					.type(MediaType.APPLICATION_XML)
 					.entity(newFeuermeld)
 					.post(ClientResponse.class, JAXBProvider.marshall(newFeuermeld));
