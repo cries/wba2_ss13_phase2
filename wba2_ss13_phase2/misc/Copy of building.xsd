@@ -2,6 +2,13 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
 <xsd:element name="gebaeudeEl" type="gebaeude" />
+<xsd:element name="klingelEl" type="klingel" />
+<xsd:element name="energieEl" type="energie" />
+<xsd:element name="heizungEl" type="heizung" />
+<xsd:element name="heizungIstEl" type="heizungIst" />
+<xsd:element name="heizungSollEl" type="heizungSoll" />
+<xsd:element name="kamerasEl" type="kameras" />
+<xsd:element name="kameraEl" type="kamera" />
 <xsd:element name="etagenEl" type="etagen" />
 <xsd:element name="etageEl" type="etage" />
 <xsd:element name="raeumeEl" type="raeume" />
@@ -24,10 +31,67 @@
 <xsd:element name="feuermelderEl" type="feuermelder" />
 <xsd:element name="feuermeldEl" type="feuermeld" />
 
+<xsd:element name="kameraBild" type="xsd:anyURI" />
+
 <xsd:complexType name="gebaeude">
 	<xsd:sequence>
+		<xsd:element ref="klingelEl" minOccurs="0"/>
+		<xsd:element ref="energieEl" minOccurs="0"/>
+		<xsd:element ref="heizungEl" minOccurs="0"/>
+		<xsd:element ref="kamerasEl" minOccurs="0"/>
 		<xsd:element ref="etagenEl" minOccurs="0"/>
 	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="klingel">
+	<xsd:sequence>
+		<xsd:element name="zustand" type="xsd:boolean" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="energie">
+	<xsd:sequence>
+		<xsd:element name="info" type="xsd:string" />
+		<xsd:element name="wert" type="xsd:decimal" />
+		<xsd:element name="einheit" type="xsd:string" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="heizung">
+	<xsd:sequence>
+		<xsd:element name="info" type="xsd:string" />
+		<xsd:element ref="heizungIstEl" minOccurs="0"/>
+		<xsd:element ref="heizungSollEl" minOccurs="0"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="heizungIst">
+	<xsd:sequence>
+		<xsd:element name="wert" type="xsd:decimal" />
+		<xsd:element name="einheit" type="xsd:string" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="heizungSoll">
+	<xsd:sequence>
+		<xsd:element name="wert" type="xsd:decimal" />
+		<xsd:element name="einheit" type="xsd:string" />
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="kameras">
+	<xsd:sequence>
+		<xsd:element ref="kameraEl" minOccurs="0" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="kamera">
+	<xsd:sequence>
+		<xsd:element name="info" type="xsd:string" />
+		<xsd:element name="zustand" type="xsd:boolean" />
+		<xsd:element ref="kameraBild" minOccurs="0"/>
+	</xsd:sequence>
+	<xsd:attribute name="id" type="xsd:positiveInteger"/>
 </xsd:complexType>
 
 <xsd:complexType name="etagen">

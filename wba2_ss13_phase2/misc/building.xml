@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <gebaeudeEl>
-    <klingelEl>
-        <zustand>true</zustand>
-    </klingelEl>
-    <energieEl>
-        <info>Energieverbrauch</info>
-        <wert>1400</wert>
-        <einheit>kWh</einheit>
-    </energieEl>
     <etagenEl>
         <etageEl id="3">
             <info></info>
@@ -56,11 +48,11 @@
                     <kontakteEl>
                         <kontaktEl id="1">
                             <info>kontakt1</info>
-                            <zustand>true</zustand>
+                            <zustand>false</zustand>
                         </kontaktEl>
                         <kontaktEl id="2">
                             <info>kontakt2</info>
-                            <zustand>true</zustand>
+                            <zustand>false</zustand>
                         </kontaktEl>
                         <kontaktEl id="3">
                             <info>kon3</info>
@@ -86,11 +78,11 @@
                     <bewegungenEl>
                         <bewegungEl id="1">
                             <info>fgnn</info>
-                            <zustand>true</zustand>
+                            <zustand>false</zustand>
                         </bewegungEl>
                         <bewegungEl id="2">
                             <info>sdfdf</info>
-                            <zustand>true</zustand>
+                            <zustand>false</zustand>
                         </bewegungEl>
                     </bewegungenEl>
                     <feuermelderEl>
@@ -104,7 +96,7 @@
                         </feuermeldEl>
                         <feuermeldEl id="3">
                             <info>fghfgh</info>
-                            <zustand>false</zustand>
+                            <zustand>true</zustand>
                         </feuermeldEl>
                         <feuermeldEl id="4">
                             <info>ztutzu</info>

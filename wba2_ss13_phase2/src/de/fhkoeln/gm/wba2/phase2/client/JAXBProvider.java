@@ -12,7 +12,6 @@ import javax.xml.transform.stream.StreamSource;
 
 import de.fhkoeln.gm.wba2.phase2.rest.generated.Bewegung;
 import de.fhkoeln.gm.wba2.phase2.rest.generated.Bewegungen;
-import de.fhkoeln.gm.wba2.phase2.rest.generated.Energie;
 import de.fhkoeln.gm.wba2.phase2.rest.generated.EnergieRaum;
 import de.fhkoeln.gm.wba2.phase2.rest.generated.Etage;
 import de.fhkoeln.gm.wba2.phase2.rest.generated.Etagen;
@@ -20,11 +19,6 @@ import de.fhkoeln.gm.wba2.phase2.rest.generated.Feuchtigkeit;
 import de.fhkoeln.gm.wba2.phase2.rest.generated.Feuermeld;
 import de.fhkoeln.gm.wba2.phase2.rest.generated.Feuermelder;
 import de.fhkoeln.gm.wba2.phase2.rest.generated.Gebaeude;
-import de.fhkoeln.gm.wba2.phase2.rest.generated.Heizung;
-import de.fhkoeln.gm.wba2.phase2.rest.generated.HeizungIst;
-import de.fhkoeln.gm.wba2.phase2.rest.generated.HeizungSoll;
-import de.fhkoeln.gm.wba2.phase2.rest.generated.Kamera;
-import de.fhkoeln.gm.wba2.phase2.rest.generated.Kameras;
 import de.fhkoeln.gm.wba2.phase2.rest.generated.Kontakt;
 import de.fhkoeln.gm.wba2.phase2.rest.generated.Kontakte;
 import de.fhkoeln.gm.wba2.phase2.rest.generated.Licht;
@@ -56,24 +50,6 @@ public class JAXBProvider {
 		switch (instance.getClass().getSimpleName()) {
 		case "Gebaeude":
 			jaxbe = objFact.createGebaeudeEl((Gebaeude) instance);
-			break;
-		case "Heizung":
-			jaxbe = objFact.createHeizungEl((Heizung) instance);
-			break;
-		case "HeizungIst":
-			jaxbe = objFact.createHeizungIstEl((HeizungIst) instance);
-			break;
-		case "HeizungSoll":
-			jaxbe = objFact.createHeizungSollEl((HeizungSoll) instance);
-			break;
-		case "Kameras":
-			jaxbe = objFact.createKamerasEl((Kameras) instance);
-			break;
-		case "Kamera":
-			jaxbe = objFact.createKameraEl((Kamera) instance);
-			break;
-		case "Energie":
-			jaxbe = objFact.createEnergieEl((Energie) instance);
 			break;
 		case "Etagen":
 			jaxbe = objFact.createEtagenEl((Etagen) instance);

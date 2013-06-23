@@ -555,7 +555,7 @@ public class ClientFrame extends JFrame {
 								+ mySteckdose.isZustand() + "\n");
 						break;
 					case 6:
-						btnAendern.setEnabled(false);
+						btnAendern.setEnabled(true);
 						Kontakt myKontakt = restHandler.getKontaktObj(etagenid,
 								raumid, elemid);
 						textOutput.setText(textOutput.getText() + "<"
@@ -567,7 +567,7 @@ public class ClientFrame extends JFrame {
 								+ myKontakt.isZustand() + "\n");
 						break;
 					case 7:
-						btnAendern.setEnabled(false);
+						btnAendern.setEnabled(true);
 						Bewegung myBewegung = restHandler.getBewegungObj(etagenid,
 								raumid, elemid);
 						textOutput.setText(textOutput.getText() + "<"
@@ -579,7 +579,7 @@ public class ClientFrame extends JFrame {
 								+ myBewegung.isZustand() + "\n");
 						break;
 					case 8:
-						btnAendern.setEnabled(false);
+						btnAendern.setEnabled(true);
 						Feuermeld myFeuermeld = restHandler.getFeuermeldObj(
 								etagenid, raumid, elemid);
 						textOutput.setText(textOutput.getText() + "<"
@@ -940,6 +940,162 @@ public class ClientFrame extends JFrame {
 											+ "\tSteckdose konnte nicht an/ausgeschaltet werden!");
 								}
 						break;
+						case 6:
+							JComboBox cbStatus2 = new JComboBox();
+							Kontakt myKontakt = restHandler.getKontaktObj(etageid,
+									raumid, elemid);
+							if (myKontakt.isZustand()) {
+								cbStatus2.addItem("an");
+								cbStatus2.addItem("aus");
+							} else {
+								cbStatus2.addItem("aus");
+								cbStatus2.addItem("an");
+							}
+							Object[] kontaktMsg = { "Status", cbStatus2 };
+							JOptionPane updateKontaktPane = new JOptionPane(
+									kontaktMsg, JOptionPane.PLAIN_MESSAGE,
+									JOptionPane.OK_CANCEL_OPTION);
+							updateKontaktPane.createDialog(null,
+									"Kontakt an/auschalten").setVisible(true);
+							int updateKontaktPaneVal = ((Integer) updateKontaktPane
+									.getValue()).intValue();
+							if (updateKontaktPaneVal == JOptionPane.CANCEL_OPTION)
+								return;
+							Boolean status2 = null;
+							switch (cbStatus2.getSelectedItem().toString()) {
+							case "an":
+								status2 = true;
+								break;
+							case "aus":
+								status2 = false;
+								break;
+							}
+							if ((cbStatus2.getSelectedItem().toString().length()) > 0
+									&& (cbStatus2.getSelectedItem() != null)
+									&& (restHandler.updateKontakt(etageid,
+											raumid, elemid, status2))) {
+								textOutput.setText(textOutput.getText() + "<"
+										+ now("hh:mm:ss") + ">\t"
+										+ etagenView.getSelectedValue() + " > "
+										+ raeumeView.getSelectedValue() + " > "
+										+ kategorienView.getSelectedValue()
+										+ " :\n" + "\tKontakt wurde "
+										+ cbStatus2.getSelectedItem().toString()
+										+ "geschaltet!\n");
+							} else {
+								textOutput.setText(textOutput.getText()
+										+ "<"
+										+ now("hh:mm:ss") + ">\t"
+										+ etagenView.getSelectedValue() + " > "
+										+ raeumeView.getSelectedValue() + " > "
+										+ kategorienView.getSelectedValue() + " :\n"
+										+ "\tKontakt konnte nicht an/ausgeschaltet werden!");
+							}
+						break;
+						case 7:
+							JComboBox cbStatus3 = new JComboBox();
+							Bewegung myBewegung = restHandler.getBewegungObj(etageid,
+									raumid, elemid);
+							if (myBewegung.isZustand()) {
+								cbStatus3.addItem("an");
+								cbStatus3.addItem("aus");
+							} else {
+								cbStatus3.addItem("aus");
+								cbStatus3.addItem("an");
+							}
+							Object[] bewegungMsg = { "Status", cbStatus3 };
+							JOptionPane updateBewegungPane = new JOptionPane(
+									bewegungMsg, JOptionPane.PLAIN_MESSAGE,
+									JOptionPane.OK_CANCEL_OPTION);
+							updateBewegungPane.createDialog(null,
+									"Bewegungsmelder an/auschalten").setVisible(true);
+							int updateBewegungPaneVal = ((Integer) updateBewegungPane
+									.getValue()).intValue();
+							if (updateBewegungPaneVal == JOptionPane.CANCEL_OPTION)
+								return;
+							Boolean status3 = null;
+							switch (cbStatus3.getSelectedItem().toString()) {
+							case "an":
+								status3 = true;
+								break;
+							case "aus":
+								status3 = false;
+								break;
+							}
+							if ((cbStatus3.getSelectedItem().toString().length()) > 0
+									&& (cbStatus3.getSelectedItem() != null)
+									&& (restHandler.updateBewegungsmelder(etageid,
+											raumid, elemid, status3))) {
+								textOutput.setText(textOutput.getText() + "<"
+										+ now("hh:mm:ss") + ">\t"
+										+ etagenView.getSelectedValue() + " > "
+										+ raeumeView.getSelectedValue() + " > "
+										+ kategorienView.getSelectedValue()
+										+ " :\n" + "\tBewegungsmelder wurde "
+										+ cbStatus3.getSelectedItem().toString()
+										+ "geschaltet!\n");
+							} else {
+								textOutput.setText(textOutput.getText()
+										+ "<"
+										+ now("hh:mm:ss") + ">\t"
+										+ etagenView.getSelectedValue() + " > "
+										+ raeumeView.getSelectedValue() + " > "
+										+ kategorienView.getSelectedValue() + " :\n"
+										+ "\tBewegungsmelder konnte nicht an/ausgeschaltet werden!");
+							}
+						break;
+						case 8:
+							JComboBox cbStatus4 = new JComboBox();
+							Feuermeld myFeuermeld = restHandler.getFeuermeldObj(etageid,
+									raumid, elemid);
+							if (myFeuermeld.isZustand()) {
+								cbStatus4.addItem("an");
+								cbStatus4.addItem("aus");
+							} else {
+								cbStatus4.addItem("aus");
+								cbStatus4.addItem("an");
+							}
+							Object[] feuermeldMsg = { "Status", cbStatus4 };
+							JOptionPane updateFeuermeldPane = new JOptionPane(
+									feuermeldMsg, JOptionPane.PLAIN_MESSAGE,
+									JOptionPane.OK_CANCEL_OPTION);
+							updateFeuermeldPane.createDialog(null,
+									"Feuermelder an/auschalten").setVisible(true);
+							int updateFeuermeldPaneVal = ((Integer) updateFeuermeldPane
+									.getValue()).intValue();
+							if (updateFeuermeldPaneVal == JOptionPane.CANCEL_OPTION)
+								return;
+							Boolean status4 = null;
+							switch (cbStatus4.getSelectedItem().toString()) {
+							case "an":
+								status4 = true;
+								break;
+							case "aus":
+								status4 = false;
+								break;
+							}
+							if ((cbStatus4.getSelectedItem().toString().length()) > 0
+									&& (cbStatus4.getSelectedItem() != null)
+									&& (restHandler.updateFeuermelder(etageid,
+											raumid, elemid, status4))) {
+								textOutput.setText(textOutput.getText() + "<"
+										+ now("hh:mm:ss") + ">\t"
+										+ etagenView.getSelectedValue() + " > "
+										+ raeumeView.getSelectedValue() + " > "
+										+ kategorienView.getSelectedValue()
+										+ " :\n" + "\tFeuermelder wurde "
+										+ cbStatus4.getSelectedItem().toString()
+										+ "geschaltet!\n");
+							} else {
+								textOutput.setText(textOutput.getText()
+										+ "<"
+										+ now("hh:mm:ss") + ">\t"
+										+ etagenView.getSelectedValue() + " > "
+										+ raeumeView.getSelectedValue() + " > "
+										+ kategorienView.getSelectedValue() + " :\n"
+										+ "\tFeuermelder konnte nicht an/ausgeschaltet werden!");
+							}
+						break;
 						}
 					}
 				}
@@ -1137,51 +1293,6 @@ public class ClientFrame extends JFrame {
 		separator_1.setOrientation(SwingConstants.VERTICAL);
 		separator_1.setBounds(624, 9, 1, 351);
 		panel_1.add(separator_1);
-		
-		JPanel panel_2 = new JPanel();
-		tabbedPane.addTab("Server", null, panel_2, null);
-		panel_2.setLayout(null);
-		
-		JScrollPane scrollPane_9 = new JScrollPane();
-		scrollPane_9.setBounds(10, 42, 150, 250);
-		panel_2.add(scrollPane_9);
-		
-		JList list = new JList();
-		scrollPane_9.setViewportView(list);
-		
-		JLabel lblKategorien = new JLabel("Kategorien");
-		lblKategorien.setBounds(10, 17, 73, 14);
-		panel_2.add(lblKategorien);
-		
-		JScrollPane scrollPane_10 = new JScrollPane();
-		scrollPane_10.setBounds(170, 42, 150, 250);
-		panel_2.add(scrollPane_10);
-		
-		JList list_1 = new JList();
-		scrollPane_10.setViewportView(list_1);
-		
-		JLabel lblElemente = new JLabel("Elemente");
-		lblElemente.setBounds(170, 17, 46, 14);
-		panel_2.add(lblElemente);
-		
-		JScrollPane scrollPane_11 = new JScrollPane();
-		scrollPane_11.setBounds(10, 383, 774, 160);
-		panel_2.add(scrollPane_11);
-		
-		JTextPane textPane = new JTextPane();
-		scrollPane_11.setViewportView(textPane);
-		
-		JLabel lblOutput_2 = new JLabel("Output");
-		lblOutput_2.setBounds(10, 358, 46, 14);
-		panel_2.add(lblOutput_2);
-		
-		JButton btnndern = new JButton("\u00C4ndern");
-		btnndern.setBounds(330, 71, 109, 23);
-		panel_2.add(btnndern);
-		
-		JButton btnAktualisieren = new JButton("Aktualisieren");
-		btnAktualisieren.setBounds(330, 40, 109, 23);
-		panel_2.add(btnAktualisieren);
 	}
 
 	public void setConnectionHandlers(ConnectionHandler connHndlr,

@@ -595,9 +595,9 @@ public class RESTHandler {
 		return false;
 	}
 
-	public boolean updateSteckdose(int etagenid, int raumid, int elemid, Boolean status1) {
+	public boolean updateSteckdose(int etagenid, int raumid, int elemid, Boolean status) {
 		Steckdose mySteckdose = new Steckdose();
-		mySteckdose.setZustand(status1);
+		mySteckdose.setZustand(status);
 		ClientResponse response = null;
 		try {
 			response = service.path("/etage/" + etagenid + "/raum/" + raumid + "/steckdose/" + elemid)
@@ -613,14 +613,67 @@ public class RESTHandler {
 		return false;
 	}
 
+	public boolean updateKontakt(int etagenid, int raumid, int elemid, Boolean status) {
+		Kontakt myKontakt = new Kontakt();
+		myKontakt.setZustand(status);
+		ClientResponse response = null;
+		try {
+			response = service.path("/etage/" + etagenid + "/raum/" + raumid + "/kontakt/" + elemid)
+					.type(MediaType.APPLICATION_XML).entity(myKontakt)
+					.put(ClientResponse.class, JAXBProvider.marshall(myKontakt));
+		} catch (ClientHandlerException che){
+			return false;
+		}
+		
+		if (response.getStatus() == 204) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean updateFeuermelder(int etagenid, int raumid, int elemid, Boolean status) {
+		Feuermeld myFeuermeld = new Feuermeld();
+		myFeuermeld.setZustand(status);
+		ClientResponse response = null;
+		try {
+			response = service.path("/etage/" + etagenid + "/raum/" + raumid + "/feuermelder/" + elemid)
+					.type(MediaType.APPLICATION_XML).entity(myFeuermeld)
+					.put(ClientResponse.class, JAXBProvider.marshall(myFeuermeld));
+		} catch (ClientHandlerException che){
+			return false;
+		}
+		
+		if (response.getStatus() == 204) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean updateBewegungsmelder(int etagenid, int raumid, int elemid, Boolean status) {
+		Bewegung myBewegung = new Bewegung();
+		myBewegung.setZustand(status);
+		ClientResponse response = null;
+		try {
+			response = service.path("/etage/" + etagenid + "/raum/" + raumid + "/bewegungsmelder/" + elemid)
+					.type(MediaType.APPLICATION_XML).entity(myBewegung)
+					.put(ClientResponse.class, JAXBProvider.marshall(myBewegung));
+		} catch (ClientHandlerException che){
+			return false;
+		}
+		
+		if (response.getStatus() == 204) {
+			return true;
+		}
+		return false;
+	}
+	
+	
 	public boolean createElement(int etagenid, int raumid, String cat, String info) {
 		switch (cat) {
 			case "temperatur" : 
 				if(createTemperatur(etagenid, raumid)) {return true;} else {return false;}
 			case "feuchtigkeit" : 
 				if(createFeuchtigkeit(etagenid, raumid)) {return true;} else {return false;}
-			case "energie" : 
-				if(createEnergie(etagenid, raumid)) {return true;} else {return false;}
 			case "licht" : 
 				if(createLicht(etagenid, raumid, info)) {return true;} else {return false;}
 			case "verschattung" : 
@@ -700,36 +753,6 @@ public class RESTHandler {
 		return false;
 	}
 	
-	private boolean createEnergie(int etagenid, int raumid) {
-		Energie newEnergie = new Energie();
-		ClientResponse response = null;
-		try {
-			response = service
-					.path("/etage/" + etagenid + "/raum/" + raumid + "/energie")
-					.type(MediaType.APPLICATION_XML)
-					.entity(newEnergie)
-					.post(ClientResponse.class, JAXBProvider.marshall(newEnergie));
-		} catch (ClientHandlerException che) {
-			return false;
-		}
-
-		if (response.getStatus() == 201) {
-			String location = response.getLocation().toString();
-			ClientResponse subresponse;
-			try {
-				subresponse = Client.create().resource(location)
-						.accept(MediaType.APPLICATION_XML)
-						.get(ClientResponse.class);
-			} catch (ClientHandlerException che) {
-				return false;
-			}
-			if (subresponse.getStatus() == 200) {
-				return true;
-			}
-		}
-
-		return false;
-	}
 
 	private boolean createLicht(int etagenid, int raumid, String info){
 		Licht newLicht = new Licht();

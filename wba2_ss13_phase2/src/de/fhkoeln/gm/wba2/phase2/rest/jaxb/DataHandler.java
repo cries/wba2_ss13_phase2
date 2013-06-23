@@ -97,19 +97,6 @@ public class DataHandler {
 		return raumObj;
 	}
 
-	private Kamera getKameraObj(BigInteger kamera_id) {
-		Kamera kameraObj = null;
-		List<Kamera> kamera_list = rootEl.getKamerasEl().getKameraEl();
-
-		for (Kamera curr_kamera : kamera_list) {
-			if (curr_kamera.getId().equals(kamera_id)) {
-				kameraObj = curr_kamera;
-				break;
-			}
-		}
-		return kameraObj;
-	}
-
 	private Licht getLichtObj(BigInteger etagen_id, BigInteger raum_id,
 			BigInteger licht_id) {
 		Licht lichtObj = null;
@@ -203,92 +190,6 @@ public class DataHandler {
 	public String getGebaeude() {
 		Gebaeude gebaeude_elem = rootEl;
 		return marshall(gebaeude_elem);
-	}
-
-	public String getHeizung() {
-		Heizung heizung_elem = rootEl.getHeizungEl();
-		return marshall(heizung_elem);
-	}
-
-	public Boolean createHeizung(String heizung_data) {
-		Heizung newHeizung = (Heizung) unmarshall(heizung_data, Heizung.class);
-		HeizungIst newHeizungIst = new HeizungIst();
-		HeizungSoll newHeizungSoll = new HeizungSoll();
-
-		newHeizungIst.setEinheit("Celsius");
-		newHeizungIst.setWert(BigDecimal.valueOf(20.0));
-		newHeizungSoll.setEinheit("Celsius");
-		newHeizungSoll.setWert(BigDecimal.valueOf(21.0));
-
-		newHeizung.setHeizungIstEl(newHeizungIst);
-		newHeizung.setHeizungSollEl(newHeizungSoll);
-
-		rootEl.setHeizungEl(newHeizung);
-
-		root_marshall();
-
-		return true;
-	}
-
-	public String getHeizungIst() {
-		HeizungIst heizungIst_elem = rootEl.getHeizungEl().getHeizungIstEl();
-		return marshall(heizungIst_elem);
-	}
-
-	public String getHeizungSoll() {
-		HeizungSoll heizungSoll_elem = rootEl.getHeizungEl().getHeizungSollEl();
-		return marshall(heizungSoll_elem);
-	}
-
-	public String getKameras() {
-		Kameras kameras_elem = rootEl.getKamerasEl();
-		return marshall(kameras_elem);
-	}
-
-	public String getKamera(BigInteger kamera_id) {
-		Kamera kameraObj = null;
-		List<Kamera> kameras_list = rootEl.getKamerasEl().getKameraEl();
-
-		for (Kamera curr_kamera : kameras_list) {
-			if (curr_kamera.getId().equals(kamera_id)) {
-				kameraObj = curr_kamera;
-				break;
-			}
-		}
-		return marshall(kameraObj);
-	}
-
-	public BigInteger createKamera(String kamera_data) {
-		Kamera newKamera = (Kamera) unmarshall(kamera_data, Kamera.class);
-		int arraySize = rootEl.getKamerasEl().getKameraEl().size();
-		int new_id = 1;
-
-		if (arraySize > 0) {
-			Kamera last_kamera = rootEl.getKamerasEl().getKameraEl()
-					.get(arraySize - 1);
-			new_id = last_kamera.getId().intValue() + 1;
-		}
-
-		newKamera.setId(BigInteger.valueOf(new_id));
-
-		rootEl.getKamerasEl().getKameraEl().add(newKamera);
-
-		root_marshall();
-
-		return BigInteger.valueOf(new_id);
-	}
-
-	public String getEnergie() {
-		Energie energie_elem = rootEl.getEnergieEl();
-		return marshall(energie_elem);
-	}
-
-	public Boolean createEnergie(String energie_data) {
-		Energie newEnergie = (Energie) unmarshall(energie_data, Energie.class);
-
-		rootEl.setEnergieEl(newEnergie);
-		root_marshall();
-		return true;
 	}
 
 	public String getEtagen() {
@@ -718,42 +619,6 @@ public class DataHandler {
 		return BigInteger.valueOf(new_id);
 	}
 
-	public Boolean deleteHeizung() {
-		if (rootEl.getHeizungEl() == null)
-			return false;
-
-		rootEl.setHeizungEl(null);
-		root_marshall();
-		return true;
-	}
-
-	public Boolean deleteKamera(BigInteger kamera_id) {
-		Kamera found_kamera;
-		if ((found_kamera = getKameraObj(kamera_id)) != null) {
-			rootEl.getKamerasEl().getKameraEl().remove(found_kamera);
-			root_marshall();
-			return true;
-		} else
-			return false;
-	}
-
-	public Boolean deleteKameras() {
-		if (rootEl.getKamerasEl() == null)
-			return false;
-		rootEl.setKamerasEl(null);
-		root_marshall();
-		return true;
-	}
-
-	public Boolean deleteEnergie() {
-		if (rootEl.getEnergieEl() == null)
-			return false;
-
-		rootEl.setEnergieEl(null);
-		root_marshall();
-		return true;
-	}
-
 	public Boolean deleteEtage(BigInteger etagen_id) {
 		Etage found_etage;
 		if ((found_etage = getEtageObj(etagen_id)) != null) {
@@ -964,68 +829,6 @@ public class DataHandler {
 		}
 		return false;
 	}
-
-	public Boolean updateHeizungSoll(String body) {
-
-		if ((rootEl.getHeizungEl()) != null) {
-			HeizungSoll heizungSoll_data = (HeizungSoll) unmarshall(body,
-					HeizungSoll.class);
-
-			if (heizungSoll_data.getWert() != null)
-				rootEl.getHeizungEl().setHeizungSollEl(heizungSoll_data);
-
-			root_marshall();
-
-			return true;
-		}
-		return false;
-	}
-	
-	public Boolean updateHeizungIst(String body) {
-
-		if ((rootEl.getHeizungEl()) != null) {
-			HeizungIst heizungIst_data = (HeizungIst) unmarshall(body,
-					HeizungIst.class);
-
-			if (heizungIst_data.getWert() != null)
-				rootEl.getHeizungEl().setHeizungIstEl(heizungIst_data);
-
-			root_marshall();
-
-			return true;
-		}
-		return false;
-	}
-	
-	public Boolean updateKamera(BigInteger kamera_id, String body) {
-		Kamera found_kamera = getKameraObj(kamera_id);
-		if (found_kamera != null) {
-			Kamera kamera_data = (Kamera) unmarshall(body,
-					Kamera.class);
-			
-				found_kamera.setZustand(kamera_data.isZustand());
-
-			root_marshall();
-
-			return true;
-		}
-		return false;
-	}
-	
-	public Boolean updateEnergie(String body) {
-		if ((rootEl.getEnergieEl()) != null) {
-			Energie energie_data = (Energie) unmarshall(body,
-					Energie.class);
-
-			if (energie_data.getWert() != null)
-				rootEl.getEnergieEl().getWert();
-
-			root_marshall();
-
-			return true;
-		}
-		return false;
-	}
 	
 	public Boolean updateRaumEnergie(BigInteger etage_id, BigInteger raum_id, String body) {
 		Raum found_raum = getRaumObj(etage_id, raum_id);
@@ -1193,24 +996,6 @@ public class DataHandler {
 		switch (instance.getClass().getSimpleName()) {
 		case "Gebaeude":
 			jaxbe = objFact.createGebaeudeEl((Gebaeude) instance);
-			break;
-		case "Heizung":
-			jaxbe = objFact.createHeizungEl((Heizung) instance);
-			break;
-		case "HeizungIst":
-			jaxbe = objFact.createHeizungIstEl((HeizungIst) instance);
-			break;
-		case "HeizungSoll":
-			jaxbe = objFact.createHeizungSollEl((HeizungSoll) instance);
-			break;
-		case "Kameras":
-			jaxbe = objFact.createKamerasEl((Kameras) instance);
-			break;
-		case "Kamera":
-			jaxbe = objFact.createKameraEl((Kamera) instance);
-			break;
-		case "Energie":
-			jaxbe = objFact.createEnergieEl((Energie) instance);
 			break;
 		case "Etagen":
 			jaxbe = objFact.createEtagenEl((Etagen) instance);
